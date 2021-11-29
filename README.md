@@ -23,7 +23,7 @@
 
 ## 設計書
 - 現在制作中
-<...>
+<!-- <...> -->
 
 ## チャレンジ要素一覧
 <https://docs.google.com/spreadsheets/d/1LiycZIPx4q-gWEzSSwqftGb-S7xonwi_akGFJzDFMVk/edit?usp=sharing>
