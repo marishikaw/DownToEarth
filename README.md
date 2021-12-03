@@ -30,6 +30,7 @@
 - [ワイヤーフレーム](https://drive.google.com/file/d/13If_hv-XrwEZUnYpSEbSjDMd5OLPqqIW/view?usp=sharing)
 - [ER図](https://drive.google.com/file/d/1p9KU4v9W9j8YpdSNqlkGoeU-szcDDIzW/view?usp=sharing)
 - [テーブル定義書](https://docs.google.com/spreadsheets/d/16QaUpWwlcQecx_nbGYP59jHVwpfkIUg9QiGOyBTcBjM/edit?usp=sharing)
+- [アプリケーション詳細設計](https://docs.google.com/spreadsheets/d/1bRgwOUp-psS0UV5VUJVLwBKT1wVCjq5sTKWbkBt6UCM/edit?usp=sharing)
 
 ## チャレンジ要素一覧
 - [チャレンジ要素一覧](https://docs.google.com/spreadsheets/d/1LiycZIPx4q-gWEzSSwqftGb-S7xonwi_akGFJzDFMVk/edit?usp=sharing)
