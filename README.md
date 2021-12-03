@@ -26,12 +26,13 @@
 - 環境保全活動を記録したい時
 
 ## 設計書
-- [UI Flowリンク](https://drive.google.com/file/d/1O36xGJozOAo8anEEk1189Ub18PXQKP-X/view?usp=sharing)
-- [ER図リンク](https://drive.google.com/file/d/1p9KU4v9W9j8YpdSNqlkGoeU-szcDDIzW/view?usp=sharing)
-- [テーブル定義書リンク](https://docs.google.com/spreadsheets/d/16QaUpWwlcQecx_nbGYP59jHVwpfkIUg9QiGOyBTcBjM/edit?usp=sharing)
+- [UI Flow](https://drive.google.com/file/d/1O36xGJozOAo8anEEk1189Ub18PXQKP-X/view?usp=sharing)
+- [ワイヤーフレーム](https://drive.google.com/file/d/13If_hv-XrwEZUnYpSEbSjDMd5OLPqqIW/view?usp=sharing)
+- [ER図](https://drive.google.com/file/d/1p9KU4v9W9j8YpdSNqlkGoeU-szcDDIzW/view?usp=sharing)
+- [テーブル定義書](https://docs.google.com/spreadsheets/d/16QaUpWwlcQecx_nbGYP59jHVwpfkIUg9QiGOyBTcBjM/edit?usp=sharing)
 
 ## チャレンジ要素一覧
-- [チャレンジ要素一覧リンク](https://docs.google.com/spreadsheets/d/1LiycZIPx4q-gWEzSSwqftGb-S7xonwi_akGFJzDFMVk/edit?usp=sharing)
+- [チャレンジ要素一覧](https://docs.google.com/spreadsheets/d/1LiycZIPx4q-gWEzSSwqftGb-S7xonwi_akGFJzDFMVk/edit?usp=sharing)
 
 ## 開発環境
 - OS：Linux(CentOS)
@@ -41,6 +42,4 @@
 - IDE：Cloud9
 
 ## 使用素材
-- 現在確認中
-<!--- 外部サービスの画像素材・音声素材を使用した場合は、必ずサービス名とURLを明記してください。-->
-<!--- 使用しない場合は、使用素材の項目をREADMEから削除してください。-->
+- [Unsplash（写真）](https://unsplash.com/)
