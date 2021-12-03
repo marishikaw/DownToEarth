@@ -26,11 +26,17 @@
 - 環境保全活動を記録したい時
 
 ## 設計書
+ <画面設計>
 - [UI Flow](https://drive.google.com/file/d/1O36xGJozOAo8anEEk1189Ub18PXQKP-X/view?usp=sharing)
 - [ワイヤーフレーム](https://drive.google.com/file/d/13If_hv-XrwEZUnYpSEbSjDMd5OLPqqIW/view?usp=sharing)
+
+ <DB設計>
 - [ER図](https://drive.google.com/file/d/1p9KU4v9W9j8YpdSNqlkGoeU-szcDDIzW/view?usp=sharing)
 - [テーブル定義書](https://docs.google.com/spreadsheets/d/16QaUpWwlcQecx_nbGYP59jHVwpfkIUg9QiGOyBTcBjM/edit?usp=sharing)
-- [詳細設計書](https://docs.google.com/spreadsheets/d/1bRgwOUp-psS0UV5VUJVLwBKT1wVCjq5sTKWbkBt6UCM/edit?usp=sharing)
+
+ <詳細設計>
+- [MVC・ルーティング](https://docs.google.com/spreadsheets/d/1bRgwOUp-psS0UV5VUJVLwBKT1wVCjq5sTKWbkBt6UCM/edit?usp=sharing)
+- [gem一覧](https://docs.google.com/spreadsheets/d/1bRgwOUp-psS0UV5VUJVLwBKT1wVCjq5sTKWbkBt6UCM/edit#gid=1031934256)
 
 ## チャレンジ要素一覧
 - [チャレンジ要素一覧](https://docs.google.com/spreadsheets/d/1LiycZIPx4q-gWEzSSwqftGb-S7xonwi_akGFJzDFMVk/edit?usp=sharing)
