@@ -1,1 +1,20 @@
-<h1>アバウト画面</h1>
+<div>
+	<h1>About</h1>
+	<p>このサイトについての説明文</p>
+</div>
+ 
+<div>
+	<ul>
+		<li class="nav-item">
+		  <%= link_to "Post", root_path, class:"nav-link ml-2" %>
+		</li>
+		
+		<li class="nav-item">
+		  <%= link_to "LogIn", new_user_session_path, class:"nav-link ml-2" %>
+		</li>
+		
+		<li class="nav-item">
+		  <%= link_to "SignUp", new_user_registration_path, class:"nav-link ml-2" %>
+		</li>		
+	</ul>
+</div>
