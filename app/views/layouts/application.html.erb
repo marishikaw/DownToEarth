@@ -10,6 +10,34 @@
   </head>
 
   <body>
+    <!--lgサイズ以下はハンバーガーメニューを表示-->
+    <header class="shadow-sm">
+      <nav class="navbar navbar-expand-xl navbar-light">
+        <div class="container-fluid">
+          
+          <div class="text-center">
+            <%= link_to "Down To Earth", root_path, class:"navbar-brand" %>
+          </div>
+          
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          
+          <div class="collapse navbar-collapse flex-column" id="navbarNavDropdown">
+            <ul class="navbar-nav ml-auto">
+            <% if user_signed_in? %>
+              <%= render "layouts/sign_in" %>
+            <% else %>
+              <%= render 'layouts/sign_out' %>
+            <% end %>
+            </ul>
+          </div>
+          
+        </div>
+      </nav>
+    </header>
+    
     <%= yield %>
+
   </body>
 </html>
