@@ -6,15 +6,15 @@
     <div class="border border-secondary p-5">
       <%= form_with model: @user, url: user_session_path, local: true do |f| %>
         <div class="form-group pb-2">
-          <%= f.email_field :email, autofocus: true, placeholder:"メールアドレス", autocomplete: "email",class:"form-control" %>
+          <%= f.email_field :email, autofocus: true, placeholder:"メールアドレス", autocomplete: "email", class:"form-control" %>
         </div>
       
         <div class="form-group pb-3">
-          <%= f.password_field :password, placeholder:"パスワード", autocomplete: "current-password",class:"form-control" %>
+          <%= f.password_field :password, placeholder:"パスワード", autocomplete: "current-password", class:"form-control" %>
         </div>
       
         <div class="form-group">
-          <%= f.submit "ログイン",class:"btn", style:"width:200px; color:white; background-color:#00BFFF;" %>
+          <%= f.submit "ログイン",class:"submit" %>
         </div>
       <% end %>
     </div>

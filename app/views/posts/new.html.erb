@@ -1,2 +1,10 @@
-<h1>Posts#new</h1>
-<p>Find me in app/views/posts/new.html.erb</p>
+<div class='container'>
+  <div class='row'>
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+  	<h3>新規投稿を作成</h3>
+    	<%= render 'posts/form', post: @post %>
+    </div>
+  </div>
+</div>
+
+<%= render 'layouts/footer' %>

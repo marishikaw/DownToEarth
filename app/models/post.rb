@@ -7,6 +7,7 @@ class Post < ApplicationRecord
     favorites.where(user_id: user.id).exists?
   end
   
-	validates :image_id, presence: true
+  attachment :image
+  
 	validates :caption, length: {maximum: 200}
 end

@@ -1,8 +1,4 @@
 Rails.application.routes.draw do
-  get 'posts/index'
-  get 'posts/new'
-  get 'posts/edit'
-  get 'posts/show'
   devise_for :users, skip: 'passwords'
   
   root to: 'homes#top'
@@ -11,5 +7,10 @@ Rails.application.routes.draw do
   resources :users, skip:[:create]
   get 'users/:id/unsubscribe' => 'users#unsubscribe', as: 'confirm_unsubscribe'
   patch 'users/:id/withdraw' => 'users#withdraw', as: 'withdraw_customer'
-  put 'users/:id/withdraw' => 'users#withdraw'  
+  put 'users/:id/withdraw' => 'users#withdraw'
+  
+  resources :posts do
+    resource :favorites, only: [:create, :destroy]
+    resources :comments, only: [:create, :destroy]
+  end
 end
