@@ -9,6 +9,9 @@
   </head>
 
   <body>
+    <p class="text-center text-light bg-info"><%= notice %></p>
+    <p class="text-center text-light bg-warning"><%= alert %></p>
+    
     <!--720px以下はハンバーガーメニューに格納-->
     <header class="shadow-sm">
       <nav class="navbar navbar-expand-md navbar-light">
@@ -43,8 +46,6 @@
     </header>
     
     <main>
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
       <%= yield %>
     </main>
 
