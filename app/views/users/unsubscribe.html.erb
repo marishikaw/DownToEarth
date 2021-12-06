@@ -1,2 +1,33 @@
-<h1>User#unsubscribe</h1>
-<p>Find me in app/views/user/unsubscribe.html.erb</p>
+<div class="container">
+		<div class="row justify-content-center">
+				
+			<div class="col-sm-12 col-md-10 col-lg-6">
+				<div class="text-center">
+					<h4>アカウントを削除</h3>
+				</div>
+				
+				<div class="p-3">
+					<div class="py-4">
+						<h4>
+			        <%= @user.name %>
+			        <span style="font-size:20px;">さん</span>
+			      </h4>
+					</div>
+					
+					<div class="text-center">
+						<p>アカウントを削除するとこれまでの投稿が閲覧できなくなります。</p>
+						<p>削除する場合は「アカウントを削除する」をクリックしてください。</p>
+					</div>
+				</div>
+				
+				<div>
+		      <%= link_to "アカウントを削除する", withdraw_customer_path, method: :PATCH ,class:"submit" ,style:"width:150px"%>
+		    </div>	
+				<div>
+		      <%= link_to "戻る", edit_user_path ,class:"btn btn-outline-secondary m-3" ,style:"width:150px"%>
+		    </div>	
+			</div>
+		</div>
+</div>
+
+<%= render 'layouts/footer' %>

@@ -27,6 +27,7 @@ class User::SessionsController < Devise::SessionsController
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   # end
   
+  # 退会済みユーザーをチェック
   def user_state
     @user = User.find_by(email: params[:user][:email])
     return if !@user

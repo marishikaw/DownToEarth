@@ -8,18 +8,24 @@
       <div class="col">
     		<table class='table table-borderless'>
     		  <tr>
-  		      <%= link_to user_path(@post.user) do %>
-    		      <td class="user_icon">
-                <%= attachment_image_tag(@post.user, :icon, :fill, 40, 40, fallback: "no-image-icon.jpg", size:'40x40') %>
-              </td>
-    		      <td>
+    		    <td class="user_icon">
+    		      <%= link_to user_path(@post.user) do %>
+                  <%= attachment_image_tag(@post.user, :icon, :fill, 40, 40, fallback: "no-image-icon.jpg", size:'40x40') %>
+              <% end %>
+            </td>
+    		    <td>
+    		      <%= link_to user_path(@post.user) do %>
                 <%= @post.user.name %>
-              </td>
-            <% end %>
+              <% end %>
+            </td>
             
             <% if @post.user == current_user %>
-              <td><%= link_to '編集', edit_post_path(@post), class: "btn btn-sm btn-info edit_post_#{@post.id}" %></td>
-              <td><%= link_to '削除', post_path(@post), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-outline-danger destroy_post_#{@post.id}"%></td>
+              <td>
+                <%= link_to '編集', edit_post_path(@post), class: "btn btn-sm btn-info edit_post_#{@post.id}" %>
+              </td>
+              <td>
+                <%= link_to '削除', post_path(@post), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-outline-danger destroy_post_#{@post.id}"%>
+              </td>
             <% end %>
           </tr>
         </table>        
@@ -71,3 +77,5 @@
     </div>
   </div>
 </div>
+
+<%= render 'layouts/footer' %>

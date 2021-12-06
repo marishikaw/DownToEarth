@@ -1,0 +1,37 @@
+<% posts.each do |post| %>
+  <div>
+    <%= link_to post_path(post.id) do %>
+        <%= attachment_image_tag post, :image, :fill, 250, 250 %>
+    <% end %>
+  </div>
+  
+  <ul class="list-group list-group-horizontal">
+    <%= link_to user_path(post.user.id) do %>
+      <li class="list-inline-item user_icon">
+        <%= attachment_image_tag(post.user, :icon, :fill, 40, 40, fallback: "no-image-icon.jpg", size:'40x40') %>
+      </li>
+      <li class="list-inline-item">
+        <%= post.user.name %>
+      </li>
+    <% end %>
+  </ul>
+
+  <% if post.favorited_by?(current_user) %>
+    <p>
+      <%= link_to posts_path(post), method: :delete do %>
+        ♥<%= post.favorites.count %>
+      <% end %>
+    </p>
+    <% else %>
+    <p>
+      <%= link_to posts_path(post), method: :post do %>
+        ♡<%= post.favorites.count %>
+      <% end %>
+    </p>
+  <% end %>
+  
+  <%= link_to post_path(post.id) do %>
+    <p><%= post.caption %></p>
+  <% end %>
+
+<% end %>

@@ -1,2 +1,11 @@
-<h1>Posts#index</h1>
-<p>Find me in app/views/posts/index.html.erb</p>
+<div class="container">
+	<div class="row">
+		<div class="col">
+			<%= render 'posts/list', posts: @posts %>
+		</div>
+
+		<div class="col">
+			<%= render 'layouts/sidebar' %>
+		</div>
+	</div>
+</div>

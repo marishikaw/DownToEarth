@@ -1,2 +1,46 @@
-<h1>User#show</h1>
-<p>Find me in app/views/user/show.html.erb</p>
+<div class="container">
+	<div class="row">
+		<div class="col">
+			<div>
+				<div class="user_icon">
+		      <%= attachment_image_tag(@user, :icon, :fill, 100, 100, fallback: "no-image-icon.jpg") %>
+		    </div>
+				<div class="col">
+					<table class="table table-borderless">
+						<tr>
+							<td>
+								<%= @user.name %>
+							</td>
+							<td>
+								<p>フォローする</p>
+							</td>
+							<td>
+								<%= link_to '編集', edit_user_path(@user), class: "btn btn-sm btn-outline-secondary edit_post_#{@user.id}" %>
+							</td>
+						</tr>
+						
+						<tr>
+							<td>
+								<P>投稿<%= @posts.count %>件</P>
+							</td>
+							<td>
+								<P>フォロワー　人</P>
+							</td>
+							<td>
+								<P>フォロー中　人</P>
+							</td>
+						</tr>
+					</table>
+							<div>
+								<%= @user.introduction %>
+							</div>
+		    </div>
+		  </div>
+			<%= render 'posts/list', posts: @posts %>
+		</div>
+
+		<div class="col">
+			<%= render 'layouts/sidebar' %>
+		</div>
+	</div>
+</div>

@@ -15,7 +15,11 @@
 </li>
 
 <li class="nav-item">
-  <%= link_to "MyPage", user_path(current_user), class:"nav-link ml-2" %>
+  <%= link_to user_path(current_user) do %>
+    <div class="user_icon">
+      <%= attachment_image_tag(current_user, :icon, :fill, 40, 40, fallback: "no-image-icon.jpg", size:'40x40') %>
+    </div>
+  <% end %>
 </li>
 
 <li class="nav-item">

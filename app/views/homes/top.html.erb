@@ -1,1 +1,11 @@
-<%= render 'layouts/sidebar' %>
+<div class="container">
+	<div class="row">
+		<div class="col">
+			<%= render 'posts/list', posts: @posts %>
+		</div>
+
+		<div class="col">
+			<%= render 'layouts/sidebar' %>
+		</div>
+	</div>
+</div>
