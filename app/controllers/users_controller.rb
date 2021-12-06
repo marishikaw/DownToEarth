@@ -25,11 +25,13 @@ class UsersController < ApplicationController
       render :edit
     end
   end
-
+  
+  # 退会画面
   def unsubscribe
     @user = current_customer
   end
 
+  # 退会処理の実行
   def withdraw
     user = current_customer
     if user.update(is_deleted: true)
@@ -38,7 +40,9 @@ class UsersController < ApplicationController
     end      
   end
 
+  # プライベートメソッド--------------------------------------
   private
+  
   def user_params
     params.require(:user).permit(:name, :introduction, :icon)
   end
