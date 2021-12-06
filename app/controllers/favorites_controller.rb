@@ -4,7 +4,6 @@ class FavoritesController < ApplicationController
     favorite = current_user.favorites.new(post_id: post.id)
     favorite.save
     redirect_to post_path(post)
-    binding.pry
   end
 
   def destroy

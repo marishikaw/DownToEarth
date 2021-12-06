@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   patch 'users/:id/withdraw' => 'users#withdraw', as: 'withdraw_customer'
   put 'users/:id/withdraw' => 'users#withdraw'
   
-  # 投稿（いいね、コメント）
+  # 投稿
   resources :posts do
     resource :favorites, only: [:create, :destroy]
     resources :comments, only: [:create, :destroy]
