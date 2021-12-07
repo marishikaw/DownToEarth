@@ -31,7 +31,9 @@
 - [ワイヤーフレーム](https://drive.google.com/file/d/13If_hv-XrwEZUnYpSEbSjDMd5OLPqqIW/view?usp=sharing)
 
  <DB設計>
-- [ER図](https://drive.google.com/file/d/1p9KU4v9W9j8YpdSNqlkGoeU-szcDDIzW/view?usp=sharing)
+- ER図
+![DownToEarth_ER](https://user-images.githubusercontent.com/90078966/145024891-38eb19ea-6880-452a-bfd6-9fe4ab040c88.jpg)
+　　
 - [テーブル定義書](https://docs.google.com/spreadsheets/d/16QaUpWwlcQecx_nbGYP59jHVwpfkIUg9QiGOyBTcBjM/edit?usp=sharing)
 
  <詳細設計>
