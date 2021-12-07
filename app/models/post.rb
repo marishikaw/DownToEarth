@@ -5,20 +5,20 @@ class Post < ApplicationRecord
 	has_many :comments, dependent: :destroy
 	has_many :favorites, dependent: :destroy
   
-  # いいね機能用（ユーザーの存在をチェック）
+  # いいね確認用メソッド
   def favorited_by?(user)
     favorites.where(user_id: user.id).exists?
   end
   
   # 画像アップ用メソッド
   accepts_attachments_for :post_images, attachment: :image
-	FILE_NUMBER_LIMIT = 4
   
   # バリデーション
+	FILE_NUMBER_LIMIT = 4
 	validates :caption, length: {maximum: 200}
-	validates :images, presence: true
   validate :validate_number_of_files
 	
+  #	プライベートメソッド------------------------------------------------------
   private	
 	
   def validate_number_of_files
