@@ -15,14 +15,14 @@ class Post < ApplicationRecord
   
   # バリデーション
 	FILE_NUMBER_LIMIT = 4
-	validates :caption, length: {maximum: 200}
   validate :validate_number_of_files
+	validates :caption, length: {maximum: 200}
 	
   #	プライベートメソッド------------------------------------------------------
   private	
 	
   def validate_number_of_files
     return if post_images.length <= FILE_NUMBER_LIMIT
-     errors.add(:images, "に添付できる画像は#{FILE_NUMBER_LIMIT}件までです。")
-  end	
+     errors.add(:image, "の添付は#{FILE_NUMBER_LIMIT}枚までです。")
+  end
 end
