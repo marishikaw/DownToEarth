@@ -1,0 +1,20 @@
+<table class='table table-borderless'>
+  <% users.each do |user| %>
+    <tr>
+	    <td class="user_icon">
+	      <%= link_to user_path(user) do %>
+        	<%= attachment_image_tag(user, :icon, :fill, 40, 40, fallback: "no-image-icon.jpg", size:'40x40') %>
+        <% end %>
+      </td>
+	    <td>
+	      <%= link_to user_path(user) do %>
+          <%= user.name %>
+        <% end %>
+        <br>
+        <%= user.introduction %>
+      </td>
+      <td>
+      </td>
+    </tr>
+  <% end %>
+</table>
