@@ -34,13 +34,13 @@
           <% if @post.favorited_by?(current_user) %>
             <p>
               <%= link_to post_favorites_path(@post), method: :delete do %>
-                ♥<%= @post.favorites.count %> いいね
+                ♥　いいね！<%= @post.favorites.count %> 件
               <% end %>
             </p>
             <% else %>
             <p>
               <%= link_to post_favorites_path(@post), method: :post do %>
-                ♡<%= @post.favorites.count %> いいね
+                ♡　いいね！<%= @post.favorites.count %> 件
               <% end %>
             </p>
           <% end %>
@@ -51,7 +51,7 @@
         
         <div>
           <% @post.comments.each do |comment| %>
-            <div  class="user_icon">
+            <div  class="user_icon_">
               <%= attachment_image_tag comment.user, :icon, :fill, 30, 30, fallback: "no-image-icon.jpg", size:'30x30' %>
             </div>
             <%= comment.user.name %>

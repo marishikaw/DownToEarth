@@ -39,6 +39,15 @@
     object-fit: cover;
     border: 1px solid #FFFFFF;
     outline: 1px solid #808080;
+    outline-offset: 3px;
+  }
+}
+.user_icon_s {
+  .icon {
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1px solid #FFFFFF;
+    outline: 1px solid #808080;
     outline-offset: 2px;
   }
 }
