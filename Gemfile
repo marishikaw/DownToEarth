@@ -67,6 +67,9 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # 環境変数化
 gem 'dotenv-rails'
 
+# エラーメッセージの日本語化
+gem 'rails-i18n', '~> 5.1'
+
 # ユーザー認証
 gem 'devise'
 gem 'devise-i18n'

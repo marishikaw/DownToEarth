@@ -16,8 +16,7 @@ class PostsController < ApplicationController
       flash[:notice] = 'アップロードしました。'
       redirect_to post_path(@post)
     else
-      @posts = Post.all
-      render 'index'
+      render :new
     end
   end
 
@@ -50,10 +49,10 @@ class PostsController < ApplicationController
     redirect_to posts_path
   end
 
-  # プライベートメソッド---------------------------
+  # プライベートメソッド------------------------------------------
   private
   
   def post_params
-    params.require(:post).permit(:image, :caption)
+    params.require(:post).permit(:caption, post_images_images: [])
   end
 end

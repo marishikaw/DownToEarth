@@ -2,7 +2,9 @@
   <div class="py-5">
     <div class="row">
       <div class="col">
-        <%= attachment_image_tag @post, :image, :fill, 500, 500 %>
+        <% @post.post_images.first(1).each do |image| %>
+          <%= attachment_image_tag image, :image, :fill, 500, 500 %>
+        <% end %>
       </div>
 
       <div class="col">
@@ -18,7 +20,7 @@
                 <%= @post.user.name %>
               <% end %>
             </td>
-            
+
             <% if @post.user == current_user %>
               <td>
                 <%= link_to '編集', edit_post_path(@post), class: "btn btn-sm btn-info edit_post_#{@post.id}" %>
@@ -28,8 +30,8 @@
               </td>
             <% end %>
           </tr>
-        </table>        
-        
+        </table>
+
         <div>
           <% if @post.favorited_by?(current_user) %>
             <p>
@@ -44,11 +46,11 @@
               <% end %>
             </p>
           <% end %>
-          
+
           <p><%= @post.created_at.strftime('%Y/%m/%d') %></p>
           <p><%= @post.caption %></p>
         </div>
-        
+
         <div>
           <% @post.comments.each do |comment| %>
             <div  class="user_icon_">

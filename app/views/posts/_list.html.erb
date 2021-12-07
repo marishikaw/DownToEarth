@@ -1,7 +1,9 @@
 <% posts.each do |post| %>
   <div>
     <%= link_to post_path(post.id) do %>
-        <%= attachment_image_tag post, :image, :fill, 250, 250 %>
+      <% post.post_images.first(1).each do |image| %>
+        <%= attachment_image_tag image, :image, :fill, 250, 250 %>
+      <% end %>
     <% end %>
   </div>
   
