@@ -21,6 +21,12 @@
   <!--いいね機能非同期通信-->
   <div id="favorite-btn_<%= post.id %>"><%= render "favorites/favorite-btn", post: post %></div>
   
+  <div>
+    <% post.tags.each do |tag| %>
+     <%= tag.name %>
+    <% end %>
+  </div>
+  
   <%= link_to post_path(post.id) do %>
     <p><%= post.caption %></p>
   <% end %>

@@ -11,7 +11,8 @@
         <%= f.text_field :caption, placeholder:"キャプション", class: "form-control name" %>
       </div>
       <div class="form-group">
-        
+        <%= f.text_field :tag_ids, class: "form-control", id:'tag_ids',\
+            placeholder: "タグ（間に','（カンマ）を入れて複数入力）" %>
       </div>
       <div class="form-group">
         <%= f.submit 'シェア', class: 'submit' %>
