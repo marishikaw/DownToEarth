@@ -2,6 +2,7 @@
   <div class="py-5">
     <div class="row">
       <div class="col">
+        <!--投稿画像をスライドに格納-->
         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-interval="3000">
           <ol class="carousel-indicators">
             <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -12,7 +13,7 @@
           <div class="carousel-inner">
             <div class="carousel-item active">
               <% @post.post_images.first(1).each do |image| %>
-                <%= attachment_image_tag image, :image, :fill, 400, 400 , class: "carousel_image"  %>
+                <%= attachment_image_tag image, :image, :fill, 400, 400 , class: "carousel_image" %>
               <% end %>
             </div> 
             <% @post.post_images.drop(1).each do |image| %>
@@ -58,48 +59,25 @@
         </table>
 
         <div>
-          <% if @post.favorited_by?(current_user) %>
-            <p>
-              <%= link_to post_favorites_path(@post), method: :delete do %>
-                ♥　いいね！<%= @post.favorites.count %> 件
-              <% end %>
-            </p>
-            <% else %>
-            <p>
-              <%= link_to post_favorites_path(@post), method: :post do %>
-                ♡　いいね！<%= @post.favorites.count %> 件
-              <% end %>
-            </p>
-          <% end %>
+          <!--いいね機能非同期通信-->
+          <p id="favorite-btn_<%= @post.id %>"><%= render "favorites/favorite-btn", post: @post %></p>
 
           <p><%= @post.created_at.strftime('%Y/%m/%d') %></p>
           <p><%= @post.caption %></p>
         </div>
-
-        <div>
-          <% @post.comments.each do |comment| %>
-            <div  class="user_icon_">
-              <%= attachment_image_tag comment.user, :icon, :fill, 30, 30, fallback: "no-image-icon.jpg", size:'30x30' %>
-            </div>
-            <%= comment.user.name %>
-            <%= comment.created_at.strftime('%Y/%m/%d') %><%= comment.comment %>
-            <% if comment.user == current_user %>
-            <div>
-              <% if comment.user == current_user %>
-                <%= link_to "削除", post_comment_path(comment.post, comment), method: :delete, data: { confirm: '本当に消しますか？' } %>
-              <% end %>
-            </div>
-            <% end %>
-          <% end %>
-          <p>コメント件数：<%= @post.comments.count %></p>
+        
+        <!--コメント機能非同期通信-->
+        <div id="comments">
+          <%= render "posts/comment",post: @post,comment: @comment %>
         </div>
-
+        
         <div>
-          <%= form_with(model:[@post, @comment], local: true) do |f| %>
-            <%= f.text_area :comment, rows:'5',placeholder: "コメントを追加…" %>
-            <%= f.submit "投稿する" %>
-          <% end %>
+        <%= form_with(model:[@post, @comment], remote: true) do |f| %>
+          <%= f.text_area :comment, rows:'5', size:"40x5", placeholder: "コメントを追加…" %>
+          <%= f.submit "投稿する" %>
+        <% end %>
         </div>
+        
       </div>
     </div>
   </div>
