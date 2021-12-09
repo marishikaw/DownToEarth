@@ -12,9 +12,7 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.user_id = current_user.id
-    tag_list = params[:post][:tag_ids].split(',')
     if @post.save
-      @post.save_tags(tag_list)
       flash[:notice] = 'アップロードしました。'
       redirect_to post_path(@post)
     else
@@ -29,7 +27,6 @@ class PostsController < ApplicationController
 
   def edit
     @post = Post.find(params[:id])
-    @tag_list =@post.tags.pluck(:name).join(",")
     user = @post.user
     if user != current_user
       redirect_to posts_path
