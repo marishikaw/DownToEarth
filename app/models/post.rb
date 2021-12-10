@@ -18,7 +18,7 @@ class Post < ApplicationRecord
     hashtags  = self.caption.scan(/[#][\w\p{Han}ぁ-ヶｦ-ﾟー]+/) #ハッシュタグを検出
     post.hashtags = []
     hashtags.uniq.map do |hashtag|
-      tag = Hashtag.find_or_create_by(name: hashtag.downcase.delete('#')) #先頭の'#'を外した上で保存
+      tag = Hashtag.find_or_create_by(name: hashtag.downcase.delete('#')) #先頭の'#'を削除（全角含む）
       post.hashtags << tag
     end
   end
@@ -26,7 +26,7 @@ class Post < ApplicationRecord
   before_update do 
     post = Post.find_by(id: self.id)
     post.hashtags.clear
-    hashtags = self.caption.scan(/[#＃][\w\p{Han}ぁ-ヶｦ-ﾟー]+/)
+    hashtags = self.caption.scan(/[#][\w\p{Han}ぁ-ヶｦ-ﾟー]+/)
     hashtags.uniq.map do |hashtag|
       tag = Hashtag.find_or_create_by(name: hashtag.downcase.delete('#'))
       post.hashtags << tag

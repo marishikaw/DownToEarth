@@ -19,9 +19,15 @@
           <% end %>
 
           <!--いいね機能非同期通信-->
-          <span id="favorite-btn_<%= post.id %>" class="card-text">
-            <%= render "favorites/favorite-btn", post: post %>
-          </span>
+          <% if current_user.present? %>
+            <span id="favorite-btn_<%= post.id %>" class="card-text">
+              <%= render "favorites/favorite-btn", post: post %>
+            </span>
+          <% else %>
+            <span>
+              <%= "♥ いいね！ #{post.favorites.count}件" %>
+            </span>
+          <% end %>
           <p class="card-text">
             <%= render_with_hashtags(post.caption) %>
           </p>

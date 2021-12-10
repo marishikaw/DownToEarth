@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
 	before_action :configure_permitted_parameters, if: :devise_controller?
-  
-  # ログイン・ログアウト時のパスを初期値から変更
+
+  # ログイン・ログアウト後のパスを初期値から変更
   def after_sign_in_path_for(resource)
     root_path
   end

@@ -2,35 +2,11 @@
   <div class="py-5">
     <div class="row">
       <div class="col">
-        <!--投稿画像をスライドに格納-->
-        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-interval="3000">
-          <ol class="carousel-indicators">
-            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-            <% @post.post_images.drop(1).count.times do |index| %>
-              <li data-target="#carouselExampleIndicators" data-slide-to="#{index}"></li>
-            <% end %>
-          </ol>
-          <div class="carousel-inner">
-            <div class="carousel-item active">
-              <% @post.post_images.first(1).each do |image| %>
-                <%= attachment_image_tag image, :image, :fill, 400, 400 , class: "carousel_image" %>
-              <% end %>
-            </div> 
-            <% @post.post_images.drop(1).each do |image| %>
-              <div class="carousel-item">
-                <%= attachment_image_tag image, :image, :fill, 400, 400 , class: "carousel_image" %>
-              </div>
-            <% end %>
-          </div>
-          <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-          </a>
-          <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-          </a>
-        </div>        
+        <div>
+          <% @post.post_images.each do |image| %>
+            <%= attachment_image_tag image, :image, class: "carousel_image" %>
+          <% end %>
+        </div> 
       </div>
 
       <div class="col">
@@ -60,7 +36,15 @@
 
         <div>
           <!--いいね機能非同期通信-->
-          <p id="favorite-btn_<%= @post.id %>"><%= render "favorites/favorite-btn", post: @post %></p>
+          <% if current_user.present? %>
+            <p id="favorite-btn_<%= @post.id %>">
+              <%= render "favorites/favorite-btn", post: @post %>
+            </p>
+          <% else %>
+            <p>
+              <%= "♥ いいね！ #{@post.favorites.count}件" %>
+            </p>
+          <% end %>
           <p><%= @post.created_at.strftime('%Y/%m/%d') %></p>
           <p>
             <%= render_with_hashtags(@post.caption) %>        
@@ -73,9 +57,11 @@
         </div>
         
         <div>
-        <%= form_with(model:[@post, @comment], remote: true) do |f| %>
-          <%= f.text_area :comment, rows:'5', size:"40x5", placeholder: "コメントを追加…" %>
-          <%= f.submit "投稿する" %>
+        <% if user_signed_in? %>
+          <%= form_with(model:[@post, @comment], remote: true) do |f| %>
+            <%= f.text_area :comment, rows:'5', size:"40x5", placeholder: "コメントを追加…" %>
+            <%= f.submit "投稿する" %>
+          <% end %>
         <% end %>
         </div>
         

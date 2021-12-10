@@ -2,7 +2,7 @@
 	<div class="row">
 		<div class="col-lg-9">
 			<div>
-				 <h3><%= @hashtag.name %></h3>
+				 <h3>#<%= @hashtag.name %></h3>
 				 <p>投稿<%= @posts.count %>件</h3>
 		  </div>
 			<%= render 'posts/list', posts: @posts %>
