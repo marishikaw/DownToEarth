@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   # ルートパス・アバウトページ
-  root to: 'posts#index'
+  root to: 'posts#timeline'
   get "/about", to: "homes#about"
   
   # ユーザー

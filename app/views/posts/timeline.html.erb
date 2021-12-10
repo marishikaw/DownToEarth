@@ -1,0 +1,15 @@
+<div class="container">
+	<div class="row">
+		<div class="col-lg-9">
+			<% if @posts.empty? %>
+				<%= render 'posts/list_empty', posts: @posts %>
+			<% else %>
+				<%= render 'posts/list', posts: @posts %>
+			<% end %>
+		</div>
+
+		<div class="col-lg-3">
+			<%= render 'layouts/sidebar' %>
+		</div>
+	</div>
+</div>

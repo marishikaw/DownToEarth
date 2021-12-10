@@ -1,6 +1,14 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit]
 
+  def timeline
+    if user_signed_in?
+      @posts = Post.where(user_id: [current_user.id, *current_user.following_ids]).order(id: "DESC")
+    else
+      @posts = Post.all.order(id: "DESC")
+    end
+  end
+
   def index
     @posts = Post.all.order(id: "DESC")
   end
