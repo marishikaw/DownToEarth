@@ -22,15 +22,8 @@
           <span id="favorite-btn_<%= post.id %>" class="card-text">
             <%= render "favorites/favorite-btn", post: post %>
           </span>
-
-          <span>
-
-          </span>
-
           <p class="card-text">
-            <%= link_to post_path(post.id) do %>
-              <%= post.caption %>
-            <% end %>
+            <%= render_with_hashtags(post.caption) %>
           </p>
 
           </div>

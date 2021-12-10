@@ -49,6 +49,12 @@ class PostsController < ApplicationController
     redirect_to posts_path
   end
 
+  def hashtag
+    @user = current_user
+    @hashtag = Hashtag.find_by(name: params[:name])
+    @posts = @hashtag.posts
+  end
+
   # プライベートメソッド------------------------------------------
   private
   

@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  # ホーム
-  root to: 'homes#top'
+  # ルートパス・アバウトページ
+  root to: 'posts#index'
   get "/about", to: "homes#about"
   
   # ユーザー
@@ -21,4 +21,7 @@ Rails.application.routes.draw do
     resource :favorites, only: [:create, :destroy]
     resources :comments, only: [:create, :destroy]
   end
+  
+  # ハッシュタグ
+  get '/post/hashtag/:name', to: "posts#hashtag"
 end

@@ -61,13 +61,10 @@
         <div>
           <!--いいね機能非同期通信-->
           <p id="favorite-btn_<%= @post.id %>"><%= render "favorites/favorite-btn", post: @post %></p>
-          <p>
-            <% @post.tags.each do |tag| %>
-             <%= tag.name %>
-            <% end %>            
-          </p>
           <p><%= @post.created_at.strftime('%Y/%m/%d') %></p>
-          <p><%= @post.caption %></p>
+          <p>
+            <%= render_with_hashtags(@post.caption) %>        
+          </p>
         </div>
         
         <!--コメント機能非同期通信-->

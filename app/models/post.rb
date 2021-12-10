@@ -4,10 +4,33 @@ class Post < ApplicationRecord
 	has_many :post_images, dependent: :destroy
 	has_many :comments, dependent: :destroy
 	has_many :favorites, dependent: :destroy
+  has_many :post_hashtags, dependent: :destroy
+  has_many :hashtags, through: :post_hashtags
   
   # いいね確認用メソッド
   def favorited_by?(user)
     favorites.where(user_id: user.id).exists?
+  end
+
+  # ハッシュタグ用メソッド
+  after_create do
+    post = Post.find_by(id: self.id)
+    hashtags  = self.caption.scan(/[#][\w\p{Han}ぁ-ヶｦ-ﾟー]+/) #ハッシュタグを検出
+    post.hashtags = []
+    hashtags.uniq.map do |hashtag|
+      tag = Hashtag.find_or_create_by(name: hashtag.downcase.delete('#')) #先頭の'#'を外した上で保存
+      post.hashtags << tag
+    end
+  end
+
+  before_update do 
+    post = Post.find_by(id: self.id)
+    post.hashtags.clear
+    hashtags = self.caption.scan(/[#＃][\w\p{Han}ぁ-ヶｦ-ﾟー]+/)
+    hashtags.uniq.map do |hashtag|
+      tag = Hashtag.find_or_create_by(name: hashtag.downcase.delete('#'))
+      post.hashtags << tag
+    end
   end
   
   # 画像アップ用メソッド
