@@ -12,7 +12,7 @@ class PostsController < ApplicationController
   def index
     @posts = Post.all.order(id: "DESC")
   end
-  
+
   def new
     @post = Post.new
   end
@@ -65,7 +65,7 @@ class PostsController < ApplicationController
 
   # プライベートメソッド------------------------------------------
   private
-  
+
   def post_params
     params.require(:post).permit(:caption, post_images_images: [])
   end

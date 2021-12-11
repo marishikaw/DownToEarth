@@ -10,7 +10,7 @@ class UsersController < ApplicationController
   def index
     @users = User.all
   end
-  
+
   def edit
     @user = User.find(params[:id])
   end
@@ -23,14 +23,14 @@ class UsersController < ApplicationController
       render :edit
     end
   end
-  
+
   def unsubscribe
     @user = User.find(params[:id])
   end
 
   #-------------プライベートメソッド---------------------------
   private
-  
+
   def user_params
     params.require(:user).permit(:name, :introduction, :icon)
   end
@@ -42,3 +42,4 @@ class UsersController < ApplicationController
     end
   end
 end
+

@@ -17,7 +17,7 @@ class User::SessionsController < Devise::SessionsController
   # def destroy
   #   super
   # end
-  
+
   # ログイン・ログアウト後のパスを初期値から変更
   def after_sign_in_path_for(resource)
     root_path

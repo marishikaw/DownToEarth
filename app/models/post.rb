@@ -1,12 +1,12 @@
 class Post < ApplicationRecord
-	# アソシエーション
-	belongs_to :user
-	has_many :post_images, dependent: :destroy
-	has_many :comments, dependent: :destroy
-	has_many :favorites, dependent: :destroy
+  # アソシエーション
+  belongs_to :user
+  has_many :post_images, dependent: :destroy
+  has_many :comments, dependent: :destroy
+  has_many :favorites, dependent: :destroy
   has_many :post_hashtags, dependent: :destroy
   has_many :hashtags, through: :post_hashtags
-  
+
   # いいね確認用メソッド
   def favorited_by?(user)
     favorites.where(user_id: user.id).exists?
@@ -15,10 +15,10 @@ class Post < ApplicationRecord
   # ハッシュタグ用メソッド
   after_create do
     post = Post.find_by(id: self.id)
-    hashtags  = self.caption.scan(/[#][\w\p{Han}ぁ-ヶｦ-ﾟー]+/) #ハッシュタグを検出
+    hashtags = self.caption.scan(/[#][\w\p{Han}ぁ-ヶｦ-ﾟー]+/) # ハッシュタグを検出
     post.hashtags = []
     hashtags.uniq.map do |hashtag|
-      tag = Hashtag.find_or_create_by(name: hashtag.downcase.delete('#')) #先頭の'#'を削除（全角含む）
+      tag = Hashtag.find_or_create_by(name: hashtag.downcase.delete('#')) # 先頭の'#'を削除（全角含む）
       post.hashtags << tag
     end
   end
@@ -32,20 +32,20 @@ class Post < ApplicationRecord
       post.hashtags << tag
     end
   end
-  
+
   # 画像アップ用メソッド
   accepts_attachments_for :post_images, attachment: :image
-  
+
   # バリデーション
 	FILE_NUMBER_LIMIT = 4
   validate :validate_number_of_files
 	validates :caption, length: {maximum: 200}
-	
+
   #	プライベートメソッド--------------------------------------------
-  private	
-	
+  private
+
   def validate_number_of_files
     return if post_images.length <= FILE_NUMBER_LIMIT
-     errors.add(:image, "の添付は#{FILE_NUMBER_LIMIT}枚までです。")
+    errors.add(:image, "の添付は#{FILE_NUMBER_LIMIT}枚までです。")
   end
 end

@@ -37,7 +37,7 @@ class User::RegistrationsController < Devise::RegistrationsController
   # def cancel
   #   super
   # end
-  
+
   #-------------プライベートメソッド----------------------------------------
   protected
 
