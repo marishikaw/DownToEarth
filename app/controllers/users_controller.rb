@@ -24,21 +24,11 @@ class UsersController < ApplicationController
     end
   end
   
-  # 退会画面
   def unsubscribe
     @user = User.find(params[:id])
   end
 
-  # 退会処理の実行
-  def withdraw
-    user = current_customer
-    if user.update(is_deleted: true)
-      reset_session
-      redirect_to root_path
-    end      
-  end
-
-  # プライベートメソッド--------------------------------------
+  #-------------プライベートメソッド---------------------------
   private
   
   def user_params

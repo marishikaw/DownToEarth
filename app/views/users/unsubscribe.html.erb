@@ -21,10 +21,11 @@
 				</div>
 				
 				<div>
-		      <%= link_to "アカウントを削除する", withdraw_customer_path, method: :PATCH ,class:"submit" ,style:"width:150px"%>
-		    </div>	
+		      <%= link_to "アカウントを削除する", registration_path(@user), method: :delete, class:"submit", style:"width:150px"%>
+		    </div>
+		    
 				<div>
-		      <%= link_to "戻る", edit_user_path ,class:"btn btn-outline-secondary m-3" ,style:"width:150px"%>
+		      <%= link_to "戻る", edit_user_path, class:"btn btn-outline-secondary m-3", style:"width:150px"%>
 		    </div>	
 			</div>
 		</div>

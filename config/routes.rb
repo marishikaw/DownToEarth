@@ -1,10 +1,13 @@
 Rails.application.routes.draw do
   # ルートパス・アバウトページ
   root to: 'posts#timeline'
-  get "/about", to: "homes#about"
+  get "about", to: "homes#about"
   
   # ユーザー
-  devise_for :users, skip: 'passwords'
+  devise_for :users, skip:[:passwords], controllers:{
+    registrations: "user/registrations",
+    sessions: "user/sessions"
+  }
   
   resources :users, skip:[:create] do
     resource :relationships, only: [:create, :destroy]
@@ -13,8 +16,6 @@ Rails.application.routes.draw do
   end
   
   get 'users/:id/unsubscribe' => 'users#unsubscribe', as: 'confirm_unsubscribe'
-  patch 'users/:id/withdraw' => 'users#withdraw', as: 'withdraw_customer'
-  put 'users/:id/withdraw' => 'users#withdraw'
   
   # 投稿
   resources :posts do
