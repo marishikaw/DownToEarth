@@ -1,4 +1,4 @@
-<% post.comments.each do |comment| %>
+<% post.comments.includes([:user]).each do |comment| %>
   <% comment_user = comment.user %>
   <%= link_to user_path(comment_user), class: "user_#{comment_user.id}" do %>
     <div  class="user_icon_s">
