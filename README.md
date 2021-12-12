@@ -52,4 +52,5 @@
 - IDE：Cloud9
 
 ## 使用素材
-- [Unsplash（写真）](https://unsplash.com/)
+- [o-dan（写真）](https://o-dan.net/ja/)
+- [Font Awesome（アイコン）](https://fontawesome.com/)
