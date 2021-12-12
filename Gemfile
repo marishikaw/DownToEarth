@@ -19,7 +19,8 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   
   # デバッグツール
-  gem 'pry-rails'  
+  gem 'pry-rails'
+  gem 'bullet'
 end
 
 group :development do
