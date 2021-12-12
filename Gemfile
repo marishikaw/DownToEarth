@@ -67,9 +67,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # =========
 #  追加分
 # =========
-# 環境変数化
-gem 'dotenv-rails'
-
 # ユーザー認証
 gem 'devise'
 
@@ -90,3 +87,11 @@ gem 'kaminari', '~> 1.2.1'
 
 # デバッグ・テスト
 gem 'pry-rails'
+
+# 環境変数化
+gem 'dotenv-rails'
+
+# MySQLの
+group :production do
+  gem 'mysql2'
+end
