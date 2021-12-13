@@ -4,7 +4,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @posts = @user.posts.includes([:post_images]).order(id: "DESC")
+    @posts = @user.posts.includes([:post_images]).order(id: "DESC").page(params[:page]).per(1)
   end
 
   def index
@@ -30,16 +30,15 @@ class UsersController < ApplicationController
 
   #-------------プライベートメソッド---------------------------
   private
-
-  def user_params
-    params.require(:user).permit(:name, :introduction, :icon)
-  end
-
-  def ensure_correct_user
-    @user = User.find(params[:id])
-    unless @user == current_user
-      redirect_to user_path(current_user)
+    def user_params
+      params.require(:user).permit(:name, :introduction, :icon)
     end
-  end
+  
+    def ensure_correct_user
+      @user = User.find(params[:id])
+      unless @user == current_user
+        redirect_to user_path(current_user)
+      end
+    end
 end
 

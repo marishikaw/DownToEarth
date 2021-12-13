@@ -40,24 +40,23 @@ class User::RegistrationsController < Devise::RegistrationsController
 
   #-------------プライベートメソッド----------------------------------------
   protected
-
-  # サインアップ時にユーザー名を渡す
-  def configure_sign_up_params
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
-  end
-
-  # If you have extra params to permit, append them to the sanitizer.
-  # def configure_account_update_params
-  #   devise_parameter_sanitizer.permit(:account_update, keys: [:attribute])
-  # end
-
-  # サインアップ後のパスを初期値から変更
-  def after_sign_up_path_for(resource)
-    user_path(current_user)
-  end
-
-  # The path used after sign up for inactive accounts.
-  # def after_inactive_sign_up_path_for(resource)
-  #   super(resource)
-  # end
+    # サインアップ時にユーザー名を渡す
+    def configure_sign_up_params
+      devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
+    end
+  
+    # If you have extra params to permit, append them to the sanitizer.
+    # def configure_account_update_params
+    #   devise_parameter_sanitizer.permit(:account_update, keys: [:attribute])
+    # end
+  
+    # サインアップ後のパスを初期値から変更
+    def after_sign_up_path_for(resource)
+      user_path(current_user)
+    end
+  
+    # The path used after sign up for inactive accounts.
+    # def after_inactive_sign_up_path_for(resource)
+    #   super(resource)
+    # end
 end

@@ -3,14 +3,16 @@ class PostsController < ApplicationController
 
   def timeline
     if user_signed_in?
-      @posts = Post.includes([:user]).includes([:post_images]).where(user_id: [current_user.id, *current_user.following_ids]).order(id: "DESC")
+      @posts = Post.includes([:user], [:post_images])
+               .where(user_id: [current_user.id, *current_user.following_ids]).order(id: "DESC")
+               .page(params[:page]).per(1)
     else
-      @posts = Post.includes([:user]).includes([:post_images]).all.order(id: "DESC")
+      @posts = Post.includes([:user], [:post_images]).all.order(id: "DESC").page(params[:page]).per(1)
     end
   end
 
   def index
-    @posts = Post.includes([:user]).includes([:post_images]).all.order(id: "DESC")
+    @posts = Post.includes([:user], [:post_images]).all.order(id: "DESC").page(params[:page]).per(1)
   end
 
   def new
@@ -60,13 +62,12 @@ class PostsController < ApplicationController
   def hashtag
     @user = current_user
     @hashtag = Hashtag.find_by(name: params[:name])
-    @posts = @hashtag.posts.includes([:user]).includes([:post_images]).order(id: "DESC")
+    @posts = @hashtag.posts.includes([:user], [:post_images]).order(id: "DESC").page(params[:page]).per(1)
   end
 
   # プライベートメソッド------------------------------------------
   private
-
-  def post_params
-    params.require(:post).permit(:caption, post_images_images: [])
-  end
+    def post_params
+      params.require(:post).permit(:caption, post_images_images: [])
+    end
 end
