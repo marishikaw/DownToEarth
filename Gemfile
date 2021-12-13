@@ -37,6 +37,9 @@ group :test do
   gem 'capybara', '>= 2.15'
   gem 'selenium-webdriver'
   gem 'chromedriver-helper'
+
+  # seedデータ
+  gem 'faker'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
@@ -61,9 +64,6 @@ gem 'bootstrap', '~> 4.5'
 gem 'jquery-rails'
 gem 'font-awesome-sass', '~> 5.13'
 gem 'kaminari', '~> 1.2.1'
-
-# テストデータ
-gem 'faker'
 
 # 環境変数化
 gem 'dotenv-rails'
