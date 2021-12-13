@@ -52,5 +52,7 @@
 - IDE：Cloud9
 
 ## 使用素材
-- [o-dan（写真）](https://o-dan.net/ja/)
+- [o-dan（画像）](https://o-dan.net/ja/)
+- [pixabay（画像）](https://pixabay.com/ja/)
 - [Font Awesome（アイコン）](https://fontawesome.com/)
+- [DesignEvo（ロゴ）](https://www.designevo.com/)

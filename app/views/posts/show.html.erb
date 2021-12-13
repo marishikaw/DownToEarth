@@ -2,11 +2,15 @@
   <div class="py-5">
     <div class="row">
       <div class="col">
-        <div>
-          <% @post.post_images.each do |image| %>
-            <%= attachment_image_tag image, :image, class: "carousel_image" %>
-          <% end %>
-        </div> 
+        <% unless @post.post_images.present? %>
+          <%= image_tag 'no-image-post.png', size: '500x500' %>
+        <%else%>
+          <div>
+            <% @post.post_images.each do |image| %>
+              <%= attachment_image_tag image, :image, class: "carousel_image" %>
+            <% end %>
+          </div> 
+        <%end%>
       </div>
 
       <div class="col">
@@ -14,7 +18,7 @@
     		  <tr>
     		    <td class="user_icon">
     		      <%= link_to user_path(@post.user) do %>
-                <%= attachment_image_tag(@post.user, :icon, :fill, 60, 60, fallback: "no-image-icon.jpg", size:'60x60') %>
+                <%= attachment_image_tag(@post.user, :icon, :fill, 60, 60, fallback: "no-image-icon.png", size:'60x60') %>
               <% end %>
             </td>
     		    <td>
