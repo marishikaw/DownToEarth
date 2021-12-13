@@ -4,7 +4,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @posts = @user.posts.order(id: "DESC")
+    @posts = @user.posts.includes([:post_images]).order(id: "DESC")
   end
 
   def index

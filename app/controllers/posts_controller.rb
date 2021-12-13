@@ -3,14 +3,14 @@ class PostsController < ApplicationController
 
   def timeline
     if user_signed_in?
-      @posts = Post.where(user_id: [current_user.id, *current_user.following_ids]).order(id: "DESC")
+      @posts = Post.includes([:user]).includes([:post_images]).where(user_id: [current_user.id, *current_user.following_ids]).order(id: "DESC")
     else
-      @posts = Post.all.order(id: "DESC")
+      @posts = Post.includes([:user]).includes([:post_images]).all.order(id: "DESC")
     end
   end
 
   def index
-    @posts = Post.all.order(id: "DESC")
+    @posts = Post.includes([:user]).includes([:post_images]).all.order(id: "DESC")
   end
 
   def new

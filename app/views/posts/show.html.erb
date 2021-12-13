@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col">
         <% unless @post.post_images.present? %>
-          <%= image_tag 'no-image-post.png', size: '500x500' %>
+          <%= image_tag 'no-image-post.jpg', size: '500x500' %>
         <%else%>
           <div>
             <% @post.post_images.each do |image| %>
