@@ -60,7 +60,7 @@ class PostsController < ApplicationController
   def hashtag
     @user = current_user
     @hashtag = Hashtag.find_by(name: params[:name])
-    @posts = @hashtag.posts.order(id: "DESC")
+    @posts = @hashtag.posts.includes([:user]).includes([:post_images]).order(id: "DESC")
   end
 
   # プライベートメソッド------------------------------------------
