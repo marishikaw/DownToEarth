@@ -1,20 +1,20 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit, :create, :update, :destroy]
   before_action :set_post, only: [:show, :edit, :update, :destroy]
-  before_action :set_q, only: [:timeline, :index, :search]
+  before_action :set_q, only: [:timeline, :index, :search, :hashtag]
 
   def timeline
     if user_signed_in?
       @posts = Post.includes([:user], [:post_images])
                .where(user_id: [current_user.id, *current_user.following_ids]).order(id: "DESC")
-               .page(params[:page]).per(1)
+               .page(params[:page]).per(2)
     else
-      @posts = Post.includes([:user], [:post_images]).all.order(id: "DESC").page(params[:page]).per(1)
+      @posts = Post.includes([:user], [:post_images]).all.order(id: "DESC").page(params[:page]).per(2)
     end
   end
 
   def index
-    @posts = Post.includes([:user], [:post_images]).all.order(id: "DESC").page(params[:page]).per(1)
+    @posts = Post.includes([:user], [:post_images]).all.order(id: "DESC").page(params[:page]).per(2)
   end
 
   def new
@@ -60,12 +60,11 @@ class PostsController < ApplicationController
   def hashtag
     @user = current_user
     @hashtag = Hashtag.find_by(name: params[:name])
-    @posts = @hashtag.posts.includes([:user], [:post_images]).order(id: "DESC").
-    page(params[:page]).per(1)
+    @posts = @hashtag.posts.includes([:user], [:post_images]).order(id: "DESC").page(params[:page]).per(2)
   end
   
   def search
-    @results = @q.result.includes([:user], [:post_images]).all.order(id: "DESC").page(params[:page]).per(1)
+    @results = @q.result.includes([:user], [:post_images]).all.order(id: "DESC").page(params[:page]).per(2)
   end
 
   # -------------プライベートメソッド------------------------------------------

@@ -45,7 +45,13 @@
     <main>
       <p class="text-center text-light bg-info"><%= notice %></p>
       <p class="text-center text-light bg-warning"><%= alert %></p>
+      
       <%= yield %>
+      
+      <!--TOへ戻るボタン-->
+      <div id="page-top">
+        <a id="move-page-top"><i class="fa fa-chevron-circle-up fa-4x"></i></a>
+      </div>
     </main>
 
   </body>

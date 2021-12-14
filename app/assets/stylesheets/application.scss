@@ -26,7 +26,7 @@
 .submit{
   width: 200px;
   padding: 10px;
-  background: #00BFFF;
+  background: #7FCDB8;
   color: white;
   border-radius: 0.3rem;
   border: none;
@@ -55,4 +55,30 @@
 // 無限スクロール実装のためページネーションを非表示
  nav.pagination {
   display: none;
+}
+
+// TOPに戻るボタン
+#page-top{
+  display: none;
+  position: fixed;
+  right: 30px;
+  bottom: 30px;
+  margin: 0;
+  padding: 0;
+  text-align:center;
+}
+#move-page-top{
+  color:#7FCDB8;
+  text-decoration: none;
+  display: block;
+  cursor: pointer;
+}
+#move-page-top:hover{
+  color:#FCB03F;
+}
+@media only screen and (min-width: 600px){
+  #page-top{
+    right:50%;
+    margin-right: -300px;
+  }
 }
