@@ -24,23 +24,11 @@ Hashtag.create!(
     },
     {
       id: 6,
-      name: "自然遺産"
-    },
-    {
-      id: 7,
       name: "ヴィーガン"
     },
     {
-      id: 8,
-      name: "CO2削減"
-    },
-    {
-      id: 9,
+      id: 7,
       name: "エコバック"
-    },
-    {
-      id: 10,
-      name: "ゴミ拾い"
     }
   ]
 )

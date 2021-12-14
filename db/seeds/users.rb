@@ -1,9 +1,9 @@
 puts 'users ...'
 
-10.times do |n|
+15.times do |n|
   user = User.create!(
     email: "test#{n + 1}@com",
     name: Faker::TvShows::StrangerThings.unique.character,
-    password: 'aaaaaa',
+    password: 'aaaaaa'
   )
 end
