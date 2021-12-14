@@ -11,7 +11,7 @@
 // about supported directives.
 //
 
-//= require jquery3
+//= require jquery
 //= require jquery.jscroll.min.js
 //= require popper
 //= require bootstrap-sprockets
@@ -22,14 +22,16 @@
 //= require_tree .
 
 // 無限スクロールの処理
-$(window).on('scroll', function() {
-    scrollHeight = $(document).height();
-    scrollPosition = $(window).height() + $(window).scrollTop();
-    // スクロールの位置が下部5%の範囲に来た場合
-    if ( (scrollHeight - scrollPosition) / scrollHeight <= 0.05) {
-          $('.jscroll').jscroll({
-            contentSelector: '.scroll-list',
-            nextSelector: 'span.next:last a'
-          });
-    }
+$(document).on('turbolinks:load', function() {
+  $(window).on('scroll', function() {
+      scrollHeight = $(document).height();
+      scrollPosition = $(window).height() + $(window).scrollTop();
+      // スクロールの位置が下部5%の範囲に来た場合
+      if ( (scrollHeight - scrollPosition) / scrollHeight <= 0.05) {
+        $('.jscroll').jscroll({
+          contentSelector: '.scroll-list',
+          nextSelector: 'span.next:last a'
+        });
+      }
+  });
 });
