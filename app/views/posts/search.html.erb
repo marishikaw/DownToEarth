@@ -4,7 +4,7 @@
 			<div>
 			  <% if @results.present? %>
           <h3><%= @results.name %></h3>
-          <p>投稿<%= @results.count %>件</h3>
+          <p>投稿<%= @results.total_count %>件</h3>
         <% else %>
           <h3>検索結果</h3>
         <% end %>

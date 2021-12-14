@@ -60,14 +60,15 @@ class PostsController < ApplicationController
   def hashtag
     @user = current_user
     @hashtag = Hashtag.find_by(name: params[:name])
-    @posts = @hashtag.posts.includes([:user], [:post_images]).order(id: "DESC").page(params[:page]).per(1)
+    @posts = @hashtag.posts.includes([:user], [:post_images]).order(id: "DESC").
+    page(params[:page]).per(1)
   end
   
   def search
     @results = @q.result.includes([:user], [:post_images]).all.order(id: "DESC").page(params[:page]).per(1)
   end
 
-  # プライベートメソッド------------------------------------------
+  # -------------プライベートメソッド------------------------------------------
   private
     def set_post
       @post = Post.find(params[:id])

@@ -11,6 +11,7 @@
 // about supported directives.
 //
 
+// jquery3 => jqueryに変更（本番環境にてjscrollが動作しないため）
 //= require jquery
 //= require jquery.jscroll.min.js
 //= require popper
