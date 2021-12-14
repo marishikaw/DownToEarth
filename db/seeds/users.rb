@@ -18,7 +18,7 @@ users = [
     {email: '15@example.com', name: 'Barbara', password: 'aaaaaa'},
   ]
 
-users do |user|
+users.each do |user|
   user = User.create!(
     email: user[:email],
     name: user[:name],
