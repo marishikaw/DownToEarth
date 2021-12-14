@@ -59,6 +59,9 @@ gem 'devise-i18n-views'
 gem "refile", require: "refile/rails", github: 'manfe/refile'
 gem "refile-mini_magick"
 
+# 検索
+gem 'ransack'
+
 # レイアウト
 gem 'bootstrap', '~> 4.5'
 gem 'jquery-rails'

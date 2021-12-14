@@ -1,1 +1,7 @@
-<h3>Sidebar</h3>
+<div class="mt-5">
+<%= search_form_for @q, url: search_posts_path do |f| %>
+  <%= f.search_field :caption_cont %>
+  <br>
+  <%= f.submit '検索' %>
+<% end %>
+</div>

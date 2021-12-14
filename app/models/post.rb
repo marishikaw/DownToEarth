@@ -7,12 +7,12 @@ class Post < ApplicationRecord
   has_many :post_hashtags, dependent: :destroy
   has_many :hashtags, through: :post_hashtags
 
-  # いいね確認用メソッド
+  # いいね
   def favorited_by?(user)
     favorites.where(user_id: user.id).exists?
   end
 
-  # ハッシュタグ用メソッド
+  # ハッシュタグ
   after_create do
     post = Post.find_by(id: self.id)
     hashtags = self.caption.scan(/[#][\w\p{Han}ぁ-ヶｦ-ﾟー]+/) # ハッシュタグを検出
@@ -33,7 +33,7 @@ class Post < ApplicationRecord
     end
   end
 
-  # 画像アップ用メソッド
+  # 画像アップロード
   accepts_attachments_for :post_images, attachment: :image
 
   # バリデーション
@@ -43,9 +43,8 @@ class Post < ApplicationRecord
 
   #	プライベートメソッド--------------------------------------------
   private
-
-  def validate_number_of_files
-    return if post_images.length <= FILE_NUMBER_LIMIT
-    errors.add(:image, "の添付は#{FILE_NUMBER_LIMIT}枚までです。")
-  end
+    def validate_number_of_files
+      return if post_images.length <= FILE_NUMBER_LIMIT
+      errors.add(:image, "の添付は#{FILE_NUMBER_LIMIT}枚までです。")
+    end
 end

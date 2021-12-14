@@ -1,8 +1,8 @@
 <% post.comments.includes([:user]).each do |comment| %>
   <% comment_user = comment.user %>
   <%= link_to user_path(comment_user), class: "user_#{comment_user.id}" do %>
-    <div  class="user_icon_s">
-      <%= attachment_image_tag comment.user, :icon, :fill, 30, 30, fallback: "no-image-icon.png", size:'30x30' %>
+    <div>
+      <%= attachment_image_tag comment.user, :icon, :fill, 50, 50, fallback: "no-image-icon.png", size:'50x50', class:"rounded-circle" %>
     </div>
     <%= comment.user.name %>
   <% end %>
