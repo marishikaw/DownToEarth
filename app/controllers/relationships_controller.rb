@@ -3,13 +3,15 @@ class RelationshipsController < ApplicationController
 
   # ---------フォロー機能を作成・保存・削除する-------------
   def create
-    current_user.follow(params[:user_id])
-    redirect_to request.referer
+    @user = User.find(params[:user_id])
+    following = current_user.relationships.build(followed_id: params[:user_id])
+    following.save
   end
 
   def destroy
-    current_user.unfollow(params[:user_id])
-    redirect_to request.referer
+    @user = User.find(params[:user_id])
+    following = current_user.relationships.find_by(followed_id: params[:user_id])
+    following.destroy
   end
 
   # ---------フォロー・フォロワー一覧を表示する-------------

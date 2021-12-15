@@ -1,7 +1,20 @@
 <div class="mt-5">
-  <%= search_form_for @q, url: search_posts_path do |f| %>
-    <%= f.search_field :caption_cont, required: true, placeholder:"キーワードを入力" %>
-    <br>
-    <%= f.submit '検索' %>
-  <% end %>
+  <div class="mt-5">
+    <%= search_form_for @q, url: search_posts_path do |f| %>
+      <%= f.search_field :caption_cont, required: true, placeholder:"キーワードを入力" %>
+      <%= f.submit '検索' %>
+    <% end %>
+  </div>
+  
+  <div class="">
+    <table class='table table-borderless'>
+      <% @hashtags.each do |hashtag| %>
+        <tr>
+    	    <td>
+    	      <%= link_to "##{hashtag.name}", "/posts/hashtag/#{hashtag.name.delete("#")}" %>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
 </div>

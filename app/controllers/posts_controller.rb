@@ -8,13 +8,16 @@ class PostsController < ApplicationController
       @posts = Post.includes([:user], [:post_images])
                .where(user_id: [current_user.id, *current_user.following_ids]).order(id: "DESC")
                .page(params[:page]).per(2)
+      @hashtags = Hashtag.last(10)
     else
       @posts = Post.includes([:user], [:post_images]).all.order(id: "DESC").page(params[:page]).per(2)
+      @hashtags = Hashtag.last(10)
     end
   end
 
   def index
     @posts = Post.includes([:user], [:post_images]).all.order(id: "DESC").page(params[:page]).per(2)
+    @hashtags = Hashtag.all.last(10)
   end
 
   def new
@@ -61,6 +64,7 @@ class PostsController < ApplicationController
     @user = current_user
     @hashtag = Hashtag.find_by(name: params[:name])
     @posts = @hashtag.posts.includes([:user], [:post_images]).order(id: "DESC").page(params[:page]).per(2)
+    @hashtags = Hashtag.last(10)
   end
   
   def search
