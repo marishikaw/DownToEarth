@@ -1,6 +1,6 @@
 <div class="mt-5">
   <%= search_form_for @q, url: search_posts_path do |f| %>
-    <%= f.search_field :caption_cont %>
+    <%= f.search_field :caption_cont, required: true, placeholder:"キーワードを入力" %>
     <br>
     <%= f.submit '検索' %>
   <% end %>

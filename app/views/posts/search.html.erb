@@ -2,12 +2,8 @@
 	<div class="row">
 		<div class="col-lg-9">
 			<div>
-			  <% if @results.present? %>
-          <h3><%= @results.name %></h3>
-          <p>投稿<%= @results.total_count %>件</h3>
-        <% else %>
-          <h3>検索結果</h3>
-        <% end %>
+        <h3><%= @q.caption_cont %></h3>
+        <p>投稿<%= @results.total_count %>件</h3>
 		  </div>
 			<%= render 'posts/list', posts: @results %>
 		</div>
