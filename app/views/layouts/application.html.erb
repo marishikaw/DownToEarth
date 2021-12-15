@@ -43,14 +43,18 @@
     </header>
     
     <main>
-      <p class="text-center text-light bg-info"><%= notice %></p>
-      <p class="text-center text-light bg-warning"><%= alert %></p>
+      <p class="notice_explanation"><%= notice %></p>
+      <p class="alerta_explanation"><%= alert %></p>
       
       <%= yield %>
       
-      <!--TOへ戻るボタン-->
+      <!--TOPへ戻るボタン-->
       <div id="page-top">
-        <a id="move-page-top"><i class="fa fa-chevron-circle-up fa-4x"></i></a>
+        <span id="back">
+          <a href="#" id="move-page-top">
+            <i class="fa fa-chevron-circle-up fa-4x"></i>
+          </a>
+        </span>
       </div>
     </main>
 

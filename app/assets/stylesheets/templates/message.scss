@@ -1,0 +1,19 @@
+// エラーメッセージ
+#error_explanation {
+  color: red;
+}
+
+// フラッシュメッセージ
+.notice_explanation {
+  text-align: center;
+  background-color: #7FCDB8;
+  color: #FFFFFF;
+  width: 100%;
+}
+
+.alert_explanation {
+  text-align: center;
+  background-color: #FCB03F;
+  color: #FFFFFF;
+  width: 100%;
+}

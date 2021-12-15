@@ -1,36 +1,8 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
- 
 @import "bootstrap";
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
 
-#error_explanation {
-  color: red;
-}
-
-// 投稿、ログインボタン
-.submit{
-  width: 200px;
-  padding: 10px;
-  background: #7FCDB8;
-  color: white;
-  border-radius: 0.3rem;
-  border: none;
-}
+@import "templates/*";
 
 // アイコン
 .user_icon {
@@ -55,30 +27,4 @@
 // 無限スクロール実装のためページネーションを非表示
  nav.pagination {
   display: none;
-}
-
-// TOPに戻るボタン
-#page-top{
-  display: none;
-  position: fixed;
-  right: 30px;
-  bottom: 30px;
-  margin: 0;
-  padding: 0;
-  text-align:center;
-}
-#move-page-top{
-  color:#7FCDB8;
-  text-decoration: none;
-  display: block;
-  cursor: pointer;
-}
-#move-page-top:hover{
-  color:#FCB03F;
-}
-@media only screen and (min-width: 600px){
-  #page-top{
-    right:50%;
-    margin-right: -300px;
-  }
 }

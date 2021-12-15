@@ -1,0 +1,23 @@
+// ボタン
+.submit{
+  width: 200px;
+  padding: 10px;
+  background: #7FCDB8;
+  color: white;
+  border-radius: 0.3rem;
+  border: none;
+}
+
+// TOPに戻るボタン
+#page-top{
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+}
+#move-page-top{
+  color:#7FCDB8;
+  cursor: pointer;
+}
+#move-page-top:hover{
+  color:#FCB03F;
+}
