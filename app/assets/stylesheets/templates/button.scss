@@ -1,5 +1,5 @@
 // ボタン
-.submit{
+.btn-lg{
   width: 200px;
   padding: 10px;
   background: #7FCDB8;
@@ -7,12 +7,27 @@
   border-radius: 0.3rem;
   border: none;
 }
+.btn-lg:hover{
+  background:#B0E7D8;
+}
+
+.btn-sm{
+  width: 80px;
+  padding: 5px;
+  background: #7FCDB8;
+  color: white;
+  border-radius: 0.3rem;
+  border: none;
+}
+.btn-sm:hover{
+  background:#B0E7D8;
+}
 
 // TOPに戻るボタン
 #page-top{
   position: fixed;
-  right: 20px;
-  bottom: 20px;
+  right: 30px;
+  bottom: 30px;
 }
 #move-page-top{
   color:#7FCDB8;

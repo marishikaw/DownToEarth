@@ -8,19 +8,19 @@ Hashtag.create!(
     },
     {
       id: 2,
-      name: "食品ロス"
+      name: "エコ"
     },
     {
       id: 3,
-      name: "プラごみ"
+      name: "サステナブル"
     },
     {
       id: 4,
-      name: "大気汚染"
+      name: "持続可能な暮らし"
     },
     {
       id: 5,
-      name: "温暖化"
+      name: "eco"
     },
     {
       id: 6,
@@ -28,7 +28,19 @@ Hashtag.create!(
     },
     {
       id: 7,
-      name: "エコバック"
+      name: "環境問題"
+    },
+    {
+      id: 8,
+      name: "マイボトル"
+    },
+    {
+      id: 9,
+      name: "エコフレンドリー"
+    },
+    {
+      id: 10,
+      name: "プラスチックフリー"
     }
   ]
 )

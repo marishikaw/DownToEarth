@@ -1,15 +1,21 @@
 puts 'posts ...'
 
 captions = [
-    'I will speak daggers to her but use none.',
-    'Do you think I am easier to be played on than a pipe?',
-    'The lady doth protest too much, methinks.',
-    'To be, or not to be, that is the question',
-    'Rich gifts wax poor when givers prove unkind.',
-    'Do you think I am easier to be played on than a pipe?',
-    'There is nothing either good or bad, but thinking makes it so.',
-    'To be, or not to be, that is the question',
-    'Doubt thou the stars are fire, doubt that the sun doth move, doubt truth to be a liar, but never doubt I love.',
+    'You play with the cards you’re dealt..Whatever that means',
+    'They say the best way is just to live one day at a time..',
+    'I’m not getting old. I’m just becoming classic.',
+    'No problem is so big or so complicated that it can’t be run away from.',
+    'Now that you’ve hit bottom, you could start over.',
+    'I am not lucky. I am just grateful ＆ feel very blessed.',
+    'Life is like an ice cream cone.. You have to learn to lick it!',
+    'If you want something done right, you should do it yourself!',
+    'I need plenty of rest in case tomorrow is a great day..',
+    'Be yourself. No one can say you’re doing it wrong.',
+    'Keep looking up…That’s the secret of life…',
+    'Are you depressed?The humor may be the one which isn’t enough in your life...',
+    'I’m a smart person...I just do stupid things..',
+    'Kind words of lip service only is good for nothing.',
+    'No, there’s nothing wrong with being trusting.. You’re just young..',
   ]
 
 User.all.each do |user|
