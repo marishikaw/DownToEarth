@@ -1,6 +1,6 @@
 <div class='container px-5 px-sm-0'>
   <div class='row'>
-    <div class='col-md-8 offset-md-1'>  
+    <div class='col-md-8 offset-md-1 min-vh-80'>  
       <h3>フォロワー</h3>
       <% if @users.exists? %>
       	<%= render 'users/list', users: @users %>
@@ -11,4 +11,6 @@
   </div>
 </div>
 
-<%= render 'layouts/footer' %>
+<footer>
+  <%= render "layouts/footer" %>
+</footer>

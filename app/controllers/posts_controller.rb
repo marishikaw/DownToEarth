@@ -69,6 +69,7 @@ class PostsController < ApplicationController
   
   def search
     @results = @q.result.includes([:user], [:post_images]).all.order(id: "DESC").page(params[:page]).per(2)
+    @hashtags = Hashtag.last(10)
   end
 
   # -------------プライベートメソッド------------------------------------------

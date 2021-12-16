@@ -9,54 +9,62 @@
   </head>
 
   <body>
-    <header class="shadow-sm">
-      <nav class="navbar navbar-expand-md navbar-light">
-        <div class="container-fluid">
-          
-          <div class="center">
-            <%= link_to image_tag("logo-line.jpg", width: '250px'), root_path, class:"navbar-brand" %>
+    <!--フッター位置設定用-->
+    <div class="wrapper">
+      <header class="shadow-sm">
+        <!--ハンバーガーメニュー-->
+        <nav class="navbar navbar-expand-md navbar-light">
+          <div class="container-fluid">
+            <!--ロゴ-->
+            <div class="center">
+              <%= link_to image_tag("logo-line.jpg", width: '250px'), root_path, class:"navbar-brand" %>
+            </div>
+            <!--ハンバーガーメニュー時のボタン-->
+            <button class="navbar-toggler" 
+                    type="button" 
+                    data-toggle="collapse" 
+                    data-target="#navbarNavDropdown" 
+                    aria-controls="navbarNavDropdown" 
+                    aria-expanded="false" 
+                    aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <!--ハンバーガーメニューの要素-->
+            <div class="collapse navbar-collapse flex-column" id="navbarNavDropdown">
+              <ul class="navbar-nav ml-auto">
+              <% if user_signed_in? %>
+                <%= render "layouts/header_sign_in" %>
+              <% else %>
+                <%= render 'layouts/header_sign_out' %>
+              <% end %>
+              </ul>
+            </div>
           </div>
-          
-          <button class="navbar-toggler" 
-                  type="button" 
-                  data-toggle="collapse" 
-                  data-target="#navbarNavDropdown" 
-                  aria-controls="navbarNavDropdown" 
-                  aria-expanded="false" 
-                  aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          
-          <div class="collapse navbar-collapse flex-column" id="navbarNavDropdown">
-            <ul class="navbar-nav ml-auto">
-            <% if user_signed_in? %>
-              <%= render "layouts/header_sign_in" %>
-            <% else %>
-              <%= render 'layouts/header_sign_out' %>
-            <% end %>
-            </ul>
-          </div>
-          
+        </nav>
+      </header>
+      
+      <main>
+        <!--フラッシュメッセージ-->
+        <p class="notice_explanation"><%= notice %></p>
+        <p class="alerta_explanation"><%= alert %></p>
+        
+        <%= yield %>
+        
+        <!--TOPへ戻るボタン-->
+        <div id="page-top">
+          <span id="back">
+            <a href="#" id="move-page-top">
+              <i class="fa fa-chevron-circle-up fa-3x"></i>
+            </a>
+          </span>
         </div>
-      </nav>
-    </header>
-    
-    <main>
-      <!--フラッシュメッセージ-->
-      <p class="notice_explanation"><%= notice %></p>
-      <p class="alerta_explanation"><%= alert %></p>
+      </main>
       
-      <%= yield %>
-      
-      <!--TOPへ戻るボタン-->
-      <div id="page-top">
-        <span id="back">
-          <a href="#" id="move-page-top">
-            <i class="fa fa-chevron-circle-up fa-3x"></i>
-          </a>
-        </span>
-      </div>
-    </main>
-
+      <% if %w[about users new_user_session new_user_registration new_post].any? { |name| current_page?(send("#{name}_path")) } %>
+        <footer>
+          <%= render "layouts/footer" %>
+        </footer>
+      <% end %>  
+    </div>  
   </body>
 </html>
