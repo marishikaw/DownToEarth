@@ -30,8 +30,11 @@
     
                 <!--いいね機能非同期通信-->
                 <% if current_user.present? %>
-                  <div id="favorite-btn_<%= post.id %>" class="card-text">
+                  <div id="favorite-btn_<%= post.id %>" class="card-text mr-2">
                     <%= render "favorites/favorite-btn", post: post %>
+                  </div>
+                  <div id="favorite-count_<%= post.id %>">
+                    <%= render "favorites/favorite-count", post: post %>
                   </div>
                 <% else %>
                   <div>

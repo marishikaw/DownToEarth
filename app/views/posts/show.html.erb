@@ -41,9 +41,14 @@
         <div>
           <!--いいね機能非同期通信-->
           <% if current_user.present? %>
-            <p id="favorite-btn_<%= @post.id %>">
+            <span id="favorite-btn_<%= @post.id %>" class="card-text mr-2">
               <%= render "favorites/favorite-btn", post: @post %>
-            </p>
+            </span>
+            いいね！
+            <span id="favorite-count_<%= @post.id %>">
+              <%= render "favorites/favorite-count", post: @post %>
+            </span>
+            件
           <% else %>
             <p>
               <%= "♥ いいね！ #{@post.favorites.count}件" %>
