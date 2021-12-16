@@ -29,10 +29,10 @@
 
             <% if @post.user == current_user %>
               <td>
-                <%= link_to '編集', edit_post_path(@post), class: "btn btn-sm btn-info edit_post_#{@post.id}" %>
+                <%= link_to '編集', edit_post_path(@post), type:"button", class: "btn-sm" %>
               </td>
               <td>
-                <%= link_to '削除', post_path(@post), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-outline-danger destroy_post_#{@post.id}"%>
+                <%= link_to '削除', post_path(@post), method: :delete, data: { confirm: '本当に消しますか？' }, type:"button", class: "btn-sm-gray"%>
               </td>
             <% end %>
           </tr>
@@ -45,7 +45,7 @@
               <%= render "favorites/favorite-btn", post: @post %>
             </span>
             いいね！
-            <span id="favorite-count_<%= @post.id %>">
+            <span id="favorite-count_<%= @post.id %>" class="card-text mr-2">
               <%= render "favorites/favorite-count", post: @post %>
             </span>
             件
@@ -69,7 +69,7 @@
         <% if user_signed_in? %>
           <%= form_with(model:[@post, @comment], remote: true) do |f| %>
             <%= f.text_area :comment, rows:'5', size:"40x5", placeholder: "コメントを追加…" %>
-            <%= f.submit "投稿する" %>
+            <%= f.submit "投稿する", class: "btn-sm" %>
           <% end %>
         <% end %>
         </div>

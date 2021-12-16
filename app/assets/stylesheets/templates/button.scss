@@ -1,26 +1,88 @@
-// ボタン
+// ※リンクにはtype:"button"の記述が必要です。
+
+// ボタン（大）
 .btn-lg{
   width: 200px;
   padding: 10px;
   background: #7FCDB8;
   color: white;
   border-radius: 0.3rem;
-  border: none;
+  border: 1px solid;
+  border-color: #7FCDB8;
+  text-align: center
 }
 .btn-lg:hover{
   background:#B0E7D8;
+  color: white;
+  border: 1px solid;
+  border-color: #7FCDB8;
+  text-decoration: none;
 }
 
-.btn-sm{
-  width: 80px;
-  padding: 5px;
+// ボタン（中）
+.btn-md{
+  width: 120px;
+  padding: 10px;
   background: #7FCDB8;
   color: white;
   border-radius: 0.3rem;
-  border: none;
+  border: 1px solid;
+  border-color: #7FCDB8;
+  text-align: center
+}
+.btn-md:hover{
+  background:white;
+  color: #7FCDB8;
+  border: 1px solid;
+  border-color: #7FCDB8;
+  text-decoration: none;
+}
+
+.btn-md-gray{
+  width: 120px;
+  padding: 10px;
+  color: #808080;
+  border-radius: 0.3rem;
+  border: 1px solid;
+  text-align: center
+}
+.btn-md-gray:hover{
+  background:#808080;
+  color: white;
+  text-decoration: none;
+}
+
+// ボタン（小）
+.btn-sm{
+  width: 80px;
+  padding: 6px;
+  background: #7FCDB8;
+  color: white;
+  border-radius: 0.3rem;
+  border: 1px solid;
+  border-color: #7FCDB8;
+  text-align: center
 }
 .btn-sm:hover{
   background:#B0E7D8;
+  color: white;
+  border: 1px solid;
+  border-color: #7FCDB8;
+  text-decoration: none;
+}
+
+.btn-sm-gray{
+  width: 80px;
+  padding: 6px;
+  color: #808080;
+  border-radius: 0.3rem;
+  border: 1px solid;
+  text-align: center
+}
+.btn-sm-gray:hover{
+  background:#808080;
+  color: white;
+  text-decoration: none;
 }
 
 // TOPに戻るボタン

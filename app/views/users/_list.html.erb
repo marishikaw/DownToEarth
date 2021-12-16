@@ -18,7 +18,7 @@
 		    <% if user != current_user && current_user.present? %>
           <div id="relationship-btn_<%= user.id %>" class="card-text">
             <%= render "relationships/relationship-btn", user: user %>
-          </div>					
+          </div>
 		    <% end %>
 			</td>
     </tr>

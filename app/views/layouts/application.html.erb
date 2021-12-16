@@ -60,7 +60,12 @@
         </div>
       </main>
       
-      <% if %w[about users new_user_session new_user_registration new_post].any? { |name| current_page?(send("#{name}_path")) } %>
+      <% if %w[about 
+               users 
+               new_user_session 
+               new_user_registration 
+               new_post
+              ].any? { |name| current_page?(send("#{name}_path")) } %>
         <footer>
           <%= render "layouts/footer" %>
         </footer>
