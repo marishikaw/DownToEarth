@@ -1,0 +1,27 @@
+// 無限スクロール実装のためページネーションを非表示
+ nav.pagination {
+    display: none;
+}
+
+// フッターの位置を固定
+.wrapper{
+    min-height: 100vh;
+    position: relative;/*←相対位置*/
+    padding-bottom: 100px;/*←footerの高さ*/
+    box-sizing: border-box;/*←全て含めてmin-height:100vhに*/
+}
+footer{
+    width: 100%;
+    background-color: #FCF1DE;
+    color: #808080;
+    text-align: center;
+    padding: 30px 0;
+    position: absolute;/*←絶対位置*/
+    bottom: 0; /*下に固定*/
+}
+
+// サイドバーの背景色
+#bg-color{
+    background-color: #fafafa;
+    border-radius: 0.3rem;
+}

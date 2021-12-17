@@ -1,0 +1,5 @@
+<li>
+  <%= search_form_for @q, url: search_posts_path do |f| %>
+    <%= f.search_field :caption_cont, required: true, placeholder: "\uf002" + " 検索", class: "form-control fa" %>
+  <% end %>
+</li>

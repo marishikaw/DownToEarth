@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!, except: [:show, :index]
   before_action :ensure_correct_user, only: [:edit, :update]
+  before_action :set_q
 
   def show
     @user = User.find(params[:id])
@@ -40,4 +41,8 @@ class UsersController < ApplicationController
     def user_params
       params.require(:user).permit(:name, :introduction, :icon)
     end
+    
+    def set_q
+      @q = Post.ransack(params[:q])
+    end    
 end

@@ -31,12 +31,14 @@
             </button>
             <!--ハンバーガーメニューの要素-->
             <div class="collapse navbar-collapse flex-column" id="navbarNavDropdown">
-              <ul class="navbar-nav ml-auto">
-              <% if user_signed_in? %>
-                <%= render "layouts/header_sign_in" %>
-              <% else %>
-                <%= render 'layouts/header_sign_out' %>
-              <% end %>
+              <ul class="navbar-nav ml-auto d-flex align-items-center">
+                <%= render 'layouts/header_search' %>
+                
+                <% if user_signed_in? %>
+                  <%= render "layouts/header_sign_in" %>
+                <% else %>
+                  <%= render 'layouts/header_sign_out' %>
+                <% end %>
               </ul>
             </div>
           </div>
@@ -51,15 +53,10 @@
         <%= yield %>
         
         <!--TOPへ戻るボタン-->
-        <div id="page-top">
-          <span id="back">
-            <a href="#" id="move-page-top">
-              <i class="fa fa-chevron-circle-up fa-3x"></i>
-            </a>
-          </span>
-        </div>
+        <%= render 'layouts/top_btn' %>
       </main>
       
+      <!--フッターを表示する画面を指定-->
       <% if %w[about 
                users 
                new_user_session 
