@@ -1,25 +1,27 @@
 <div class="scroll-list jscroll">
-  <div class="card-list-container">
-    <% posts.each do |post| %>
-      <div class="card mx-auto mt-4 shadow-lg" style="width: 40%;">
-        <!--投稿画像-->
-        <%= link_to post_path(post.id) do %>
-          <% unless post.post_images.present? %>
-            <%= image_tag 'no-image-post.jpg', class:"card-img-top" %>
-          <%else%>
-            <% post.post_images.first(1).each do |image| %>
-              <%= attachment_image_tag image, :image, class:"card-img-top" %>
+  <div class="card-list-container-fluid pt-3">
+    <div class="row">
+      <% posts.each do |post| %>
+        <div class="card col-3 mx-auto mt-4 shadow-md" style="width: 40%;">
+          <!--投稿画像-->
+          <%= link_to post_path(post.id) do %>
+            <% unless post.post_images.present? %>
+              <%= image_tag 'no-image-post.jpg', class:"card-img-top" %>
+            <%else%>
+              <% post.post_images.first(1).each do |image| %>
+                <%= attachment_image_tag image, :image, class:"card-img-top" %>
+              <% end %>
             <% end %>
           <% end %>
-        <% end %>
-  
-        <div class="card-body">
-          <div class="card-text">
-            <%= render_with_hashtags(post.caption) %>
+    
+          <div class="card-body">
+            <div class="card-text">
+              <%= render_with_hashtags(post.caption) %>
+            </div>
           </div>
         </div>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
   </div>
   
   <!--無限スクロール-->
