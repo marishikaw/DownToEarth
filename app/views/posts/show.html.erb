@@ -69,6 +69,7 @@
         <% if user_signed_in? %>
           <%= form_with(model:[@post, @comment], remote: true) do |f| %>
             <%= f.text_area :comment, rows:'5', size:"40x5", placeholder: "コメントを追加…" %>
+            <br>
             <%= f.submit "投稿する", class: "btn-sm" %>
           <% end %>
         <% end %>

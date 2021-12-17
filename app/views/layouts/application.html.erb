@@ -6,19 +6,21 @@
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome-animation/0.0.10/font-awesome-animation.css" type="text/css" media="all" />
   </head>
 
   <body>
     <!--フッター位置設定用-->
     <div class="wrapper">
+      <!--ヘッダー-->
       <header class="shadow-sm">
-        <!--ハンバーガーメニュー-->
-        <nav class="navbar navbar-expand-md navbar-light">
+        <nav class="navbar navbar-expand-lg navbar-light">
           <div class="container-fluid">
             <!--ロゴ-->
             <div class="center">
               <%= link_to image_tag("logo-line.jpg", width: '250px'), root_path, class:"navbar-brand" %>
             </div>
+            
             <!--ハンバーガーメニュー時のボタン-->
             <button class="navbar-toggler" 
                     type="button" 
@@ -31,8 +33,10 @@
             </button>
             <!--ハンバーガーメニューの要素-->
             <div class="collapse navbar-collapse flex-column" id="navbarNavDropdown">
-              <ul class="navbar-nav ml-auto d-flex align-items-center">
-                <%= render 'layouts/header_search' %>
+              <ul class="navbar-nav ml-auto mr-5 pr-4 d-flex align-items-center">
+                <% unless %w[new_user_session new_user_registration].any? { |name| current_page?(send("#{name}_path")) } %>
+                  <%= render 'layouts/header_search' %>
+                <% end %>
                 
                 <% if user_signed_in? %>
                   <%= render "layouts/header_sign_in" %>
@@ -53,7 +57,7 @@
         <%= yield %>
         
         <!--TOPへ戻るボタン-->
-        <%= render 'layouts/top_btn' %>
+        <%= render 'layouts/back_btn' %>
       </main>
       
       <!--フッターを表示する画面を指定-->
@@ -66,7 +70,7 @@
         <footer>
           <%= render "layouts/footer" %>
         </footer>
-      <% end %>  
+      <% end %>
     </div>  
   </body>
 </html>

@@ -1,26 +1,33 @@
 <li class="nav-item" data-toggle="tooltip" title="タイムライン">
-  <%= link_to "", root_path, class:"fas fa-home fa-2x nav-link ml-2" %>
+  <% if current_page?(root_path) %>
+    <%= link_to "", root_path, class:"fas fa-house-user fa-lg nav-link ml-2 faa-pulse animated-hover" %>
+  <% else %>  
+    <%= link_to "", root_path, class:"fas fa-home fa-lg nav-link ml-2 faa-pulse animated-hover" %>
+  <% end %>  
 </li>
 
 <li class="nav-item" data-toggle="tooltip" title="新規投稿">
-  <%= link_to "", new_post_path, class:"far fa-plus-square fa-2x nav-link ml-2" %>
+  <%= link_to "", new_post_path, class:"far fa-plus-square fa-lg nav-link ml-2 faa-pulse animated-hover" %>
 </li>
 
 <li class="nav-item" data-toggle="tooltip" title="投稿一覧">
-  <%= link_to "", posts_path, class:"fas fa-images fa-2x nav-link ml-2" %>
+  <%= link_to "", posts_path, class:"fas fa-images fa-lg nav-link ml-2 faa-pulse animated-hover" %>
 </li>
 
 <li class="nav-item" data-toggle="tooltip" title="ユーザー一覧">
-  <%= link_to "", users_path, class:"fas fa-user-plus fa-2x nav-link ml-2" %>
+  <%= link_to "", users_path, class:"far fa-handshake fa-lg nav-link ml-2 faa-pulse animated-hover" %>
 </li>
 
-<li class="nav-item d-flex align-items-center ml-3 mr-5 pr-5">
+<!--アイコン（マイページとログアウト）-->
+<li class="nav-item ml-2">
   <div class="dropdown">
     <div class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      <div class="user_icon_s">
+      <div class="user_icon_s text-center">
         <%= attachment_image_tag(current_user, :icon, :fill, 40, 40, fallback: "no-image-icon.png", size:'40x40') %>
       </div>
-      <%= current_user.name %>
+      <span style="color: #808080;">
+        <%= current_user.name %>
+      </span>
     </div>
       
     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">

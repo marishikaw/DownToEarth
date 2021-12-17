@@ -1,4 +1,4 @@
-// アイコン
+// ユーザーアイコン
 .user_icon {
   .icon {
     border-radius: 50%;
@@ -17,3 +17,9 @@
     outline-offset: 2px;
   }
 }
+
+// ユーザーアイコンメニュー
+.dropdown-item:active{
+  background: #7FCDB8;
+}
+

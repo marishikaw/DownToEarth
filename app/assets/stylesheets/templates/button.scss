@@ -1,6 +1,6 @@
 // ※リンクにはtype:"button"の記述が必要です。
 
-// ボタン（大）
+// ボタン（大）------------------------------
 .btn-lg{
   width: 200px;
   padding: 10px;
@@ -13,13 +13,13 @@
 }
 .btn-lg:hover{
   background:#B0E7D8;
-  color: white;
+  color: #808080;
   border: 1px solid;
   border-color: #7FCDB8;
   text-decoration: none;
 }
 
-// ボタン（中）
+// ボタン（中）------------------------------
 .btn-md{
   width: 120px;
   padding: 10px;
@@ -31,8 +31,8 @@
   text-align: center
 }
 .btn-md:hover{
-  background:white;
-  color: #7FCDB8;
+  background:#B0E7D8;
+  color: #808080;
   border: 1px solid;
   border-color: #7FCDB8;
   text-decoration: none;
@@ -52,7 +52,7 @@
   text-decoration: none;
 }
 
-// ボタン（小）
+// ボタン（小）------------------------------
 .btn-sm{
   width: 80px;
   padding: 6px;
@@ -65,7 +65,7 @@
 }
 .btn-sm:hover{
   background:#B0E7D8;
-  color: white;
+  color: #808080;
   border: 1px solid;
   border-color: #7FCDB8;
   text-decoration: none;
@@ -85,7 +85,7 @@
   text-decoration: none;
 }
 
-// TOPに戻るボタン
+// TOPに戻るボタン--------------------------
 #page-top{
   position: fixed;
   right: 30px;

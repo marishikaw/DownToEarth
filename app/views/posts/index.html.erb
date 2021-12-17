@@ -1,6 +1,10 @@
 <div class="container">
 	<div class="row">
 		<div class="col-lg-9">
+			<div>
+				<h3>すべての投稿</h3>
+				<p>全<%= Post.all.count %>件</p>
+			</div>
 			<%= render 'posts/list', posts: @posts %>
 		</div>
 
