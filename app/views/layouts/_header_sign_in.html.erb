@@ -1,3 +1,4 @@
+<!--アイコンを表示-->
 <li class="nav-item" data-toggle="tooltip" title="タイムライン">
   <% if current_page?(root_path) %>
     <%= link_to "", root_path, class:"fas fa-house-user fa-lg nav-link ml-2 faa-pulse animated-hover" %>
@@ -18,12 +19,12 @@
   <%= link_to "", users_path, class:"far fa-handshake fa-lg nav-link ml-2 faa-pulse animated-hover" %>
 </li>
 
-<!--アイコン（マイページとログアウト）-->
+<!--ユーザーアイコン（マイページとログアウト）-->
 <li class="nav-item ml-2">
   <div class="dropdown">
     <div class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
       <div class="user_icon_s text-center">
-        <%= attachment_image_tag(current_user, :icon, :fill, 40, 40, fallback: "no-image-icon.png", size:'40x40') %>
+        <%= attachment_image_tag(current_user, :icon, :fill, 40, 40, fallback: "no-image-icon.png", size:"40x40") %>
       </div>
       <span style="color: #808080;">
         <%= current_user.name %>

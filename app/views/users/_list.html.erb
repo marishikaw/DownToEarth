@@ -1,9 +1,9 @@
-<table class='table table-borderless'>
+<table class="table table-borderless">
   <% users.each do |user| %>
     <tr>
 	    <td class="user_icon">
 	      <%= link_to user_path(user) do %>
-        	<%= attachment_image_tag(user, :icon, :fill, 60, 60, fallback: "no-image-icon.png", size:'60x60') %>
+        	<%= attachment_image_tag(user, :icon, :fill, 60, 60, fallback: "no-image-icon.png", size:"60x60") %>
         <% end %>
       </td>
 	    <td>

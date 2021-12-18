@@ -18,16 +18,16 @@
           <div class="container-fluid">
             <!--ロゴ-->
             <div class="center">
-              <%= link_to image_tag("logo-line.jpg", width: '250px'), root_path, class:"navbar-brand" %>
+              <%= link_to image_tag("logo-line.jpg", width: "250px"), root_path, class:"navbar-brand" %>
             </div>
-            
+
             <!--ハンバーガーメニュー時のボタン-->
-            <button class="navbar-toggler" 
-                    type="button" 
-                    data-toggle="collapse" 
-                    data-target="#navbarNavDropdown" 
-                    aria-controls="navbarNavDropdown" 
-                    aria-expanded="false" 
+            <button class="navbar-toggler"
+                    type="button"
+                    data-toggle="collapse"
+                    data-target="#navbarNavDropdown"
+                    aria-controls="navbarNavDropdown"
+                    aria-expanded="false"
                     aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
@@ -35,42 +35,42 @@
             <div class="collapse navbar-collapse flex-column" id="navbarNavDropdown">
               <ul class="navbar-nav ml-auto mr-5 pr-4 d-flex align-items-center">
                 <% unless %w[new_user_session new_user_registration].any? { |name| current_page?(send("#{name}_path")) } %>
-                  <%= render 'layouts/header_search' %>
+                  <%= render "layouts/header_search" %>
                 <% end %>
-                
+
                 <% if user_signed_in? %>
                   <%= render "layouts/header_sign_in" %>
                 <% else %>
-                  <%= render 'layouts/header_sign_out' %>
+                  <%= render "layouts/header_sign_out" %>
                 <% end %>
               </ul>
             </div>
           </div>
         </nav>
       </header>
-      
+
       <main>
         <!--フラッシュメッセージ-->
         <p class="notice_explanation"><%= notice %></p>
         <p class="alerta_explanation"><%= alert %></p>
-        
+
         <%= yield %>
-        
+
         <!--TOPへ戻るボタン-->
-        <%= render 'layouts/back_btn' %>
+        <%= render "layouts/back_btn" %>
       </main>
-      
+
       <!--フッターを表示する画面を指定-->
-      <% if %w[about 
-               users 
-               new_user_session 
-               new_user_registration 
+      <% if %w[about
+               users
+               new_user_session
+               new_user_registration
                new_post
               ].any? { |name| current_page?(send("#{name}_path")) } %>
         <footer>
           <%= render "layouts/footer" %>
         </footer>
       <% end %>
-    </div>  
+    </div>
   </body>
 </html>

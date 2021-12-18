@@ -3,9 +3,8 @@
 		<div class="col">
 			<div>
 				<div class="user_icon">
-		      <%= attachment_image_tag(@user, :icon, :fill, 100, 100, fallback: "no-image-icon.png", size:'100x100') %>
-		    </div>
-				<div class="col">
+		      <%= attachment_image_tag(@user, :icon, :fill, 150, 150, fallback: "no-image-icon.png", size:"150x150") %>
+		    </div>				<div class="col">
 					<table class="table table-borderless">
 						<tr>
 							<td>
@@ -21,7 +20,7 @@
 							</td>
 							<td>
 								<% if @user == current_user %>
-									<%= link_to '編集', edit_user_path(@user), class: "btn btn-sm btn-outline-secondary edit_post_#{@user.id}" %>
+									<%= link_to "編集", edit_user_path(@user), class: "btn btn-sm btn-outline-secondary edit_post_#{@user.id}" %>
 								<% end %>
 							</td>
 						</tr>
@@ -36,14 +35,14 @@
 							</td>
 						</tr>
 						<tr>
-							<td colspan="3">
+							<td>
 								<%= @user.introduction %>
 							</td>
 						</tr>
 					</table>
 		    </div>
 		  </div>
-			<%= render 'users/posts', posts: @posts %>
+			<%= render "users/posts", posts: @posts %>
 		</div>
 	</div>
 </div>

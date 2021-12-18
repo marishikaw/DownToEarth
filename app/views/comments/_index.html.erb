@@ -1,27 +1,30 @@
 <div class="container ml-1 my-3">
   <% post.comments.includes([:user]).each do |comment| %>
+    <% comment_user = comment.user %>
     <div class="row mb-3">
       <div class="col-1 mr-3 d-flex align-items-center">
-        <% comment_user = comment.user %>
+        <!--アイコン-->
         <%= link_to user_path(comment_user), class: "user_#{comment_user.id}" do %>
           <%= attachment_image_tag comment.user, :icon, :fill, 40, 40, fallback: "no-image-icon.png", size:'40x40', class:"rounded-circle" %>
         <% end %>
       </div>
 
       <div class="col mb-2">
+        <!--ユーザー名とコメント-->
         <div>
           <%= link_to comment.user.name, user_path(comment_user), class: "text-dark font-weight-bold" %>
           <%= comment.comment %>
         </div>
 
         <div>
+          <!--コメントした時間-->
           <span class="text-secondary">
             <i class="far fa-clock clock-icon"></i>
-            <%= time_ago_in_words(comment.created_at) %>前
+            <%= time_ago_in_words(comment.created_at) %><% if time_ago_in_words(comment.created_at) != "1分未満" %>前<% end %>
           </span>
-                  
+          <!--コメントした本人のみ削除ボタンを表示-->
           <% if comment.user == current_user %>
-            <%= link_to "削除", post_comment_path(comment.post_id, comment.id), method: :delete, remote: true, data: { confirm: '本当に消しますか？' }, class: "btn-sm  btn-outline-danger" %>
+            <%= link_to "削除", post_comment_path(comment.post_id, comment.id), method: :delete, remote: true, data: { confirm: '本当に消しますか？' }, class: "text-secondary" %>
           <% end %>
         </div>
       </div>

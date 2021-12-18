@@ -25,6 +25,6 @@ Rails.application.routes.draw do
       get 'search'
     end
   end
-  
+
   get '/posts/hashtag/:name', to: 'posts#hashtag'
 end

@@ -39,7 +39,7 @@ class Post < ApplicationRecord
   # バリデーション
 	FILE_NUMBER_LIMIT = 4
   validate :validate_number_of_files
-	validates :caption, length: {maximum: 150}
+	validates :caption, presence: true, length: {maximum: 1000}
 
   #	プライベートメソッド--------------------------------------------
   private

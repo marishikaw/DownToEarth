@@ -5,11 +5,11 @@
         <h3><%= @q.caption_cont %></h3>
         <p>投稿<%= @results.total_count %>件</h3>
 		  </div>
-			<%= render 'posts/list', posts: @results %>
+			<%= render "posts/list", posts: @results %>
 		</div>
 
 		<div class="col-lg-3">
-			<%= render 'layouts/sidebar' %>
+			<%= render "layouts/sidebar" %>
 		</div>
 	</div>
 </div>
