@@ -22,7 +22,7 @@
             <div class="center">
               <%= link_to image_tag("logo-line.jpg", width: "250px"), root_path, class:"navbar-brand" %>
             </div>
-
+            <!--アイコン-->
             <div class="flex-column">
               <ul class="navbar-nav ml-auto mr-5 pr-4 d-flex align-items-center">
                 <% unless %w[new_user_session new_user_registration].any? { |name| current_page?(send("#{name}_path")) } %>

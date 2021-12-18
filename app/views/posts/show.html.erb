@@ -1,6 +1,6 @@
 <div class="container">
-  <div class="row py-5">
-    <div class="col">
+  <div class="row">
+    <div class="col mt-5">
       <% unless @post.post_images.present? %>
         <%= image_tag "no-image-post.jpg", size: "500x500" %>
       <%else%>
@@ -12,7 +12,7 @@
       <%end%>
     </div>
 
-    <div class="col">
+    <div class="col mt-2">
       <div class="mb-3">
         <%= link_to user_path(@post.user) do %>
           <%= attachment_image_tag(@post.user, :icon, :fill, 80, 80, fallback: "no-image-icon.png", size:"80x80", class:"rounded-circle") %>
@@ -23,10 +23,10 @@
 
         <% if @post.user == current_user %>
           <span class="mx-2">
-            <%= link_to "編集", edit_post_path(@post), class: "btn btn-secondary" %>
+            <%= link_to "編集", edit_post_path(@post), class: "btn-s" %>
           </span>
           <span class="mx-2">
-            <%= link_to "削除", post_path(@post), method: :delete, data: { confirm: "本当に消しますか？" }, class: "btn btn-outline-danger" %>
+            <%= link_to "削除", post_path(@post), method: :delete, data: { confirm: "本当に消しますか？" }, class: "btn-s-gray" %>
           </span>
         <% end %>
       </div>
@@ -59,15 +59,15 @@
         <%= render "comments/index",post: @post %>
       </div>
 
-      <div class="mt-3 text-center">
+      <div class="text-center">
         <% if user_signed_in? %>
           <%= form_with(model:[@post, @comment], remote: true) do |f| %>
-            <%= f.text_area :comment, rows:"3", placeholder: "コメントを追加…" %>
-            <%= f.submit "投稿する", class: "btn-sm" %>
+            <%= f.text_area :comment, rows: "3", placeholder: "コメントを追加…", class: "form-control" %>
+      <span id="comment-form-error"></span>
+            <%= f.submit "投稿する", class: "btn-md mt-2" %>
           <% end %>
         <% end %>
       </div>
-      <span id="comment-form-error"></span>
     </div>
   </div>
 </div>

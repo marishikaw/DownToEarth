@@ -8,6 +8,7 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+//= require swiper/swiper-bundle.js
 
 // 無限スクロールの処理
 $(document).on('turbolinks:load', function() {

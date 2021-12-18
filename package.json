@@ -1,5 +1,7 @@
 {
   "name": "DownToEarth",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "swiper": "^7.3.3"
+  }
 }
