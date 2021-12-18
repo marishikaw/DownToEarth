@@ -6,6 +6,8 @@
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    
+    <!--font awesomeのアニメーション-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome-animation/0.0.10/font-awesome-animation.css" type="text/css" media="all" />
   </head>
 
@@ -21,17 +23,6 @@
               <%= link_to image_tag("logo-line.jpg", width: "250px"), root_path, class:"navbar-brand" %>
             </div>
 
-            <!--ハンバーガーメニュー時のボタン-->
-            <!--<button class="navbar-toggler"-->
-            <!--        type="button"-->
-            <!--        data-toggle="collapse"-->
-            <!--        data-target="#navbarNavDropdown"-->
-            <!--        aria-controls="navbarNavDropdown"-->
-            <!--        aria-expanded="false"-->
-            <!--        aria-label="Toggle navigation">-->
-            <!--  <span class="navbar-toggler-icon"></span>-->
-            <!--</button>-->
-            <!--ハンバーガーメニューの要素-->
             <div class="flex-column">
               <ul class="navbar-nav ml-auto mr-5 pr-4 d-flex align-items-center">
                 <% unless %w[new_user_session new_user_registration].any? { |name| current_page?(send("#{name}_path")) } %>
