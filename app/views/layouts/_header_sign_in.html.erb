@@ -1,5 +1,4 @@
-<!--アイコンを表示-->
-<li class="nav-item" data-toggle="tooltip" title="タイムライン">
+<li class="nav-item">
   <% if current_page?(root_path) %>
     <%= link_to "", root_path, class:"fas fa-house-user fa-lg nav-link ml-2 faa-pulse animated-hover" %>
   <% else %>  
@@ -7,15 +6,15 @@
   <% end %>  
 </li>
 
-<li class="nav-item" data-toggle="tooltip" title="新規投稿">
-  <%= link_to "", new_post_path, class:"far fa-plus-square fa-lg nav-link ml-2 faa-pulse animated-hover" %>
+<!--モーダル（ダイアログの記述は下部に記載）-->
+<li class="far fa-plus-square fa-lg nav-link ml-2 faa-pulse animated-hover" data-toggle="modal" data-target="#exampleModalScrollable">
 </li>
 
-<li class="nav-item" data-toggle="tooltip" title="投稿一覧">
+<li class="nav-item">
   <%= link_to "", posts_path, class:"fas fa-images fa-lg nav-link ml-2 faa-pulse animated-hover" %>
 </li>
 
-<li class="nav-item" data-toggle="tooltip" title="ユーザー一覧">
+<li class="nav-item">
   <%= link_to "", users_path, class:"far fa-handshake fa-lg nav-link ml-2 faa-pulse animated-hover" %>
 </li>
 
@@ -41,3 +40,22 @@
     </div>  
   </div>
 </li>
+
+<!---------------- モーダルダイアログ ----------------------------------------->
+<div class="modal" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title text-secondary" id="exampleModalCenteredLabel">
+          新規投稿を作成
+        </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <%= render "posts/form", post: @post_new %>
+      </div>
+    </div>
+  </div>
+</div>

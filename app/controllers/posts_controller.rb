@@ -1,27 +1,28 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit, :create, :update, :destroy]
   before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :set_post_new
   before_action :set_q
 
   def timeline
     if user_signed_in?
       @posts = Post.includes([:user], [:post_images])
                .where(user_id: [current_user.id, *current_user.following_ids]).order(id: "DESC")
-               .page(params[:page]).per(2)
+               .page(params[:page]).per(10)
       @hashtags = Hashtag.last(10)
     else
-      @posts = Post.includes([:user], [:post_images]).all.order(id: "DESC").page(params[:page]).per(2)
+      @posts = Post.includes([:user], [:post_images]).all.order(id: "DESC").page(params[:page]).per(10)
       @hashtags = Hashtag.last(10)
     end
   end
 
   def index
-    @posts = Post.includes([:user], [:post_images]).all.order(id: "DESC").page(params[:page]).per(2)
+    @posts = Post.includes([:user], [:post_images]).all.order(id: "DESC").page(params[:page]).per(10)
     @hashtags = Hashtag.all.last(10)
   end
 
   def new
-    @post = Post.new
+
   end
 
   def create
@@ -63,12 +64,12 @@ class PostsController < ApplicationController
   def hashtag
     @user = current_user
     @hashtag = Hashtag.find_by(name: params[:name])
-    @posts = @hashtag.posts.includes([:user], [:post_images]).order(id: "DESC").page(params[:page]).per(2)
+    @posts = @hashtag.posts.includes([:user], [:post_images]).order(id: "DESC").page(params[:page]).per(10)
     @hashtags = Hashtag.last(10)
   end
   
   def search
-    @results = @q.result.includes([:user], [:post_images]).all.order(id: "DESC").page(params[:page]).per(2)
+    @results = @q.result.includes([:user], [:post_images]).all.order(id: "DESC").page(params[:page]).per(10)
     @hashtags = Hashtag.last(10)
   end
 
@@ -76,6 +77,10 @@ class PostsController < ApplicationController
   private
     def set_post
       @post = Post.find(params[:id])
+    end
+    
+    def set_post_new
+      @post_new = Post.new
     end
     
     def set_q

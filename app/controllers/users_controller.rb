@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!, except: [:show, :index]
   before_action :ensure_correct_user, only: [:edit, :update]
+  before_action :set_post_new
 
   def show
     @user = User.find(params[:id])
@@ -9,6 +10,7 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all.order(id: "DESC")
+    @post = Post.new
   end
 
   def edit
@@ -39,5 +41,9 @@ class UsersController < ApplicationController
     
     def user_params
       params.require(:user).permit(:name, :introduction, :icon)
+    end
+
+    def set_post_new
+      @post_new = Post.new
     end
 end
