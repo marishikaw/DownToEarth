@@ -1,0 +1,22 @@
+<!--アイコン-->
+<li class="far fa-plus-square fa-lg nav-link ml-2 faa-pulse animated-hover" data-toggle="modal" data-target="#exampleModalScrollable">
+</li>
+
+<!---------------- モーダルダイアログ ----------------------------------------->
+<div class="modal" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title col-12 text-center text-secondary" id="exampleModalCenteredLabel">
+          新規投稿を作成
+        </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <%= render "posts/form", post: @post_new %>
+      </div>
+    </div>
+  </div>
+</div>
