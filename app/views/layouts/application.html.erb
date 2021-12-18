@@ -59,18 +59,6 @@
         <!--TOPへ戻るボタン-->
         <%= render "layouts/back_btn" %>
       </main>
-
-      <!--フッターを表示する画面を指定-->
-      <% if %w[about
-               users
-               new_user_session
-               new_user_registration
-               new_post
-              ].any? { |name| current_page?(send("#{name}_path")) } %>
-        <footer>
-          <%= render "layouts/footer" %>
-        </footer>
-      <% end %>
     </div>
   </body>
 </html>
