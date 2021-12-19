@@ -5,12 +5,8 @@
         
         <!--投稿画像-->
         <%= link_to post_path(post.id) do %>
-          <% unless post.post_images.present? %>
-            <%= image_tag "no-image-post.jpg", class:"card-img-top" %>
-          <%else%>
-            <% post.post_images.first(1).each do |image| %>
-              <%= attachment_image_tag image, :image, class:"card-img-top" %>
-            <% end %>
+          <% post.post_images.first(1).each do |image| %>
+            <%= attachment_image_tag image, :image, class:"card-img-top" %>
           <% end %>
         <% end %>
         
