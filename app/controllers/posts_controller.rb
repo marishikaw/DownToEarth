@@ -76,8 +76,11 @@ class PostsController < ApplicationController
   # -------------プライベートメソッド------------------------------------------
   private
     def set_post
-      id = params[:id] || 1
-      @post = Post.find(id)
+      @post = Post.find_by(params[:id]) # idがnilだった場合を考慮してfind_byメソッドを使用
+      
+      if (@post == nil)
+        @post = Post.new
+      end
     end
 
     def set_post_new

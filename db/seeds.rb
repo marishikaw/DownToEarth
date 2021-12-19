@@ -1,3 +1,3 @@
 require './db/seeds/users'
-require './db/seeds/posts'
 require './db/seeds/hashtags'
+require './db/seeds/posts'
