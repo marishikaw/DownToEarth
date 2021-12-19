@@ -18,8 +18,8 @@ posts.each do |post|
     caption: post[:caption],
   )
 
-  tmp_post.post_images.build                    # buildでPostTmageの画像を取得して配列の一番目に入れる
-  tmp_post.post_images[0].image = post[:image]
+  tmp_post.post_images.build                    # buildでpost_imagesテーブルの画像を取得
+  tmp_post.post_images[0].image = post[:image]  #取得した配列の一番目に入れる
   
   tmp_post.save!
 end
