@@ -78,6 +78,9 @@ class PostsController < ApplicationController
     def set_post
       id = params[:id] || 1
       @post = Post.find(id)
+      
+      # このままだとデータが1件もない場合にエラーになる。
+      # ただ、nilだった場合にnewを渡すとshowページの表示がおかしくなるので現状は未修正。
     end
 
     def set_post_new
