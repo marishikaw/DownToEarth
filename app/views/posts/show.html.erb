@@ -3,15 +3,11 @@
 <div class="container">
   <div class="row">
     <div class="col mt-5">
-      <% unless @post.post_images.present? %>
-        <%= image_tag "no-image-post.jpg", size: "500x500" %>
-      <%else%>
-        <div>
-          <% @post.post_images.each do |image| %>
-            <%= attachment_image_tag image, :image %>
-          <% end %>
-        </div>
-      <%end%>
+      <div>
+        <% @post.post_images.each do |image| %>
+          <%= attachment_image_tag image, :image %>
+        <% end %>
+      </div>
     </div>
 
     <div class="col mt-2">

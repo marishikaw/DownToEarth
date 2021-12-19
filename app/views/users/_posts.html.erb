@@ -1,8 +1,8 @@
 <div class="scroll-list jscroll">
-  <div class="card-list-container-fluid pt-3">
+  <div class="pt-3">
     <div class="row">
       <% posts.each do |post| %>
-        <div class="card col-lg-3 col-md-7 mb-4 shadow-md">
+        <div class="col-lg-3 col-md-7 mb-4">
           <!--投稿画像-->
           <div class="image-effect">
             <%= link_to post_path(post.id) do %>
@@ -21,12 +21,6 @@
             		</div>
             	</div>
             <% end %>
-          </div>
-
-          <div class="card-body">
-            <div class="card-text">
-              <%= render_with_hashtags(post.caption) %>
-            </div>
           </div>
         </div>
       <% end %>

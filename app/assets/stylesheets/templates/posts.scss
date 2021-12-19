@@ -1,4 +1,7 @@
 .image-effect {
+	width: 250px;
+  height: 250px;
+  object-fit: cover;
 	overflow:	hidden;
 	position:	relative;	/* 相対位置指定 */
 }
