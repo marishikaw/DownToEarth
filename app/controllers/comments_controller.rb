@@ -1,13 +1,17 @@
 class CommentsController < ApplicationController
-  before_action :authenticate_user!
 
   def create
     @post = Post.find(params[:post_id])
     @comment = Comment.new(comment_params)
-    @comment.user_id = current_user.id
-    @comment.post_id = @post.id
-    unless @comment.save
-      render 'error'
+    unless user_signed_in?
+      flash[:alert] = 'アカウント登録もしくはログインしてください。'
+      redirect_to post_path(params[:post_id])
+    else
+      @comment.user_id = current_user.id
+      @comment.post_id = @post.id
+      unless @comment.save
+        render 'error'
+      end
     end
   end
 

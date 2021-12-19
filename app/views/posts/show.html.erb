@@ -1,3 +1,5 @@
+<span id="comment-form-error"></span>
+
 <div class="container">
   <div class="row">
     <div class="col mt-5">
@@ -15,7 +17,7 @@
     <div class="col mt-2">
       <div class="mb-3">
         <%= link_to user_path(@post.user) do %>
-          <%= attachment_image_tag(@post.user, :icon, :fill, 80, 80, fallback: "no-image-icon.png", size:"80x80", class:"rounded-circle") %>
+          <%= attachment_image_tag(@post.user, :icon, :fill, 60, 60, fallback: "no-image-icon.png", size:"60x60", class:"rounded-circle") %>
           <span class="h4 text-dark font-weight-bold mx-3">
             <%= @post.user.name %>
           </span>
@@ -60,12 +62,9 @@
       </div>
 
       <div class="text-center">
-        <% if user_signed_in? %>
-          <%= form_with(model:[@post, @comment], remote: true) do |f| %>
-            <%= f.text_area :comment, rows: "3", placeholder: "コメントを追加…", class: "form-control" %>
-      <span id="comment-form-error"></span>
-            <%= f.submit "投稿する", class: "btn-md mt-2" %>
-          <% end %>
+        <%= form_with(model:[@post, @comment], remote: true) do |f| %>
+          <%= f.text_area :comment, rows: "3", placeholder: "コメントを追加…", class: "form-control" %>
+          <%= f.submit "投稿する", class: "btn-md mt-2" %>
         <% end %>
       </div>
     </div>

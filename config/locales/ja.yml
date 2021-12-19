@@ -13,4 +13,6 @@ ja:
         image: 画像
         caption: キャプション
       comment:
-        comment: コメント  
+        comment: コメント
+      user:
+        name: ユーザーネーム

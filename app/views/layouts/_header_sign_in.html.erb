@@ -8,6 +8,7 @@
 </li>
 
 <!--新規投稿-->
+<li class="far fa-plus-square fa-lg nav-link ml-2 faa-pulse animated-hover" data-toggle="modal" data-target="#postModalScrollable"></li>
 <%= render "posts/new", post: @post_new %>
 
 <!--すべての投稿-->
@@ -21,7 +22,7 @@
 </li>
 
 <!--ユーザーアイコン（マイページとログアウト）-->
-<li class="nav-item ml-2">
+<li class="nav-item ml-2 mt-1">
   <div class="dropdown">
     <div class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
       <div class="user_icon_s text-center">

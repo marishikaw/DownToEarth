@@ -1,9 +1,16 @@
 <div class="card-list-container py-5">
-	<div>
-		<%= link_to "New", new_post_path, class:"nav-link ml-2" %>
-	</div>
+	<% if user_signed_in? %>
+		<div>
+			<div class="far fa-plus-square fa-3x nav-link ml-2 faa-pulse animated-hover" data-toggle="modal" data-target="#postModalScrollable"></div>
+			<%= render "posts/new", post: @post_new %>
+		</div>
+	<% end %>
 
 	<div>
-		<%= link_to "All User", users_path, class:"nav-link ml-2" %>
+	  <%= link_to "", posts_path, class:"fas fa-images fa-3x nav-link ml-2 faa-pulse animated-hover" %>
+	</div>
+	
+	<div>
+	  <%= link_to "", users_path, class:"far fa-handshake fa-3x nav-link ml-2 faa-pulse animated-hover" %>
 	</div>
 </div>

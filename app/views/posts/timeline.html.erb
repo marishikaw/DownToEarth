@@ -1,7 +1,7 @@
 <div class="container">
 	<div class="row">
 		<div class="col-lg-9">
-			<% if @posts.empty? %>
+			<% if @posts.empty? || !user_signed_in? %>
 				<%= render "posts/list_empty", posts: @posts %>
 			<% else %>
 				<%= render "posts/list", posts: @posts %>

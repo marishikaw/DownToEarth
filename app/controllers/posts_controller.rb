@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit, :create, :update, :destroy]
-  before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :set_post
   before_action :set_post_new
   before_action :set_q
 
@@ -10,6 +10,7 @@ class PostsController < ApplicationController
                .where(user_id: [current_user.id, *current_user.following_ids]).order(id: "DESC")
                .page(params[:page]).per(10)
       @hashtags = Hashtag.last(10)
+
     else
       @posts = Post.includes([:user], [:post_images]).all.order(id: "DESC").page(params[:page]).per(10)
       @hashtags = Hashtag.last(10)
@@ -31,8 +32,6 @@ class PostsController < ApplicationController
     if @post.save
       flash[:notice] = 'アップロードしました。'
       redirect_to post_path(@post)
-    else
-      render :new
     end
   end
 
@@ -58,7 +57,8 @@ class PostsController < ApplicationController
 
   def destroy
     @post.destroy
-    redirect_to posts_path
+    flash[:alert] = '削除しました。'
+    redirect_to user_path(@post.user)
   end
 
   def hashtag
@@ -67,7 +67,7 @@ class PostsController < ApplicationController
     @posts = @hashtag.posts.includes([:user], [:post_images]).order(id: "DESC").page(params[:page]).per(10)
     @hashtags = Hashtag.last(10)
   end
-  
+
   def search
     @results = @q.result.includes([:user], [:post_images]).all.order(id: "DESC").page(params[:page]).per(10)
     @hashtags = Hashtag.last(10)
@@ -76,17 +76,18 @@ class PostsController < ApplicationController
   # -------------プライベートメソッド------------------------------------------
   private
     def set_post
-      @post = Post.find(params[:id])
+      id = params[:id] || 1
+      @post = Post.find(id)
     end
-    
+
     def set_post_new
       @post_new = Post.new
     end
-    
+
     def set_q
       @q = Post.ransack(params[:q])
     end
-    
+
     def post_params
       params.require(:post).permit(:caption, post_images_images: [])
     end

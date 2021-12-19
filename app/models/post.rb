@@ -23,7 +23,7 @@ class Post < ApplicationRecord
     end
   end
 
-  before_update do 
+  before_update do
     post = Post.find_by(id: self.id)
     post.hashtags.clear
     hashtags = self.caption.scan(/[#][\w\p{Han}ぁ-ヶｦ-ﾟー]+/)
@@ -39,12 +39,18 @@ class Post < ApplicationRecord
   # バリデーション
 	FILE_NUMBER_LIMIT = 4
   validate :validate_number_of_files
-	validates :caption, presence: true, length: {maximum: 1000}
+	validates :caption, length: {maximum: 1000}
 
   #	プライベートメソッド--------------------------------------------
   private
     def validate_number_of_files
-      return if post_images.length <= FILE_NUMBER_LIMIT
-      errors.add(:image, "の添付は#{FILE_NUMBER_LIMIT}枚までです。")
+      image_size = post_images.length
+      if image_size == 0
+        errors.add(:image, "を選択してください。")
+      elsif FILE_NUMBER_LIMIT <= image_size
+        errors.add(:image, "は#{FILE_NUMBER_LIMIT}点まで投稿できます。")
+      else
+        return
+      end
     end
 end
