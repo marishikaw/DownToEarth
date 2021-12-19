@@ -38,9 +38,15 @@
                   </div>
                 <% else %>
                   <div>
-                    <%= "♥ #{post.favorites.count}件" %>
+                    <span class="fas fa-heart"></span>
+                    <%= post.favorites.count %>
                   </div>
                 <% end %>
+                
+                <div class="ml-2">
+                  <%= link_to "", post_path(post.id), class: "far fa-comment text-dark text-decoration-none" %>
+                  <%= link_to post.comments.count, post_path(post.id), class: "text-dark text-decoration-none" %>
+                </div>
               </div>
               
               <div class="card-text">
