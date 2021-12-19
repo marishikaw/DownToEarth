@@ -15,6 +15,6 @@ hashtags = [
 
 hashtags.each do |hashtag|
   hashtag = Hashtag.create!(
-    name: user[:name]
+    name: hashtag[:name]
   )
 end
