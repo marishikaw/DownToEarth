@@ -1,6 +1,6 @@
 <span class="mr-5">
-  フォロワー<%= link_to user.followers.count, user_followers_path(user.id) %>人
+  <%= link_to "フォロワー#{user.followers.count}人", user_followers_path(user.id), class: "text-dark" %>
 </span>
 <span>
-  フォロー中<%= link_to user.followings.count, user_followings_path(user.id) %>人
+  <%= link_to "フォロー中#{user.followings.count}人", user_followings_path(user.id), class: "text-dark" %>
 </span>

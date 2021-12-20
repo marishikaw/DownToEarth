@@ -1,48 +1,58 @@
 <div class="container">
 	<div class="row justify-content-center">
 		<div class="col">
-			<div>
-				<div class="user_icon">
-					<%= attachment_image_tag(@user, :icon, :fill, 150, 150, fallback: "no-image-icon.png", size:"150x150") %>
-					</div>				
+
+			<!-------ユーザー情報---------------------------------------------------->
+			<div class="row">
+				
+				<!--アイコン-->
+				<div class="col-4 text-center mt-3">
+					<%= attachment_image_tag @user, :icon, :fill, 150, 150, fallback: "no-image-icon.png", size:"150x150", class: "rounded-circle"; %>
+				</div>
+
+				<!--ユーザー情報詳細-->
 				<div class="col">
 					<table class="table table-borderless">
 						<tr>
-							<td>
+							<!--ユーザー名-->
+							<td class="h2">
 								<%= @user.name %>
 							</td>
 							<td>
-								<!--フォローする/フォロー中ボタンの非同期通信-->
-						    <% if @user != current_user && current_user.present? %>
-				          <div id="relationship-btn_<%= @user.id %>">
-				            <%= render "relationships/relationship-btn", user: @user %>
-				          </div>
+								<% if @user != current_user && current_user.present? %>
+									<!--フォローする/フォロー中ボタン-->
+									<div id="relationship-btn_<%= @user.id %>">
+										<%= render "relationships/relationship-btn", user: @user %>
+									</div>
+								<% elsif @user == current_user %>
+									<!--設定アイコン-->
+									<%= link_to "", edit_user_path(@user), class: "mt-2 fas fa-user-cog fa-lg text-secondary text-decoration-none" %>
 						    <% end %>
 							</td>
-							<td>
-								<% if @user == current_user %>
-									<%= link_to "編集", edit_user_path(@user), class: "btn btn-sm btn-outline-secondary edit_post_#{@user.id}" %>
-								<% end %>
-							</td>
 						</tr>
-						
+
 						<tr>
+							<!--投稿数-->
 							<td>
 								<P>投稿<%= @user.posts.count %>件</P>
 							</td>
-							<!--フォロワー数の非同期通信-->
+							<!--フォロワー／フォロー中-->
 							<td id="relationship-count_<%= @user.id %>">
 								<%= render "relationships/relationship-count", user: @user %>
 							</td>
 						</tr>
+
+						<!--紹介文-->
 						<tr>
-							<td>
+							<td colspan="2">
 								<%= @user.introduction %>
 							</td>
 						</tr>
 					</table>
 		    </div>
 		  </div>
+
+		  <!-------投稿一覧-------------------------------------------------------->
 			<%= render "users/posts", posts: @posts %>
 		</div>
 	</div>

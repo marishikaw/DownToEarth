@@ -1,22 +1,26 @@
 <table class="table table-borderless">
   <% users.each do |user| %>
     <tr>
-      <td class="user_icon">
+      <!--アイコン-->
+      <td class="user_icon text-center" style="width: 20%">
         <%= link_to user_path(user) do %>
           <%= attachment_image_tag(user, :icon, :fill, 60, 60, fallback: "no-image-icon.png", size: "60x60") %>
         <% end %>
       </td>
+
+      <!--紹介文-->
       <td>
-        <%= link_to user_path(user) do %>
-          <%= user.name %>
-        <% end %>
+        <%= link_to user.name, user_path(user), class: "font-weight-bold text-dark" %>
         <br>
-        <%= user.introduction %>
+        <span class="text-secondary">
+          <%= user.introduction %>
+        </span>
       </td>
-      <td>
-        <!--フォローする/フォロー中ボタン-->
+
+      <!--フォローする/フォロー中ボタン-->
+      <td style="width: 20%">
         <% if user != current_user && current_user.present? %>
-          <div id="relationship-btn_<%= user.id %>" class="card-text">
+          <div id="relationship-btn_<%= user.id %>">
             <%= render "relationships/relationship-btn", user: user %>
           </div>
         <% end %>

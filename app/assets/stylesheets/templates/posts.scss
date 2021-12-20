@@ -2,14 +2,14 @@
 .image-effect {
 	width: 250px;
   height: 250px;
-  object-fit: cover;
+  object-fit: contain;
 	overflow:	hidden;
 	position:	relative;	/* 相対位置指定 */
 }
 .image-effect .image-contents {
 	font-size: 130%;
 	text-align: center;
-	padding-top: 100px;
+	padding-top: 110px;
 	color: #fff;
 }
 .image-effect .mask {

@@ -1,11 +1,17 @@
-<div class="container px-5 px-sm-0">
+<div class="container">
   <div class="row justify-content-center">
-    <div class="col-md-8 offset-md-1 min-vh-80">  
-      <h3>フォロワー</h3>
+    <div class="user-scroll col-md-7 p-4 my-5">
+      <h3 class="text-secondary text-center mb-4">
+        フォロワー
+      </h3>
+      
+      <!--フォロワー一覧-->
       <% if @users.exists? %>
         <%= render "users/list", users: @users %>
       <% else %>
-        <p>ユーザーはいません</p>
+        <p class="text-center">
+          ユーザーはいません
+        </p>
       <% end %>
     </div>
   </div>

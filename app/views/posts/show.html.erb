@@ -2,8 +2,8 @@
 
 <div class="container">
   <div class="row">
-    <!--投稿画像-->
     <div class="col mt-5">
+      <!--投稿画像-->
       <div>
         <% @post.post_images.each do |image| %>
           <%= attachment_image_tag image, :image %>
@@ -22,16 +22,19 @@
         <% end %>
 
         <!--投稿者だったら編集ボタンを削除ボタンを表示-->
-        <% if @post.user == current_user %>
-          <span class="mx-2">
-            <%= link_to "編集", edit_post_path(@post), class: "btn-s" %>
-          </span>
-          <span class="mx-2">
-            <%= link_to "削除", post_path(@post), method: :delete, data: { confirm: "本当に消しますか？" }, class: "btn-s-gray" %>
-          </span>
-        <% end %>
+        <span class="ml-5">
+          <% if @post.user == current_user %>
+            <span class="mx-2">
+              <%= link_to "編集", edit_post_path(@post), class: "btn-s" %>
+            </span>
+            <span class="mx-2">
+              <%= link_to "削除", post_path(@post), method: :delete, data: { confirm: "本当に消しますか？" }, class: "btn-s-gray" %>
+            </span>
+          <% end %>
+        </span>
       </div>
 
+      <div class="mb-2">
         <!--いいね-->
         <% if current_user.present? %>
           <span id="favorite-btn_<%= @post.id %>" class="card-text mr-2">
@@ -47,17 +50,7 @@
             <%= " いいね！ #{@post.favorites.count}件" %>
           </p>
         <% end %>
-
-        <!--ハッシュタグ-->
-        <p>
-          <%= render_with_hashtags(@post.caption) %>
-        </p>
-
-        <!--投稿時間-->
-        <p class="text-secondary">
-          <i class="far fa-clock clock-icon"></i>
-          <%= time_ago_in_words(@post.created_at) %><% if time_ago_in_words(@post.created_at) != "1分未満" %>前<% end %>
-        </p>
+      </div>
 
       <!--コメント一覧-->
       <div id="comments">
@@ -65,10 +58,12 @@
       </div>
 
       <!--コメント入力フォーム-->
-      <div class="text-center">
+      <div>
         <%= form_with(model:[@post, @comment], remote: true) do |f| %>
           <%= f.text_area :comment, rows: "3", placeholder: "コメントを追加…", class: "form-control" %>
-          <%= f.submit "投稿する", class: "btn-md mt-2" %>
+          <div class="text-right">
+            <%= f.submit "投稿する", class: "btn-md mt-2" %>
+          </div>
         <% end %>
       </div>
     </div>
