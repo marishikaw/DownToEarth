@@ -8,6 +8,8 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+
+// swiperを追加
 //= require swiper/swiper-bundle.js
 
 // 無限スクロールの処理
@@ -44,3 +46,4 @@ $(function() {
     event.preventDefault();
   });
 });
+

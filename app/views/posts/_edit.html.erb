@@ -1,20 +1,20 @@
 <!---------------- モーダルダイアログ ----------------------------------------->
-<div class="modal" id="postModalScrollable" tabindex="-1" role="dialog" aria-labelledby="postModalScrollableLabel" aria-hidden="true">
+<div class="modal" id="editModalScrollable" tabindex="-1" role="dialog" aria-labelledby="editModalScrollableLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title text-secondary" id="exampleModalCenteredLabel">
-          新規投稿を作成
+          投稿を編集する
         </h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">×</span>
         </button>
       </div>
 
-      <div id="modal-errors"></div>
+      <div id="modal-edit-errors"></div>
       <div class="modal-body">
         
-        <%= render "posts/form", post: @post_new %>
+        <%= render "posts/form", post: @post %>
       </div>
     </div>
   </div>

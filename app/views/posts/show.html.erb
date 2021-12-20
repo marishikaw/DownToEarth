@@ -2,14 +2,24 @@
 
 <div class="container">
   <div class="row">
-    <div class="col mt-5">
-      <!--投稿画像-->
-      <div>
+
+
+
+    <div class="swiper">
+      <div class="swiper-wrapper">
         <% @post.post_images.each do |image| %>
-          <%= attachment_image_tag image, :image %>
+          <div class="swiper-slide">
+            <%= attachment_image_tag image, :image %>
+          </div>
         <% end %>
       </div>
+
+      <div class="swiper-pagination"></div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
     </div>
+
+
 
     <div class="col mt-2">
       <!--アイコンとユーザー名-->
@@ -22,10 +32,12 @@
         <% end %>
 
         <!--投稿者だったら編集ボタンを削除ボタンを表示-->
-        <span class="ml-5">
+        <span>
           <% if @post.user == current_user %>
             <span class="mx-2">
-              <%= link_to "編集", edit_post_path(@post), class: "btn-s" %>
+              <span class="far fa-plus-square fa-lg nav-link ml-2 faa-pulse animated-hover" data-toggle="modal" data-target="#editModalScrollable"></span>
+              <%= render "posts/edit" %>
+              
             </span>
             <span class="mx-2">
               <%= link_to "削除", post_path(@post), method: :delete, data: { confirm: "本当に消しますか？" }, class: "btn-s-gray" %>
@@ -73,3 +85,13 @@
 <footer>
   <%= render "layouts/footer" %>
 </footer>
+
+<script>
+let mySwiper = new Swiper('.swiper', {
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  }
+});
+</script>
+

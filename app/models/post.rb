@@ -4,7 +4,7 @@ class Post < ApplicationRecord
   has_many :post_images, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
-  has_many :post_hashtags, dependent: :destroy
+  has_many :post_hashtags, dependent: :delete_all
   has_many :hashtags, through: :post_hashtags
 
   # いいねの存在を確認
