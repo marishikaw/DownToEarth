@@ -9,6 +9,7 @@ class CommentsController < ApplicationController
     else
       @comment.user_id = current_user.id
       @comment.post_id = @post.id
+      @post.create_notification_comment!(current_user, @comment.id)
       unless @comment.save
         render 'error'
       end

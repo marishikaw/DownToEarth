@@ -27,4 +27,7 @@ Rails.application.routes.draw do
   end
 
   get '/posts/hashtag/:name', to: 'posts#hashtag'
+  
+  # --------通知----------------------------------------------------------------
+  resources :notifications, only: :index
 end

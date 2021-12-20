@@ -1,0 +1,42 @@
+<% visitor = notification.visitor %>
+<% visited = notification.visited %>
+
+<div class="scroll-list jscroll">
+  <div class="col-md-6 mx-auto mt-5">
+    <table class="table table-border-bottom form-inline">
+      <tbody>
+        <tr>
+          <td>
+            <%= link_to user_path(visitor), class: "text-primary" do %><strong><%= visitor.name %>さん</strong><% end %> が
+            <% case notification.action %>
+            <% when 'follow' then %>
+              <%= "あなたをフォローしました。" %>
+            <% when  'favorite' then %>
+              <%= link_to 'あなたの投稿', notification.post, class: "text-primary", style: "font-weight: bold;" %><%= " にいいねしました。" %>
+            <% when 'comment' then %>
+              <% if notification.post.user_id == visited.id %>
+                <%= link_to "あなたの投稿", notification.post, class: "text-primary", style: "font-weight: bold;" %>
+              <% else %>
+                <%= link_to user_path(visited.id), class: "text-primary" do %>
+                  <% if notification.post.user_id == visited.id %>
+                    <%= notification.post.user.name + "さんの" %>
+                  <% end %>
+                <% end %>
+                <%= link_to "投稿", notification.post, class: "text-primary", style: "font-weight: bold;" %>
+              <% end %>
+              <span>
+                <%= "にコメントしました。" %>
+  
+              </span>
+  
+            <% end %>
+            <small class="text-right text-muted"><%= time_ago_in_words(notification.created_at).upcase %></small>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!--無限スクロール-->
+  <%= paginate @notifications %>
+</div>
