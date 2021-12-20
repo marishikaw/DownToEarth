@@ -2,9 +2,9 @@
   <div class="row">
     <div class="border border-secondary col-sm-12 col-md-8 col-lg-5 p-5 mx-auto my-5">
       <div class="user_icon mb-3">
-        <%= attachment_image_tag(@user, :icon, :fill, 100, 100, fallback: "no-image-icon.png", size:"100x100") %>
+        <%= attachment_image_tag(@user, :icon, :fill, 100, 100, fallback: "no-image-icon.png", size: "100x100") %>
       </div>  
-      
+
       <div class="text-center">
       <%= form_with model:@user, local:true do |f| %>
         <%= render "layouts/errors", obj: @user %>
@@ -21,7 +21,7 @@
           <%= f.submit "変更を保存", class: "btn-lg mb-1" %>
         </div>
         <div class="form-group">
-          <%= link_to "アカウントを削除", confirm_unsubscribe_path ,class:"btn btn-outline-danger", style:"width: 200px;" %>
+          <%= link_to "アカウントを削除", confirm_unsubscribe_path ,class: "btn btn-outline-danger", style:"width: 200px;" %>
         </div>
       <% end %>
       </div>

@@ -12,7 +12,7 @@ posts = [
   ]
 
 posts.each do |post|
-                                                # 別テーブルの画像を取得するためnewメソッドを使用
+                                                # 別テーブルのデータを取得するためnewメソッドを使用
   tmp_post = Post.new(
     user_id: post[:user_id],
     caption: post[:caption],
@@ -20,6 +20,6 @@ posts.each do |post|
 
   tmp_post.post_images.build                    # buildでpost_imagesテーブルの画像を取得
   tmp_post.post_images[0].image = post[:image]  #取得した画像を配列の一番目に入れる
-  
+ 
   tmp_post.save!
 end

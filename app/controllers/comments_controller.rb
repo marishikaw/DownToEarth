@@ -4,7 +4,7 @@ class CommentsController < ApplicationController
     @post = Post.find(params[:post_id])
     @comment = Comment.new(comment_params)
     unless user_signed_in?
-      flash[:alert] = 'アカウント登録もしくはログインしてください。'
+      flash[:alert] = "アカウント登録もしくはログインしてください。"
       redirect_to post_path(params[:post_id])
     else
       @comment.user_id = current_user.id

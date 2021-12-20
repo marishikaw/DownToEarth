@@ -3,18 +3,18 @@
     <h5 class="ml-2 mb-3" style="color: #808080;">
       新着ハッシュタグ
     </h5>
-    
+
     <table class="table table-borderless">
       <% @hashtags.each do |hashtag| %>
         <tr>
-    	    <td class="ml-2">
-    	      <%= link_to "##{hashtag.name}", "/posts/hashtag/#{hashtag.name.delete("#")}" %>
+          <td class="ml-2">
+            <%= link_to "##{hashtag.name}", "/posts/hashtag/#{hashtag.name.delete("#")}" %>
           </td>
         </tr>
       <% end %>
     </table>
   </div>
-  
+
   <p class="text-center" style="color: #808080;">
     © 2021 MARINA ISHIKAWA
   </p>

@@ -1,22 +1,22 @@
-<!--タイムライン-->
+<!--ホームアイコン-->
 <li class="nav-item">
   <% if current_page?(root_path) %>
     <%= link_to "", root_path, class:"fas fa-house-user fa-lg nav-link ml-2 faa-pulse animated-hover" %>
-  <% else %>  
+  <% else %>
     <%= link_to "", root_path, class:"fas fa-home fa-lg nav-link ml-2 faa-pulse animated-hover" %>
-  <% end %>  
+  <% end %>
 </li>
 
-<!--新規投稿-->
+<!--新規投稿アイコン-->
 <li class="far fa-plus-square fa-lg nav-link ml-2 faa-pulse animated-hover" data-toggle="modal" data-target="#postModalScrollable"></li>
 <%= render "posts/new", post: @post_new %>
 
-<!--すべての投稿-->
+<!--すべての投稿アイコン-->
 <li class="nav-item">
   <%= link_to "", posts_path, class:"fas fa-images fa-lg nav-link ml-2 faa-pulse animated-hover" %>
 </li>
 
-<!--すべてのユーザー-->
+<!--すべてのユーザーアイコン-->
 <li class="nav-item">
   <%= link_to "", users_path, class:"far fa-handshake fa-lg nav-link ml-2 faa-pulse animated-hover" %>
 </li>
@@ -32,7 +32,7 @@
         <%= current_user.name %>
       </span>
     </div>
-      
+
     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
       <div class="dropdown-item">
         <%= link_to "マイページ", user_path(current_user), class:"nav-link ml-2" %>
@@ -40,6 +40,6 @@
       <div class="dropdown-item">
         <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class:"nav-link ml-2" %>
       </div>
-    </div>  
+    </div>
   </div>
 </li>

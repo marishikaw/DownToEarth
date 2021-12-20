@@ -1,5 +1,5 @@
 <% if post.favorited_by?(current_user) %>
-	<%= link_to "", post_favorites_path(post), method: :delete, remote: true, class: "fas fa-heart text-danger text-decoration-none faa-pulse animated-hover" %>
+  <%= link_to "", post_favorites_path(post), method: :delete, remote: true, class: "fas fa-heart text-danger text-decoration-none faa-pulse animated-hover" %>
 <% else %>
   <%= link_to "", post_favorites_path(post), method: :post, remote: true, class: "far fa-heart text-dark text-decoration-none faa-pulse animated-hover" %>
 <% end %>

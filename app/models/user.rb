@@ -8,15 +8,10 @@ class User < ApplicationRecord
   has_many :posts, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
-
-  # 自分がフォローされる（被フォロー）側の関係性
-  has_many :reverse_of_relationships, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy
-  # 自分がフォローする（与フォロー）側の関係性
-  has_many :relationships, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy
-  # 被フォロー関係を通じて参照→自分をフォローしている人
-  has_many :followers, through: :reverse_of_relationships, source: :follower
-  # 与フォロー関係を通じて参照→自分がフォローしている人
-  has_many :followings, through: :relationships, source: :followed
+  has_many :reverse_of_relationships, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy # 自分がフォローされる（被フォロー）側の関係性
+  has_many :relationships, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy            # 自分がフォローする（与フォロー）側の関係性
+  has_many :followers, through: :reverse_of_relationships, source: :follower                                      # 被フォロー関係を通じて参照→自分をフォローしている人
+  has_many :followings, through: :relationships, source: :followed                                                # 与フォロー関係を通じて参照→自分がフォローしている人
 
   # リレーション機能用メソッド
   def follow(user_id)

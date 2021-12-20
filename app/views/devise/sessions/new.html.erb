@@ -4,20 +4,20 @@
     <div class="border border-secondary p-5 my-5">
       <%= form_with model: @user, url: user_session_path, local: true do |f| %>
         <div class="form-group pb-2 mx-5">
-          <%= f.email_field :email, autofocus: true, placeholder:"メールアドレス", autocomplete: "email", class:"form-control" %>
+          <%= f.email_field :email, autofocus: true, placeholder:"メールアドレス", autocomplete: "email", class: "form-control" %>
         </div>
-      
+
         <div class="form-group pb-3 mx-5">
-          <%= f.password_field :password, placeholder:"パスワード", autocomplete: "current-password", class:"form-control" %>
+          <%= f.password_field :password, placeholder:"パスワード", autocomplete: "current-password", class: "form-control" %>
         </div>
       
         <div class="form-group  mx-5">
-          <%= f.submit "ログイン", class:"btn-lg" %>
+          <%= f.submit "ログイン", class: "btn-lg" %>
         </div>
       <% end %>
     </div>
   </div>
-  
+
   <div class="row justify-content-center mb-5">
     <p>
       アカウントをお持ちでないですか？　

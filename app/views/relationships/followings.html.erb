@@ -3,10 +3,10 @@
     <div class="col-md-8 offset-md-1">  
       <h3>フォロー中</h3>
       <% if @users.exists? %>
-      	<%= render "users/list", users: @users %>
+        <%= render "users/list", users: @users %>
       <% else %>
-			  <p>ユーザーはいません</p>
-			<% end %>
+        <p>ユーザーはいません</p>
+      <% end %>
     </div>
   </div>
 </div>

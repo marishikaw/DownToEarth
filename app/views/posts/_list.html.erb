@@ -2,29 +2,31 @@
   <div class="card-list-container">
     <% posts.each do |post| %>
       <div class="card mx-auto mt-4 shadow-lg" style="width: 70%;">
-        
+
         <!--投稿画像-->
         <%= link_to post_path(post.id) do %>
           <% post.post_images.first(1).each do |image| %>
-            <%= attachment_image_tag image, :image, class:"card-img-top" %>
+            <%= attachment_image_tag image, :image, class: "card-img-top" %>
           <% end %>
         <% end %>
-        
+
         <div class="card-body">
           <div class="row">
+            <!--ユーザーアイコン-->
             <div class="col-2 d-flex align-items-center">
             <%= link_to user_path(post.user.id) do %>
-                <%= attachment_image_tag post.user, :icon, :fill, 60, 60, fallback: "no-image-icon.png", size:"60x60", class:"rounded-circle"; %>
+              <%= attachment_image_tag post.user, :icon, :fill, 60, 60, fallback: "no-image-icon.png", size: "60x60", class: "rounded-circle"; %>
             <% end %>
             </div>
-            
+
             <div class="col-10">
               <div class="row">
+                <!--ユーザー名-->
                 <h5 class="col-3 card-title">
                   <%= link_to post.user.name, user_path(post.user.id), class: "text-dark font-weight-bold" %>
                 </h5>
-    
-                <!--いいね機能非同期通信-->
+
+                <!--いいね-->
                 <% if current_user.present? %>
                   <div id="favorite-btn_<%= post.id %>" class="card-text mr-2">
                     <%= render "favorites/favorite-btn", post: post %>
@@ -38,13 +40,15 @@
                     <%= post.favorites.count %>
                   </div>
                 <% end %>
-                
+
+                <!--コメント-->
                 <div class="ml-2">
                   <%= link_to "", post_path(post.id), class: "far fa-comment text-dark text-decoration-none" %>
                   <%= link_to post.comments.count, post_path(post.id), class: "text-dark text-decoration-none" %>
                 </div>
               </div>
-              
+
+              <!--キャプションとハッシュタグ-->
               <div class="card-text">
                 <%= render_with_hashtags(post.caption) %>
               </div>
@@ -54,7 +58,7 @@
       </div>
     <% end %>
   </div>
-  
+
   <!--無限スクロール-->
   <%= paginate posts %>
 </div>

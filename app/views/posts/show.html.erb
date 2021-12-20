@@ -2,6 +2,7 @@
 
 <div class="container">
   <div class="row">
+    <!--投稿画像-->
     <div class="col mt-5">
       <div>
         <% @post.post_images.each do |image| %>
@@ -11,14 +12,16 @@
     </div>
 
     <div class="col mt-2">
+      <!--アイコンとユーザー名-->
       <div class="mb-3">
         <%= link_to user_path(@post.user) do %>
-          <%= attachment_image_tag(@post.user, :icon, :fill, 60, 60, fallback: "no-image-icon.png", size:"60x60", class:"rounded-circle") %>
+          <%= attachment_image_tag(@post.user, :icon, :fill, 60, 60, fallback: "no-image-icon.png", size:"60x60", class: "rounded-circle") %>
           <span class="h4 text-dark font-weight-bold mx-3">
             <%= @post.user.name %>
           </span>
         <% end %>
 
+        <!--投稿者だったら編集ボタンを削除ボタンを表示-->
         <% if @post.user == current_user %>
           <span class="mx-2">
             <%= link_to "編集", edit_post_path(@post), class: "btn-s" %>
@@ -29,7 +32,7 @@
         <% end %>
       </div>
 
-        <!--いいね機能非同期通信-->
+        <!--いいね-->
         <% if current_user.present? %>
           <span id="favorite-btn_<%= @post.id %>" class="card-text mr-2">
             <%= render "favorites/favorite-btn", post: @post %>
@@ -44,19 +47,24 @@
             <%= " いいね！ #{@post.favorites.count}件" %>
           </p>
         <% end %>
+
+        <!--ハッシュタグ-->
         <p>
           <%= render_with_hashtags(@post.caption) %>
         </p>
+
+        <!--投稿時間-->
         <p class="text-secondary">
           <i class="far fa-clock clock-icon"></i>
           <%= time_ago_in_words(@post.created_at) %><% if time_ago_in_words(@post.created_at) != "1分未満" %>前<% end %>
         </p>
 
-      <!--コメント機能非同期通信-->
+      <!--コメント一覧-->
       <div id="comments">
         <%= render "comments/index",post: @post %>
       </div>
 
+      <!--コメント入力フォーム-->
       <div class="text-center">
         <%= form_with(model:[@post, @comment], remote: true) do |f| %>
           <%= f.text_area :comment, rows: "3", placeholder: "コメントを追加…", class: "form-control" %>

@@ -1,6 +1,5 @@
 class RelationshipsController < ApplicationController
   before_action :authenticate_user!, only: [:create, :destroy]
-  before_action :set_post_new
 
   # ---------フォロー機能を作成・保存・削除する-------------
   def create
@@ -26,9 +25,3 @@ class RelationshipsController < ApplicationController
      @users = user.followers.order(id: "DESC")
   end
 end
-
-  # -------------プライベートメソッド------------------------------------------
-  private
-    def set_post_new
-      @post_new = Post.new
-    end

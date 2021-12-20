@@ -7,12 +7,12 @@ class Post < ApplicationRecord
   has_many :post_hashtags, dependent: :destroy
   has_many :hashtags, through: :post_hashtags
 
-  # いいね
+  # いいねの存在を確認
   def favorited_by?(user)
     favorites.where(user_id: user.id).exists?
   end
 
-  # ハッシュタグ
+  # ハッシュタグを取得
   after_create do
     post = Post.find_by(id: self.id)
     hashtags = self.caption.scan(/[#][\w\p{Han}ぁ-ヶｦ-ﾟー]+/) # ハッシュタグを検出

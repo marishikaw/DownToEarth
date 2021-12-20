@@ -1,4 +1,4 @@
-// jquery3 => jqueryに変更（本番環境にてjscrollが動作しないため）
+// jquery3 => jquery(推奨バージョン)に変更　※本番環境にてjscrollが動作しないため
 //= require jquery
 //= require jquery.jscroll.min.js
 //= require popper

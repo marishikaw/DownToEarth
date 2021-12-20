@@ -5,7 +5,7 @@ class PostHashtag < ApplicationRecord
 
   # バリデーション
   with_options presence: true do
-    validates :post_id
-    validates :hashtag_id
+    validates :post_id, presence: true
+    validates :hashtag_id, presence: true
   end
 end
