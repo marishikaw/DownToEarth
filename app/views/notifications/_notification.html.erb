@@ -2,40 +2,44 @@
 <% visited = notification.visited %>
 
 <div class="scroll-list jscroll">
-  <div class="col-md-6 mx-auto mt-5">
-    <table class="table table-border-bottom form-inline">
-      <tbody>
-        <tr>
-          <td>
-            <%= link_to user_path(visitor), class: "text-primary" do %><strong><%= visitor.name %>さん</strong><% end %> が
-            <% case notification.action %>
-            <% when 'follow' then %>
-              <%= "あなたをフォローしました。" %>
-            <% when  'favorite' then %>
-              <%= link_to 'あなたの投稿', notification.post, class: "text-primary", style: "font-weight: bold;" %><%= " にいいねしました。" %>
-            <% when 'comment' then %>
-              <% if notification.post.user_id == visited.id %>
-                <%= link_to "あなたの投稿", notification.post, class: "text-primary", style: "font-weight: bold;" %>
-              <% else %>
-                <%= link_to user_path(visited.id), class: "text-primary" do %>
-                  <% if notification.post.user_id == visited.id %>
-                    <%= notification.post.user.name + "さんの" %>
-                  <% end %>
-                <% end %>
-                <%= link_to "投稿", notification.post, class: "text-primary", style: "font-weight: bold;" %>
-              <% end %>
-              <span>
-                <%= "にコメントしました。" %>
-  
-              </span>
-  
+  <div class="form-inline">
+    <span>
+      <!--アイコンとユーザー名-->
+      <%= link_to user_path(visitor), class: "text-primary" do %>
+        <%= attachment_image_tag(visitor, :icon, :fill, 30, 30, fallback: "no-image-icon.png", size:"30x30", class: "rounded-circle") %>
+        <strong><%= visitor.name %></strong>
+      <% end %>
+      さんが
+
+      <% case notification.action %>
+      <% when 'follow' then %>
+        <%= "あなたをフォローしました。" %>
+
+      <% when  'favorite' then %>
+        <%= link_to 'あなたの投稿', notification.post, class: "text-primary", style: "font-weight: bold;" %>
+        <%= " にいいねしました。" %>
+
+      <% when 'comment' then %>
+        <% if notification.post.user_id == visited.id %>
+          <%= link_to "あなたの投稿", notification.post, class: "text-primary", style: "font-weight: bold;" %>
+        <% else %>
+          <span>
+            <%= link_to post_path(notification.post), class: "text-primary" do %>
+              <%= attachment_image_tag(notification.post.user, :icon, :fill, 30, 30, fallback: "no-image-icon.png", size:"30x30", class: "rounded-circle") %>
+              <strong><%= notification.post.user.name + "さんの投稿" %></strong>
             <% end %>
-            <small class="text-right text-muted"><%= time_ago_in_words(notification.created_at).upcase %></small>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+          </span>
+        <% end %>
+        <%= "にコメントしました。" %>
+      <% end %>
+    </span>
   </div>
+
+  <!--アクションがあった時間-->
+  <div class="small text-right text-muted text-right">
+    <i class="far fa-clock clock-icon"></i>
+    <%= time_ago_in_words(notification.created_at) %><% if time_ago_in_words(notification.created_at) != "1分未満" %>前<% end %>
+  </div>      
 
   <!--無限スクロール-->
   <%= paginate @notifications %>

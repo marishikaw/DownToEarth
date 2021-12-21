@@ -1,3 +1,13 @@
+<script>
+  let mySwiper = new Swiper('.swiper', {
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    }
+  });
+</script>
+
+
 <span id="comment-form-error"></span>
 
 <div class="container">
@@ -34,11 +44,11 @@
         <!--投稿者だったら編集ボタンを削除ボタンを表示-->
         <span>
           <% if @post.user == current_user %>
-            <span class="mx-2">
-              <span class="far fa-plus-square fa-lg nav-link ml-2 faa-pulse animated-hover" data-toggle="modal" data-target="#editModalScrollable"></span>
-              <%= render "posts/edit" %>
-              
+            <span class="btn-s mx-2" data-toggle="modal" data-target="#editModalScrollable">
+              編集
             </span>
+            <%= render "posts/edit" %>
+
             <span class="mx-2">
               <%= link_to "削除", post_path(@post), method: :delete, data: { confirm: "本当に消しますか？" }, class: "btn-s-gray" %>
             </span>
@@ -85,13 +95,3 @@
 <footer>
   <%= render "layouts/footer" %>
 </footer>
-
-<script>
-let mySwiper = new Swiper('.swiper', {
-  navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev',
-  }
-});
-</script>
-

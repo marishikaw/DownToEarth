@@ -1,29 +1,38 @@
 <!--ホームアイコン-->
 <li class="nav-item">
   <% if current_page?(root_path) %>
-    <%= link_to "", root_path, class:"fas fa-house-user fa-lg nav-link ml-2 faa-pulse animated-hover" %>
+    <%= link_to "", root_path, class:"fas fa-house-user fa-lg nav-link ml-2" %>
   <% else %>
-    <%= link_to "", root_path, class:"fas fa-home fa-lg nav-link ml-2 faa-pulse animated-hover" %>
+    <%= link_to "", root_path, class:"fas fa-home fa-lg nav-link ml-2" %>
   <% end %>
 </li>
 
 <!--新規投稿アイコン-->
-<li class="far fa-plus-square fa-lg nav-link ml-2 faa-pulse animated-hover" data-toggle="modal" data-target="#postModalScrollable"></li>
+<li class="far fa-plus-square fa-lg nav-link ml-2" data-toggle="modal" data-target="#postModalScrollable"></li>
 <%= render "posts/new" %>
 
 <!--すべての投稿アイコン-->
 <li class="nav-item">
-  <%= link_to "", posts_path, class:"fas fa-images fa-lg nav-link ml-2 faa-pulse animated-hover" %>
+  <%= link_to "", posts_path, class:"fas fa-images fa-lg nav-link ml-2" %>
 </li>
 
 <!--すべてのユーザーアイコン-->
 <li class="nav-item">
-  <%= link_to "", users_path, class:"far fa-handshake fa-lg nav-link ml-2 faa-pulse animated-hover" %>
+  <%= link_to "", users_path, class:"far fa-handshake fa-lg nav-link ml-2" %>
 </li>
 
 <!--通知アイコン-->
-<li class="nav-item">
-  <%= render "layouts/header_bell" %>
+<li class="nav-item mr-2">
+  <%= link_to(notifications_path) do %>
+    <% if unchecked_notifications.any? %>
+      <span class="fa-stack">
+        <i class="far fa-bell fa-lg fa-stack-2x nav-link ml-2" style="font-size: 1.5em;"></i>
+        <i class="fas fa-circle n-circle fa-stack-1x ml-2" ></i>
+      </span>
+    <% else %>
+      <i class="far fa-bell fa-lg nav-link ml-2" style="font-size: 1.5em;"></i>
+    <% end %>
+  <% end %>
 </li>
 
 <!--ユーザーアイコン（マイページとログアウト）-->

@@ -1,10 +1,20 @@
 <div class="container">
-  <div class="row">
-    <% notifications = @notifications.includes(:post).where.not(visitor_id: current_user.id) %>
-    <% if notifications.exists? %>
-      <%= render notifications %>
-    <% else %>
-      <p>通知はありません。</p>
-    <% end %>
+  <div class="row justify-content-center">
+    <div class="col-md-6 mx-auto mt-5">
+      <div id="bg-color" class="p-4 mt-4">
+        <!--自分自身のいいね、コメントの通知を除外-->
+        <% notifications = @notifications.includes([:post], [:visitor], [:visited]).where.not(visitor_id: current_user.id) %>
+        <% if notifications.exists? %>
+          <!--インスタンスの数だけ部分テンプレートをレンダリング-->
+          <%= render notifications %>
+        <% else %>
+          <p>通知はありません。</p>
+        <% end %>
+      </div>
+    </div>
   </div>
 </div>
+
+<footer>
+	<%= render "layouts/footer" %>
+</footer>
