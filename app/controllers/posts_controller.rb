@@ -1,8 +1,8 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit, :create, :update, :destroy]
-  before_action :set_post
+  before_action :set_post, only: [:show, :edit, :update, :destroy]
   before_action :set_hashtag, only: [:timeline, :index, :hashtag, :search]
-  before_action :set_q
+  before_action :set_q, except: [:create, :update, :destroy]
 
   def timeline
     if user_signed_in?
@@ -89,5 +89,5 @@ class PostsController < ApplicationController
     
     def set_q
       @q = Post.ransack(params[:q])
-    end    
+    end
 end

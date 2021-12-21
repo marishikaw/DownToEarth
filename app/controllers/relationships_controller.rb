@@ -1,7 +1,7 @@
 class RelationshipsController < ApplicationController
   before_action :authenticate_user!, only: [:create, :destroy]
-  before_action :set_post_new
-  before_action :set_q
+  before_action :set_post_new, only: [:followings, :followers]
+  before_action :set_q, only: [:followings, :followers]
 
   # ---------フォロー機能を作成・保存・削除する-------------
   def create
