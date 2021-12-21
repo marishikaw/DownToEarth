@@ -56,6 +56,8 @@ class PostsController < ApplicationController
     @post.destroy
     flash[:alert] = '削除しました。'
     redirect_to user_path(@post.user)
+    
+    # ハッシュタグも削除したい場合は"該当ハッシュタグに紐づく投稿が最後の1件だったら削除"とする。
   end
 
   def hashtag
@@ -84,9 +86,9 @@ class PostsController < ApplicationController
     end
 
     def set_hashtag
-      @hashtags = Hashtag.all.order(id: "DESC").first(10)
+      @hashtags = Hashtag.all.order(created_at: "DESC").limit(10)
     end
-    
+
     def set_q
       @q = Post.ransack(params[:q])
     end

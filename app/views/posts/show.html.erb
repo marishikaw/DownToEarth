@@ -2,9 +2,7 @@
 
 <div class="container">
   <div class="row">
-
-
-
+    <!-------投稿画像（HTMLにスライダー用のクラスを指定）---------------------->
     <div class="swiper">
       <div class="swiper-wrapper">
         <% @post.post_images.each do |image| %>
@@ -19,8 +17,23 @@
       <div class="swiper-button-next"></div>
     </div>
 
+    <!-------投稿画像（指定したクラスのjQueryを設定）-------------------------->
+    <script>
+      let mySwiper = new Swiper ('.swiper', {
+        loop: true,
+        pagination: {
+          el: '.swiper-pagination',
+          type: 'bullets',
+          clickable: true,
+        },
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+      });
+    </script>
 
-
+    <!-------投稿画像以外の部分（キャプションやコメントなど）------------------>
     <div class="col mt-2">
       <!--アイコンとユーザー名-->
       <div class="mb-3">
@@ -85,15 +98,3 @@
 <footer>
   <%= render "layouts/footer" %>
 </footer>
-
-<script>
-  let mySwiper = new Swiper('.swiper', {
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
-    }
-  });
-</script>
-
-
-
