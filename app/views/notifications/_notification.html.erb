@@ -2,7 +2,7 @@
 <% visited = notification.visited %>
 
 <div class="scroll-list jscroll">
-  <div class="form-inline">
+  <div class="border-bottom py-2">
     <span>
       <!--アイコンとユーザー名-->
       <%= link_to user_path(visitor), class: "text-primary" do %>
@@ -33,13 +33,13 @@
         <%= "にコメントしました。" %>
       <% end %>
     </span>
-  </div>
 
-  <!--アクションがあった時間-->
-  <div class="small text-right text-muted text-right">
-    <i class="far fa-clock clock-icon"></i>
-    <%= time_ago_in_words(notification.created_at) %><% if time_ago_in_words(notification.created_at) != "1分未満" %>前<% end %>
-  </div>      
+    <!--アクションがあった時間-->
+    <div class="small text-right text-muted text-right">
+      <i class="far fa-clock clock-icon"></i>
+      <%= time_ago_in_words(notification.created_at) %><% if time_ago_in_words(notification.created_at) != "1分未満" %>前<% end %>
+    </div>      
+  </div>
 
   <!--無限スクロール-->
   <%= paginate @notifications %>
