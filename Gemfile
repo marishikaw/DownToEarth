@@ -37,8 +37,8 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   # ---【追加】-------------
   gem 'pry-rails'
-  gem 'factory_bot_rails'
   gem 'rspec-rails'
+  gem 'factory_bot_rails'
   gem 'faker'
 end
 
@@ -54,7 +54,6 @@ end
 group :test do
   gem 'capybara', '>= 2.15'
   gem 'selenium-webdriver'
-  gem 'chromedriver-helper'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

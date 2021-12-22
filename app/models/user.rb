@@ -48,6 +48,6 @@ class User < ApplicationRecord
   attachment :icon
 
   # -------------バリデーション-------------------------------------------------
-  validates :name, length: {maximum: 20, minimum: 1}
+  validates :name, length: {maximum: 20, minimum: 2}
   validates :introduction, length: {maximum: 50}
 end
