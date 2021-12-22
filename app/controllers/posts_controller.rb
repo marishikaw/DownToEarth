@@ -69,16 +69,13 @@ class PostsController < ApplicationController
 
   def search
     @results = @q.result.includes([:user], [:post_images]).all.order(id: "DESC").page(params[:page]).per(10)
+    @post_new = Post.new
   end
 
   # -------------プライベートメソッド------------------------------------------
   private
     def set_post
-      id = params[:id] || 1
-      @post = Post.find(id)
-
-      # このままだとデータが1件もない場合にエラーになる。
-      # ただ、nilだった場合にnewを渡すとshowページの表示がおかしくなるので現状は未修正。
+      @post = Post.find(params[:id])
     end
     
     def post_params
