@@ -32,7 +32,7 @@
 
  <DB設計>
 - ER図
-![DownToEarth_ER](https://user-images.githubusercontent.com/90078966/146878316-a2765065-4e71-4e77-8088-fbb46efe5662.jpg)
+![DownToEarth_ER](https://user-images.githubusercontent.com/90078966/147017633-20abb84a-6f6a-4c65-ba2f-4ead886f2de7.jpg)
 
 
 - [テーブル定義書](https://docs.google.com/spreadsheets/d/16QaUpWwlcQecx_nbGYP59jHVwpfkIUg9QiGOyBTcBjM/edit?usp=sharing)
