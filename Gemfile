@@ -8,19 +8,37 @@ gem 'sqlite3'
 gem 'puma', '~> 3.11'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
-
 gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
-
 gem 'bootsnap', '>= 1.1.0', require: false
+
+# ===【追加】===================================================================
+gem 'devise'
+gem 'rails-i18n', '~> 5.1'
+gem 'devise-i18n'
+gem 'devise-i18n-views'
+gem "refile", require: "refile/rails", github: 'manfe/refile'
+gem "refile-mini_magick"
+gem 'ransack'
+gem 'bootstrap', '~> 4.5'
+gem 'jquery-rails'
+gem 'font-awesome-sass', '~> 5.13'
+gem 'kaminari', '~> 1.2.1'
+gem 'bullet'
+gem 'dotenv-rails'
+
+group :production do
+  gem 'mysql2'
+end
+# ==============================================================================
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  
-  # 【追加】デバッグ・テストツール
+  # ---【追加】-------------
   gem 'pry-rails'
-  gem 'bullet'
+  gem 'factory_bot_rails'
+  gem 'rspec-rails'
   gem 'faker'
 end
 
@@ -29,46 +47,14 @@ group :development do
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
-
-  # コード解析ツール
+  # ---【追加】-------------
   gem 'rubocop-airbnb'
 end
 
 group :test do
-  # 【追加】テストツール
-  gem 'rspec-rails'
+  gem 'capybara', '>= 2.15'
+  gem 'selenium-webdriver'
+  gem 'chromedriver-helper'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-
-# =========
-#  追加分
-# =========
-# ユーザー認証
-gem 'devise'
-
-# メッセージの日本語化
-gem 'rails-i18n', '~> 5.1'
-gem 'devise-i18n'
-gem 'devise-i18n-views'
-
-# 画像アップロード
-gem "refile", require: "refile/rails", github: 'manfe/refile'
-gem "refile-mini_magick"
-
-# 検索
-gem 'ransack'
-
-# レイアウト
-gem 'bootstrap', '~> 4.5'
-gem 'jquery-rails'
-gem 'font-awesome-sass', '~> 5.13'
-gem 'kaminari', '~> 1.2.1'
-
-# 環境変数化
-gem 'dotenv-rails'
-
-# MySQLの利用
-group :production do
-  gem 'mysql2'
-end
