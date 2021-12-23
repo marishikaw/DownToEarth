@@ -12,47 +12,35 @@ RSpec.describe 'Postモデルのテスト', type: :model do
         expect(Post.reflect_on_association(:user).macro).to eq :belongs_to
       end
     end
-
     context 'PostImageモデルとの関係' do
       it '1:Nとなっていること' do
         expect(Post.reflect_on_association(:post_images).macro).to eq :has_many
       end
     end
-
     context 'Commentモデルとの関係' do
       it '1:Nとなっていること' do
         expect(Post.reflect_on_association(:comments).macro).to eq :has_many
       end
     end
-
     context 'Favoriteモデルとの関係' do
       it '1:Nとなっていること' do
         expect(Post.reflect_on_association(:favorites).macro).to eq :has_many
       end
     end
-
     context 'PostHahtagsモデルとの関係' do
       it '1:Nとなっていること' do
         expect(Post.reflect_on_association(:post_hashtags).macro).to eq :has_many
       end
     end
-
     context 'Hahtagsモデルとの関係' do
       it '1:Nとなっていること' do
         expect(Post.reflect_on_association(:hashtags).macro).to eq :has_many
       end
     end
-
     context 'Notificationモデルとの関係' do
       it '1:Nとなっていること' do
         expect(Post.reflect_on_association(:notifications).macro).to eq :has_many
       end
-    end
-  end
-
-  describe '投稿のテスト' do
-    it "有効な投稿内容の場合は保存されること" do
-      expect(FactoryBot.build(:post)).to be_valid
     end
   end
 
@@ -69,16 +57,6 @@ RSpec.describe 'Postモデルのテスト', type: :model do
         is_expected.to eq false
       end
     end
-
-# # *****できない****************
-#     context 'imageカラム' do
-#       it '空白でないこと' do
-#         post.post_images = nil
-#         is_expected.to eq false
-#       end
-#     end
-# # *****************************
-
   end
 
   describe 'いいね機能のテスト' do
@@ -128,11 +106,9 @@ RSpec.describe 'Postモデルのテスト', type: :model do
 
     context 'コメントの通知テスト' do
       context 'user_id:1がuser_id:2の投稿に対してコメントをする' do
-        before do
-          other_post.comments.create(post_id: other_post.id, user_id: user.id, comment: 'Test')
-        end
         it 'コメントできること' do
-# *****わからない****************
+          expect{ other_post.comments.create(post_id: other_post.id, user_id: user.id, comment: 'Test') }
+          .to change{ Comment.count }.by(1)
         end
       end
 
@@ -146,5 +122,13 @@ RSpec.describe 'Postモデルのテスト', type: :model do
       end
     end
 
+    describe 'ハッシュタグのテスト' do
+      describe 'キャプションにハッシュタグを2つを入れて投稿する' do
+        it 'ハッシュタグが2つ作成される' do
+          expect{  create(:post, user: user, caption: "#test #test2") }
+          .to change{ Hashtag.count }.by(2)
+        end
+      end
+    end
   end
 end

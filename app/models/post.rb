@@ -57,6 +57,7 @@ class Post < ApplicationRecord
 
   # -------------ハッシュタグを取得---------------------------------------------
   after_create do
+   
     post = Post.find_by(id: self.id)
     hashtags = self.caption.scan(/[#][\w\p{Han}ぁ-ヶｦ-ﾟー]+/) # ハッシュタグを検出
     post.hashtags = []
