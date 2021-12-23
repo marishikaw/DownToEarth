@@ -1,7 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe 'Postモデルのテスト', type: :model do
-  let(:post) { FactoryBot.create(:post) }
+  let(:user) { FactoryBot.create(:user) }
+  let(:post) { FactoryBot.create(:post, user: user) }
+  let!(:other_user) { FactoryBot.create(:user) }
+  let!(:other_post) { FactoryBot.create(:post, user: other_user) }  
 
   describe 'アソシエーションのテスト' do
     context 'Userモデルとの関係' do
@@ -47,30 +50,10 @@ RSpec.describe 'Postモデルのテスト', type: :model do
     end
   end
 
-  describe '#create' do
-    before do
-      @user = FactoryBot.create(:user)
+  describe '投稿のテスト' do
+    it "有効な投稿内容の場合は保存されること" do
+      expect(FactoryBot.build(:post)).to be_valid
     end
-  
-    it "is valid with a name, images" do
-      post = FactoryBot.build(:post)
-      post.valid?
-      expect(post).to be_valid
-    end
-  end
-
-  describe 'いいね機能のテスト' do
-    describe 'メソッドのテスト' do
-      context 'user_id:1がpost_id:1にいいねする' do
-        before do
-          post.user.favorites.create(post_id: post.id)
-        end
-        it 'いいねができること' do
-          expect(user.following?(other_user)).to be_truthy
-        end
-      end
-    end
-
   end
 
   describe 'バリデーションのテスト' do
@@ -86,5 +69,82 @@ RSpec.describe 'Postモデルのテスト', type: :model do
         is_expected.to eq false
       end
     end
+
+# # *****できない****************
+#     context 'imageカラム' do
+#       it '空白でないこと' do
+#         post.post_images = nil
+#         is_expected.to eq false
+#       end
+#     end
+# # *****************************
+
+  end
+
+  describe 'いいね機能のテスト' do
+    context 'user_id:1がpost_id:1に対していいねをする' do
+      before do
+        user.favorites.create(post_id: post.id)
+      end
+      it 'いいねできること' do
+        expect(post.favorited_by?(user)).to eq true
+      end
+    end
+
+    context 'user_id:1がpost_id:1に対していいね済みかどうかを確認' do
+      before do
+        user.favorites.create(post_id: post.id)
+      end
+      it 'いいね済みであること' do
+        expect(post.favorited_by?(user)).to eq true
+      end
+      it 'いいね済みでないこと' do
+        user.favorites.find_by(post_id: post.id).destroy
+        expect(post.favorited_by?(user)).to eq false
+      end
+    end
+  end
+
+  describe '通知機能のテスト' do
+    context 'いいねの通知テスト' do
+      context 'user_id:1がuser_id:2の投稿に対していいねをする' do
+        before do
+          user.favorites.create(post_id: other_post.id)
+        end
+        it 'いいねできること' do
+          expect(other_post.favorited_by?(user)).to eq true
+        end
+      end
+
+      context 'user_id:1がuser_id:2の投稿に対していいねした時に通知を作成する' do
+        before do
+          user.favorites.create(post_id: other_post.id)
+        end
+        it 'いいねの通知が作成されること' do
+          expect(other_post.create_notification_favorite!(user)).to eq true
+        end
+      end
+    end
+
+    context 'コメントの通知テスト' do
+      context 'user_id:1がuser_id:2の投稿に対してコメントをする' do
+        before do
+          other_post.comments.create(post_id: other_post.id, user_id: user.id, comment: 'Test')
+        end
+        it 'コメントできること' do
+# *****わからない****************
+        end
+      end
+
+      context 'user_id:1がuser_id:2の投稿に対してコメントした時に通知を作成する' do
+        before do
+          other_post.comments.create(post_id: other_post.id, user_id: user.id, comment: 'Test')
+        end
+        it 'コメントの通知が作成されること' do
+          expect(other_post.create_notification_comment!(user, user.comments)).to eq true
+        end
+      end
+    end
+
   end
 end

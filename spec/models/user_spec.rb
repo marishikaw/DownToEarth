@@ -49,42 +49,40 @@ RSpec.describe 'Userモデルのテスト', type: :model do
   end
 
   describe 'リレーション機能のテスト' do
-    describe 'メソッドのテスト' do
-      context 'user_id:1がuser_id:2をフォローする' do
-        before do
-          user.follow(other_user.id)
-        end
-        it 'フォローできること' do
-          expect(user.following?(other_user)).to be_truthy
-        end
+    context 'user_id:1がuser_id:2をフォローする' do
+      before do
+        user.follow(other_user.id)
       end
-
-      context 'user_id:1をフォローした状態でuser_id:2のフォローする' do
-        before do
-          user.follow(other_user.id)
-        end
-        it '別ユーザーをフォローできること' do
-          expect(user.following?(other_user)).to be_truthy
-        end
+      it 'フォローできること' do
+        expect(user.following?(other_user)).to be_truthy
       end
+    end
 
-      context 'フォロー解除' do
-        before do
-          user.follow(other_user.id)
-        end
-        it 'フォロー中のユーザーをフォロー解除できること' do
-          user.unfollow(other_user.id)
-          expect(user.following?(other_user)).to be_falsy
-        end
+    context 'user_id:1をフォローした状態でuser_id:2をフォローする' do
+      before do
+        user.follow(other_user.id)
       end
+      it '別ユーザーをフォローできること' do
+        expect(user.following?(other_user)).to be_truthy
+      end
+    end
 
-      context 'フォローの通知' do
-        before do
-          user.follow(other_user.id)
-        end
-        it '他のユーザーにフォローされた時に通知が行われること' do
-          expect(other_user.create_notification_follow!(user)).to eq true
-        end
+    context 'フォローを解除する' do
+      before do
+        user.follow(other_user.id)
+      end
+      it 'フォロー中のユーザーをフォロー解除できること' do
+        user.unfollow(other_user.id)
+        expect(user.following?(other_user)).to be_falsy
+      end
+    end
+
+    context 'フォローの通知' do
+      before do
+        user.follow(other_user.id)
+      end
+      it '他のユーザーにフォローされた時に通知が行われること' do
+        expect(other_user.create_notification_follow!(user)).to eq true
       end
     end
   end
@@ -125,5 +123,5 @@ RSpec.describe 'Userモデルのテスト', type: :model do
         is_expected.to eq false
       end
     end
-  end  
+  end
 end

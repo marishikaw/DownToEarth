@@ -8,7 +8,7 @@ class Post < ApplicationRecord
   has_many :hashtags, through: :post_hashtags
   has_many :notifications, dependent: :destroy
 
-  # -------------いいねの有無を確認---------------------------------------------
+  # -------------いいね済みかどうかを確認---------------------------------------
   def favorited_by?(user)
     favorites.where(user_id: user.id).exists?
   end

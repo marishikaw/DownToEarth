@@ -1,8 +1,13 @@
+.card-img-top{
+	max-height: 700px;
+}
+
+
 // 投稿詳細ページのスライダー
 .swiper {
-	object-fit: contain;
-	width: 500px;
-	height: 500px;
+	object-fit: cover;
+	width: 650px;
+	max-height: 700px;
 }
 :root {
   --swiper-navigation-color: #ffffff;
