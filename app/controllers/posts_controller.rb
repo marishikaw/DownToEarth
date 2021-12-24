@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit, :create, :update, :destroy]
   before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :set_post_new, except: [:new]
   before_action :set_hashtag, only: [:timeline, :index, :hashtag, :search]
   before_action :set_q, except: [:create, :update, :destroy]
 
@@ -9,7 +10,6 @@ class PostsController < ApplicationController
       @posts = Post.includes([:user], [:post_images])
                .where(user_id: [current_user.id, *current_user.following_ids]).order(id: "DESC")
                .page(params[:page]).per(10)
-      @post_new = Post.new
     else
       @posts = Post.includes([:user], [:post_images]).all.order(id: "DESC").page(params[:page]).per(10)
     end
@@ -17,7 +17,6 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.includes([:user], [:post_images]).all.order(id: "DESC").page(params[:page]).per(10)
-    @post_new = Post.new
   end
 
   def new
@@ -34,7 +33,6 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post_new = Post.new
     @comment = Comment.new
   end
 
@@ -63,23 +61,25 @@ class PostsController < ApplicationController
   def hashtag
     @user = current_user
     @hashtag = Hashtag.find_by(name: params[:name])
-    @posts = @hashtag.posts.includes([:user], [:post_images]).order(id: "DESC").page(params[:page]).per(10)
-    @post_new = Post.new
+    @posts = @hashtag.posts.includes([:user], [:post_images]).all.order(id: "DESC").page(params[:page]).per(10)
   end
 
   def search
     @results = @q.result.includes([:user], [:post_images]).all.order(id: "DESC").page(params[:page]).per(10)
-    @post_new = Post.new
   end
 
   # -------------プライベートメソッド------------------------------------------
   private
+    def post_params
+      params.require(:post).permit(:caption, post_images_images: [])
+    end
+    
     def set_post
       @post = Post.find(params[:id])
     end
 
-    def post_params
-      params.require(:post).permit(:caption, post_images_images: [])
+    def set_post_new
+      @post_new = Post.new
     end
 
     def set_hashtag
