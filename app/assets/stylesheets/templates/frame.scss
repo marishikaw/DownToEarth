@@ -1,3 +1,11 @@
+// ユーザー一覧の枠線
+.user-border{
+	width: auto;
+	min-height: 500px;
+	border: 1px solid #ced4da;
+	border-radius: 0.3rem;
+}
+
 // コメント欄のスクロール
 #comments{
 	overflow-y: scroll;
