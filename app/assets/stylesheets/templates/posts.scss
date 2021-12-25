@@ -1,4 +1,4 @@
-// タイムラインの画像の高さの限界値
+// タイムラインの画像の高さの
 .card-img-top{
 	max-height: 700px;
 }
@@ -7,8 +7,7 @@
 .swiper {
 	width: 650px;
 	max-height: 700px;
-	object-fit: cover;
-	object-position: 100% 100%;
+  background-color: #FCF1DE;
 }
 :root {
   --swiper-navigation-color: #ffffff;
@@ -19,6 +18,7 @@
 .image-effect {
 	width: 250px;
   height: 250px;
+
   object-fit: contain;
 	overflow:	hidden;
 	position:	relative;	/* 相対位置指定 */

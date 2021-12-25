@@ -6,7 +6,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @posts = @user.posts.includes([:post_images]).order(id: "DESC").page(params[:page]).per(10)
+    @posts = @user.posts.includes([:post_images]).order(id: "DESC").page(params[:page]).per(40)
   end
 
   def index
