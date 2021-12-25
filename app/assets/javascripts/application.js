@@ -9,9 +9,6 @@
 //= require turbolinks
 //= require_tree .
 
-// swiperを追加
-//= require swiper/swiper-bundle.js
-
 // 無限スクロールの処理
 $(document).on('turbolinks:load', function() {
   $(window).on('scroll', function() {
