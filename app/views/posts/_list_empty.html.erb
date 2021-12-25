@@ -1,43 +1,53 @@
 <div class="container">
   <div class="row justify-content-center">
-    <div class="border border-secondary p-5 my-5">
-    	<h4>ここに何か説明を書く</h4>
+    <div class="timeline-border">
+    
+    	<!--タイトル-->
+    	<h4 class="text-center text-secondary my-3">
+    		<% if user_signed_in? %>
+    	  	<%= "ようこそ、#{current_user.name}さん！" %>
+    	  <% else %>
+    	  	Down To Earthへようこそ！
+    	  <% end %>
+    	</h4>
 
-			<table class="table table-borderless">
+			<table class="table table-borderless text-center">
+				<!--新規投稿ボタン-->
 				<% if user_signed_in? %>
+					<tr>
+						<td>
+							<div>
+								<button type="button" class="btn-lg" data-toggle="modal" data-target="#postModalScrollable">
+								  <i class="far fa-plus-square"></i>
+								  <span>投稿する</span>
+								</button>
+								<%= render "posts/new", post: @post_new %>
+							</div>
+						</td>
+					</tr>
+				<% end %>
+
+				<!--投稿一覧ボタン-->
 				<tr>
 					<td>
 						<div>
-							<button type="button" class="btn-lg" data-toggle="modal" data-target="#postModalScrollable">
-							  <i class="far fa-plus-square"></i>
-							  <span>投稿する</span>
-							</button>
-							<%= render "posts/new", post: @post_new %>
-							
+							<%= link_to  posts_path, class: "btn-lg", type: "button" do  %>
+							  <i class="far fa-images"></i>
+							  <span>投稿一覧を見る</span>
+							<% end %>
 						</div>
 					</td>
 				</tr>
-					<% end %>
 
-					<tr>
+				<!--ユーザー一覧ボタン-->
+				<tr>
 					<td>
-					<div>
-						<%= link_to  posts_path, class: "btn-lg", type: "button" do  %>
-						  <i class="far fa-images"></i>
-						  <span>投稿一覧を見る</span>
-						<% end %>
-					</div>
-					</td>
-					</tr>
-
-					<tr>
-					<td>
-					<div>
-						<%= link_to  users_path, class: "btn-lg", type: "button" do  %>
-						  <i class="fas fa-user-friends"></i>
-						  <span>ユーザーを探す</span>
-						<% end %>
-					</div>
+						<div>
+							<%= link_to  users_path, class: "btn-lg", type: "button" do  %>
+							  <i class="fas fa-user-friends"></i>
+							  <span>ユーザーを探す</span>
+							<% end %>
+						</div>
 					</td>
 				</tr>
 			</table>

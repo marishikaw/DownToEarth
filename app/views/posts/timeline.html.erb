@@ -14,3 +14,9 @@
 		</div>
 	</div>
 </div>
+
+<% if @posts.empty? || !user_signed_in? %>
+	<footer>
+	  <%= render "layouts/footer" %>
+	</footer>
+<% end %>

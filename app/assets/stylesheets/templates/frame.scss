@@ -1,3 +1,13 @@
+// タイムライン（ログアウト時）の枠線
+.timeline-border{
+	width: 400px;
+	height: auto;
+	border: 1px solid #ced4da;
+	border-radius: 0.3rem;
+	padding: 50px;
+	margin: 100px 0;
+}
+
 // ユーザー一覧の枠線
 .user-border{
 	width: auto;
