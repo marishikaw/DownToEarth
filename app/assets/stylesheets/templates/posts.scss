@@ -6,8 +6,9 @@
 // 投稿詳細ページのスライダー
 .swiper {
 	width: 650px;
-	max-height: 700px;
+	height: auto;
   background-color: #FCF1DE;
+  margin-bottom: 30px;
 }
 :root {
   --swiper-navigation-color: #ffffff;
