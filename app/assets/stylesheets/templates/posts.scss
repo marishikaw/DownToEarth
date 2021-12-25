@@ -5,9 +5,10 @@
 
 // 投稿詳細ページのスライダー
 .swiper {
-	object-fit: cover;
 	width: 650px;
 	max-height: 700px;
+	object-fit: cover;
+	object-position: 100% 100%;
 }
 :root {
   --swiper-navigation-color: #ffffff;

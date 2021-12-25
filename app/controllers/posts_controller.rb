@@ -54,7 +54,7 @@ class PostsController < ApplicationController
     @post.destroy
     flash[:alert] = '削除しました。'
     redirect_to user_path(@post.user)
-    
+
     # ハッシュタグも削除したい場合は"該当ハッシュタグに紐づく投稿が最後の1件だったら削除"とする。
   end
 
@@ -73,7 +73,7 @@ class PostsController < ApplicationController
     def post_params
       params.require(:post).permit(:caption, post_images_images: [])
     end
-    
+
     def set_post
       @post = Post.find(params[:id])
     end

@@ -7,7 +7,7 @@
       <div class="swiper-wrapper">
         <% @post.post_images.each do |image| %>
           <div class="swiper-slide">
-            <%= attachment_image_tag image, :image %>
+            <%= attachment_image_tag image, :image, style: "width: 650px;" %>
           </div>
         <% end %>
       </div>
@@ -19,17 +19,18 @@
 
     <!-------投稿画像（指定したクラスのjQueryを設定）-------------------------->
     <script>
-      let mySwiper = new Swiper ('.swiper', {
-        loop: true,
-        pagination: {
-          el: '.swiper-pagination',
-          type: 'bullets',
-          clickable: true,
-        },
-        navigation: {
-          nextEl: '.swiper-button-next',
-          prevEl: '.swiper-button-prev',
-        },
+      $(document).on('turbolinks:load', function () {
+        let mySwiper = new Swiper ('.swiper', {
+          pagination: {
+            el: '.swiper-pagination',
+            type: 'bullets',
+            clickable: true,
+          },
+          navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+          },
+        });
       });
     </script>
 
