@@ -29,6 +29,13 @@ end
 
 # ユーザーID：17〜18の投稿を作成
 posts = [
+    {user_id: 11, caption: "They say the best way is just to live one day at a time.. #エコフレンドリー", image: File.open("./app/assets/images/seeds/post-image-1.jpg")},
+    {user_id: 12, caption: "I’m not getting old. I’m just becoming classic. #エコフレンドリー #プラスチックフリー", image: File.open("./app/assets/images/seeds/post-image-2.jpg")},
+    {user_id: 13, caption: "No problem is so big or so complicated that it can’t be run away from. #サステナブル", image: File.open("./app/assets/images/seeds/post-image-3.jpg")},
+    {user_id: 14, caption: "Now that you’ve hit bottom, you could start over. #マイボトル #持続可能な暮らし", image: File.open("./app/assets/images/seeds/post-image-4.jpg")},
+    {user_id: 15, caption: "I am not lucky. I am just grateful ＆ feel very blessed. #サステナブル #ヴィーガン", image: File.open("./app/assets/images/seeds/post-image-5.jpg")},
+    {user_id: 16, caption: "Life is like an ice cream cone.. You have to learn to lick it! #エコ #環境問題", image: File.open("./app/assets/images/seeds/post-image-6.jpg")},
+    {user_id: 17, caption: "If you want something done right, you should do it yourself! #エコフレンドリー", image: File.open("./app/assets/images/seeds/post-image-7.jpg")},
     {user_id: 18, caption: "They say the best way is just to live one day at a time.. #エコフレンドリー", image: File.open("./app/assets/images/seeds/post-image-8-1.jpg")},
     {user_id: 18, caption: "I’m not getting old. I’m just becoming classic. #エコフレンドリー #プラスチックフリー", image: File.open("./app/assets/images/seeds/post-image-8-2.jpg")},
     {user_id: 18, caption: "No problem is so big or so complicated that it can’t be run away from. #リサイクル #サステナブル", image: File.open("./app/assets/images/seeds/post-image-8-3.jpg")},
@@ -37,13 +44,6 @@ posts = [
     {user_id: 18, caption: "Life is like an ice cream cone.. You have to learn to lick it! #エコ #環境問題", image: File.open("./app/assets/images/seeds/post-image-8-6.jpg")},
     {user_id: 18, caption: "If you want something done right, you should do it yourself! #エコフレンドリー", image: File.open("./app/assets/images/seeds/post-image-8-7.jpg")},
     {user_id: 18, caption: "You play with the cards you’re dealt..Whatever that means #エコ #eco", image: File.open("./app/assets/images/seeds/post-image-8-8.jpg")},
-    {user_id: 11, caption: "They say the best way is just to live one day at a time.. #エコフレンドリー", image: File.open("./app/assets/images/seeds/post-image-1.jpg")},
-    {user_id: 12, caption: "I’m not getting old. I’m just becoming classic. #エコフレンドリー #プラスチックフリー", image: File.open("./app/assets/images/seeds/post-image-2.jpg")},
-    {user_id: 13, caption: "No problem is so big or so complicated that it can’t be run away from. #サステナブル", image: File.open("./app/assets/images/seeds/post-image-3.jpg")},
-    {user_id: 14, caption: "Now that you’ve hit bottom, you could start over. #マイボトル #持続可能な暮らし", image: File.open("./app/assets/images/seeds/post-image-4.jpg")},
-    {user_id: 15, caption: "I am not lucky. I am just grateful ＆ feel very blessed. #サステナブル #ヴィーガン", image: File.open("./app/assets/images/seeds/post-image-5.jpg")},
-    {user_id: 16, caption: "Life is like an ice cream cone.. You have to learn to lick it! #エコ #環境問題", image: File.open("./app/assets/images/seeds/post-image-6.jpg")},
-    {user_id: 17, caption: "If you want something done right, you should do it yourself! #エコフレンドリー", image: File.open("./app/assets/images/seeds/post-image-7.jpg")},
   ]
 
 posts.each do |post|

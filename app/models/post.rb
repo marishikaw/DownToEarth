@@ -57,11 +57,11 @@ class Post < ApplicationRecord
 
   # -------------ハッシュタグを取得---------------------------------------------
   after_create do
-   
     post = Post.find_by(id: self.id)
     hashtags = self.caption.scan(/[#][\w\p{Han}ぁ-ヶｦ-ﾟー]+/) # ハッシュタグを検出
     post.hashtags = []
     hashtags.uniq.map do |hashtag|
+# binding.pry
       tag = Hashtag.find_or_create_by(name: hashtag.downcase.delete('#')) # 先頭の'#'を削除
       post.hashtags << tag
     end

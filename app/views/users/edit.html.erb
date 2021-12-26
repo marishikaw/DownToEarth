@@ -1,3 +1,4 @@
+<%= render "layouts/errors", obj: @user %>
 <div class="container">
   <div class="row">
     <div class="border border-secondary col-sm-12 col-md-8 col-lg-5 p-5 mx-auto my-5">
@@ -7,7 +8,6 @@
 
       <div class="text-center">
       <%= form_with model:@user, local:true do |f| %>
-        <%= render "layouts/errors", obj: @user %>
        <div class="form-group pb-2">
           <%= f.attachment_field :icon, class: "form-control-file user_image" %>
         </div>
