@@ -91,7 +91,7 @@ class Post < ApplicationRecord
       image_size = post_images.length
       if image_size == 0
         errors.add(:image, "を選択してください。")
-      elsif FILE_NUMBER_LIMIT <= image_size
+      elsif FILE_NUMBER_LIMIT < image_size
         errors.add(:image, "は#{FILE_NUMBER_LIMIT}点まで投稿できます。")
       else
         return
