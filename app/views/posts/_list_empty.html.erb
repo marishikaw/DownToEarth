@@ -23,6 +23,16 @@
 							<%= render "posts/new", post: @post_new %>
 						</td>
 					</tr>
+				<% else %>
+					<!--ログインボタン-->
+					<tr>
+						<td>
+							<%= link_to  new_user_session_path, class: "btn-lg", type: "button" do  %>
+							  <i class="fas fa-sign-in-alt"></i>
+							  <span>ログインする</span>
+							<% end %>
+						</td>
+					</tr>
 				<% end %>
 
 				<!--投稿一覧ボタン-->
