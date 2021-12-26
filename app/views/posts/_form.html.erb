@@ -1,5 +1,6 @@
 <%= form_with model:post do |f| %>
   <%= render "layouts/errors", obj: post %>
+
   <div class="form-group pb-2 mx-5">
     <%= f.attachment_field :post_images_images, multiple: true, class: "form-control-file" %>
   </div>
