@@ -38,6 +38,7 @@
 - [テーブル定義書](https://docs.google.com/spreadsheets/d/16QaUpWwlcQecx_nbGYP59jHVwpfkIUg9QiGOyBTcBjM/edit?usp=sharing)
 
  <詳細設計>
+- 詳細設計書
 ![DownToEarth_詳細設計書](https://user-images.githubusercontent.com/90078966/147550409-cd8c8a0f-f5e4-42b9-9b29-c1c773511e23.png)
 
 
