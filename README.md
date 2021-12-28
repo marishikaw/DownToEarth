@@ -38,7 +38,9 @@
 - [テーブル定義書](https://docs.google.com/spreadsheets/d/16QaUpWwlcQecx_nbGYP59jHVwpfkIUg9QiGOyBTcBjM/edit?usp=sharing)
 
  <詳細設計>
-- [MVC・ルーティング](https://docs.google.com/spreadsheets/d/1bRgwOUp-psS0UV5VUJVLwBKT1wVCjq5sTKWbkBt6UCM/edit?usp=sharing)
+![DownToEarth_詳細設計書](https://user-images.githubusercontent.com/90078966/147550409-cd8c8a0f-f5e4-42b9-9b29-c1c773511e23.png)
+
+
 - [gem一覧](https://docs.google.com/spreadsheets/d/1bRgwOUp-psS0UV5VUJVLwBKT1wVCjq5sTKWbkBt6UCM/edit#gid=1031934256)
 
 ## チャレンジ要素一覧
@@ -53,6 +55,4 @@
 
 ## 使用素材
 - [o-dan（画像）](https://o-dan.net/ja/)
-- [pixabay（画像）](https://pixabay.com/ja/)
-- [Font Awesome（アイコン）](https://fontawesome.com/)
 - [DesignEvo（ロゴ）](https://www.designevo.com/)
