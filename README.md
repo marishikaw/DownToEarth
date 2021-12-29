@@ -11,7 +11,7 @@
 
 ### テーマを選んだ理由
 最近、「サステナブル」という言葉をよく耳にするようになりましたが、
-その内容はざっくりとしていて結局何をすれば良いのかわからない、でも環境のために何かアクションを起こしたい、という思いがありました。 
+その内容はざっくりとしていて結局何をすれば良いのかわからない、でも環境のために何かアクションを起こしたい、という思いがありました。
 そこで、私と同じような方でも気軽に利用でき、かつ具体的な行動を働きかけるようなサイトがあればいいなと思いこのテーマを選びました。
 また、環境問題というと少しハードルが高く感じますが、画像投稿をメインとしたSNS形式とすることで、特に若い世代にとって取り入れやすいのではないかという狙いがあります。
 
@@ -38,9 +38,7 @@
 - [テーブル定義書](https://docs.google.com/spreadsheets/d/16QaUpWwlcQecx_nbGYP59jHVwpfkIUg9QiGOyBTcBjM/edit?usp=sharing)
 
  <詳細設計>
-- 詳細設計書
-![DownToEarth_詳細設計書](https://user-images.githubusercontent.com/90078966/147550409-cd8c8a0f-f5e4-42b9-9b29-c1c773511e23.png)
-
+- [詳細設計書](https://docs.google.com/spreadsheets/d/1bRgwOUp-psS0UV5VUJVLwBKT1wVCjq5sTKWbkBt6UCM/edit?usp=sharing)
 
 - [gem一覧](https://docs.google.com/spreadsheets/d/1bRgwOUp-psS0UV5VUJVLwBKT1wVCjq5sTKWbkBt6UCM/edit#gid=1031934256)
 
