@@ -121,13 +121,13 @@ RSpec.describe 'Postモデルのテスト', type: :model do
         end
       end
     end
+  end
 
-    describe 'ハッシュタグのテスト' do
-      describe 'キャプションにハッシュタグを2つを入れて投稿する' do
-        it 'ハッシュタグが2つ作成される' do
-          expect{  create(:post, user: user, caption: "#test #test2") }
-          .to change{ Hashtag.count }.by(2)
-        end
+  describe 'ハッシュタグのテスト' do
+    describe 'キャプションにハッシュタグを2つを入れて投稿する' do
+      it 'ハッシュタグが2つ作成される' do
+        expect{  create(:post, user: user, caption: "#test #test2") }
+        .to change{ Hashtag.count }.by(2)
       end
     end
   end

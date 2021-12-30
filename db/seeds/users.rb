@@ -1,6 +1,6 @@
 puts "users ..."
 
-# ユーザーを10件追加
+# ユーザーID：1~10をループ処理で追加
 10.times do |n|
     User.create!(
       email: "#{n + 1}@example.com",
@@ -10,7 +10,7 @@ puts "users ..."
     )
 end
 
-# ユーザーを8件追加
+# ユーザーID:11~18件を追加
 users = [
     {email: "11@example.com", name: "Mike", introduction: "Hi! I'm Mike", password: "aaaaaa", icon: File.open("./app/assets/images/seeds/icon-1.jpg")},
     {email: "12@example.com", name: "Will", introduction: "Hi! I'm Will", password: "aaaaaa", icon: File.open("./app/assets/images/seeds/icon-2.jpg")},
