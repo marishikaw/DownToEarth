@@ -1,11 +1,12 @@
 // タイムラインの画像の高さの
 .card-img-top{
-	max-height: 700px;
+	max-height: 600px;
+	object-fit: cover;
 }
 
 // 投稿詳細ページのスライダー
 .swiper {
-	width: 650px;
+	width: 600px;
 	height: auto;
   background-color: #FCF1DE;
   margin-bottom: 30px;
