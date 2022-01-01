@@ -1,14 +1,14 @@
 <div class="row">
+  <!--ハッシュタグ-->
   <div id="bg-color" class="p-4 mt-4">
     <div class="mt-1">
-      <h5 class="ml-2 mb-3" style="color: #808080;">
+      <h5 class="mb-3 side-font-color">
         新着ハッシュタグ
       </h5>
-
       <table class="table table-borderless">
         <% @hashtags.each do |hashtag| %>
           <tr>
-            <td class="ml-2">
+            <td class="pl-4">
               <%= link_to "##{hashtag.name}", "/posts/hashtag/#{hashtag.name.delete("#")}" %>
             </td>
           </tr>
@@ -16,38 +16,37 @@
       </table>
     </div>
 
-    <p class="text-center" style="color: #808080;">
+    <p class="text-center small side-font-color">
       © 2022 MARINA ISHIKAWA
     </p>
   </div>
-
+  
+  <!--ニュース-->
   <div id="bg-color" class="p-3 mt-4">
     <div class="mt-1">
-      <h5 class="ml-2 mb-3" style="color: #808080;">
+      <h5 class="ml-2 mb-3 side-font-color">
         ニュース一覧
       </h5>
       <% @news.each do |news| %>
-        <div class="mb-3">
-          <%= link_to news.url do %>
+        <p class="mb-4">
+          <%= link_to news.url, class: "news-font text-decoration-none" do %>
               <%= news.title %></br>
               <%= news.name %>
               <%= I18n.l(news.publishedAt.to_date, format: :long) %>
-              <% if news.urlToImage.present? %>
-                <%= image_tag(news.urlToImage, class: "news-img") %>
-              <% else %>
-                <%= image_tag("no-image-news.jpg", class: "news-img") %>
-              <% end %>
+            <% if news.urlToImage.present? %>
+              <%= image_tag(news.urlToImage, class: "news-img") %>
+            <% else %>
+              <%= image_tag("no-image-news.jpg", class: "news-img") %>
+            <% end %>
           <% end %>
-        </div>
+        </p>
       <% end %>
 
-      <small>
+      <small class="side-font-color">
         Powered by <%= link_to "https://newsapi.org" do %>
           News API
         <% end %>
       </small>
     </div>
-
-  </div>
   </div>
 </div>
