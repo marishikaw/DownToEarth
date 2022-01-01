@@ -49,5 +49,5 @@ class UsersController < ApplicationController
 
     def set_q
       @q = Post.ransack(params[:q])
-    end  
+    end
 end

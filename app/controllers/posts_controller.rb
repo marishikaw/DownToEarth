@@ -2,6 +2,7 @@ class PostsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit, :create, :update, :destroy]
   before_action :set_post, only: [:show, :edit, :update, :destroy]
   before_action :set_post_new, except: [:new]
+  before_action :set_news_index, only: [:timeline, :index, :hashtag, :search]
   before_action :set_hashtag, only: [:timeline, :index, :hashtag, :search]
   before_action :set_q, except: [:create, :update, :destroy]
 
@@ -80,6 +81,16 @@ class PostsController < ApplicationController
 
     def set_post_new
       @post_new = Post.new
+    end
+
+    def set_news_index
+      require 'news-api'
+      news = News.new(ENV['NEWS_API_KEY'])
+      # 検索ワード"エコ"
+      eco = "%E3%82%A8%E3%82%B3"
+      @news = news.get_everything(q: (eco),
+                                  sortBy: "relevancy",
+                                  pageSize: 5)
     end
 
     def set_hashtag

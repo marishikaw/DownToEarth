@@ -1,21 +1,53 @@
-<div id="bg-color" class="p-4 mt-4">
-  <div class="mt-1">
-    <h5 class="ml-2 mb-3" style="color: #808080;">
-      新着ハッシュタグ
-    </h5>
+<div class="row">
+  <div id="bg-color" class="p-4 mt-4">
+    <div class="mt-1">
+      <h5 class="ml-2 mb-3" style="color: #808080;">
+        新着ハッシュタグ
+      </h5>
 
-    <table class="table table-borderless">
-      <% @hashtags.each do |hashtag| %>
-        <tr>
-          <td class="ml-2">
-            <%= link_to "##{hashtag.name}", "/posts/hashtag/#{hashtag.name.delete("#")}" %>
-          </td>
-        </tr>
-      <% end %>
-    </table>
+      <table class="table table-borderless">
+        <% @hashtags.each do |hashtag| %>
+          <tr>
+            <td class="ml-2">
+              <%= link_to "##{hashtag.name}", "/posts/hashtag/#{hashtag.name.delete("#")}" %>
+            </td>
+          </tr>
+        <% end %>
+      </table>
+    </div>
+
+    <p class="text-center" style="color: #808080;">
+      © 2022 MARINA ISHIKAWA
+    </p>
   </div>
 
-  <p class="text-center" style="color: #808080;">
-    © 2022 MARINA ISHIKAWA
-  </p>
+  <div id="bg-color" class="p-3 mt-4">
+    <div class="mt-1">
+      <h5 class="ml-2 mb-3" style="color: #808080;">
+        ニュース一覧
+      </h5>
+      <% @news.each do |news| %>
+        <div class="mb-3">
+          <%= link_to news.url do %>
+              <%= news.title %></br>
+              <%= news.name %>
+              <%= I18n.l(news.publishedAt.to_date, format: :long) %>
+              <% if news.urlToImage.present? %>
+                <%= image_tag(news.urlToImage, class: "news-img") %>
+              <% else %>
+                <%= image_tag("no-image-news.jpg", class: "news-img") %>
+              <% end %>
+          <% end %>
+        </div>
+      <% end %>
+
+      <small>
+        Powered by <%= link_to "https://newsapi.org" do %>
+          News API
+        <% end %>
+      </small>
+    </div>
+
+  </div>
+  </div>
 </div>
