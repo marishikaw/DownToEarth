@@ -86,11 +86,11 @@ class PostsController < ApplicationController
     def set_news_index
       require 'news-api'
       news = News.new(ENV['NEWS_API_KEY'])
-      # 検索ワード"エコ"
-      eco = "%E3%82%A8%E3%82%B3"
-      @news = news.get_everything(q: (eco),
-                                  sortBy: "relevancy",
-                                  pageSize: 5)
+      # 検索ワード"サステナブル"
+      sustainable = "%E3%82%B5%E3%82%B9%E3%83%86%E3%83%8A%E3%83%96%E3%83%AB"
+      @news = news.get_everything(q: (sustainable),
+                                  sortBy: "popularity",
+                                  pageSize: 10)
     end
 
     def set_hashtag
