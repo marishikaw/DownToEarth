@@ -30,14 +30,14 @@
       <% @news.each do |news| %>
         <p class="mb-4">
           <%= link_to news.url, class: "news-font text-decoration-none" do %>
-              <%= news.title %></br>
-              <%= news.name %>
-              <%= I18n.l(news.publishedAt.to_date, format: :long) %>
             <% if news.urlToImage.present? %>
               <%= image_tag(news.urlToImage, class: "news-img") %>
             <% else %>
               <%= image_tag("no-image-news.jpg", class: "news-img") %>
             <% end %>
+            <%= news.title %></br>
+            <%= news.name %>
+            <%= I18n.l(news.publishedAt.to_date, format: :long) %>
           <% end %>
         </p>
       <% end %>
