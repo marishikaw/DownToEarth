@@ -8,7 +8,7 @@ puts "posts ..."
   )
 
   tmp_post.post_images.build                                                            # buildでpost_imagesテーブルの画像を取得
-  tmp_post.post_images[0].image = File.open("./app/assets/images/seeds/post-image.jpg") #取得した画像を配列の一番目に入れる
+  tmp_post.post_images[0].image = File.open("./app/assets/images/seeds/post-image.jpg")
   tmp_post.save!
 end
 
@@ -43,7 +43,7 @@ posts = [
     {user_id: 18, caption: "I am not lucky. I am just grateful ＆ feel very blessed. #サステナブル", image: File.open("./app/assets/images/seeds/post-image-8-5.jpg")},
     {user_id: 18, caption: "Life is like an ice cream cone.. You have to learn to lick it! #エコ #環境問題", image: File.open("./app/assets/images/seeds/post-image-8-6.jpg")},
     {user_id: 18, caption: "If you want something done right, you should do it yourself! #エコフレンドリー", image: File.open("./app/assets/images/seeds/post-image-8-7.jpg")},
-    {user_id: 18, caption: "You play with the cards you’re dealt..Whatever that means #エコ #eco", image: File.open("./app/assets/images/seeds/post-image-8-8.jpg")},
+    {user_id: 18, caption: "No problem is so big or so complicated that it can’t be run away from. #リサイクル", image: File.open("./app/assets/images/seeds/post-image-8-8.jpg")},
   ]
 
 posts.each do |post|
