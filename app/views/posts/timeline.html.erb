@@ -1,22 +1,22 @@
 <div class="container">
-	<div class="row">
-		<div class="col-lg-9">
-			<!--タイムラインに表示する投稿がない、または、ログアウト状態の場合-->
-			<% if @posts.empty? || !user_signed_in? %>
-				<%= render "posts/list_empty", posts: @posts %>
-			<% else %>
-				<%= render "posts/list", posts: @posts %>
-			<% end %>
-		</div>
+  <div class="row">
+    <div class="col-lg-9">
+      <!--タイムラインに表示する投稿がない、または、ログアウト状態の場合-->
+      <% if @posts.empty? || !user_signed_in? %>
+        <%= render "posts/list_empty", posts: @posts %>
+      <% else %>
+        <%= render "posts/list", posts: @posts %>
+      <% end %>
+    </div>
 
-		<div class="col-lg-3">
-			<%= render "layouts/sidebar" %>
-		</div>
-	</div>
+    <div class="col-lg-3">
+      <%= render "layouts/sidebar" %>
+    </div>
+  </div>
 </div>
 
 <% if @posts.empty? || !user_signed_in? %>
-	<footer>
-	  <%= render "layouts/footer" %>
-	</footer>
+  <footer>
+    <%= render "layouts/footer" %>
+  </footer>
 <% end %>
