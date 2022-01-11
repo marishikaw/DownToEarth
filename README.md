@@ -40,7 +40,10 @@
 
 ## 設計書
  <画面設計>
-- [UI Flow](https://drive.google.com/file/d/1O36xGJozOAo8anEEk1189Ub18PXQKP-X/view?usp=sharing)
+- UI Flow
+![DownToEarth_uiflows drawio](https://user-images.githubusercontent.com/90078966/148904384-b7a3dc6f-f8ea-4e43-b961-60be0843aac1.png)
+
+
 - [ワイヤーフレーム](https://drive.google.com/file/d/13If_hv-XrwEZUnYpSEbSjDMd5OLPqqIW/view?usp=sharing)
 
  <DB設計>
