@@ -41,7 +41,7 @@
 ## 設計書
  <画面設計>
 - UI Flow
-![DownToEarth_uiflows drawio](https://user-images.githubusercontent.com/90078966/148904384-b7a3dc6f-f8ea-4e43-b961-60be0843aac1.png)
+![DownToEarth_uiflows drawio](https://user-images.githubusercontent.com/90078966/148905571-976e6c94-0867-49b6-9bb3-423cde33cb33.png)
 
 
 - [ワイヤーフレーム](https://drive.google.com/file/d/13If_hv-XrwEZUnYpSEbSjDMd5OLPqqIW/view?usp=sharing)
